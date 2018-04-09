@@ -1,0 +1,18 @@
+.navbar-custom{
+	position:absolute;
+	top:0;
+	width:100%;
+}
+
+.navbar a{
+	color:white;
+	font-weight:bold;
+	font-size:18px;
+
+	
+}
+.navbar li a:hover{
+	background-color:white;
+	color:white;
+	cursor:pointer
+}

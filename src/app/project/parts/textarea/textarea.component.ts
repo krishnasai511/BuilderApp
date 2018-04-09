@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-textare',
-  templateUrl: './textare.component.html',
-  styleUrls: ['./textare.component.css']
+  templateUrl: './textarea.component.html',
+  styleUrls: ['./textarea.component.css']
 })
 export class TextareComponent implements OnInit {
 
