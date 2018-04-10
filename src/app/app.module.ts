@@ -1,28 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders  } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './project/sections/header/header.component';
-import { FooterComponent } from './project/sections/footer/footer.component';
-import { TextareComponent } from './project/sections/textare/textare.component';
-import { ButtonsComponent } from './project/sections/buttons/buttons.component';
+import { HeaderComponent } from './project/parts/header/header.component';
+import { FooterComponent } from './project/parts/footer/footer.component';
+import { TextareaComponent } from './project/parts/textarea/textarea.component';
+import { ButtonsComponent } from './project/parts/buttons/buttons.component';
 import { HomeComponent } from './project/pages/home/home.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { ProjectComponent } from './project/project.component';
 
-
+const approutes : ModuleWithProviders = RouterModule.forRoot([
+  {
+    path:"" ,component: WelcomeComponent
+  }
+]);
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    TextareComponent,
+    TextareaComponent,
     ButtonsComponent,
     HomeComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ProjectComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,approutes
   ],
   providers: [],
   bootstrap: [AppComponent]

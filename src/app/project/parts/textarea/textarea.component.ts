@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-textare',
-  templateUrl: './textare.component.html',
-  styleUrls: ['./textare.component.css']
+  selector: 'app-textarea',
+  templateUrl: './textarea.component.html',
+  styleUrls: ['./textarea.component.css']
 })
-export class TextareComponent implements OnInit {
+export class TextareaComponent implements OnInit {
 
   constructor() { }
 
