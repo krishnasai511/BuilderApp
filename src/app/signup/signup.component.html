@@ -1,0 +1,36 @@
+<div class="container" style="background-image:url(assets/img4.jpg); height:665px; width:100%;">
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <h2>Signup Form</h2><hr>
+    <table>
+    <tr>
+         <td><label for="user">User Name</label></td>
+         <td><input type="text" name="user" id="user" placeholder="Name" class="form-control" formControlName="name"></td>
+       
+    </tr><br>
+    <tr> 
+        <td><label for="email">Email</label></td>
+        <td><input type="email" name="email" id="email" placeholder="Email"  class="form-control" formControlName="email"></td>
+    </tr><br>
+    <tr>
+        <td><label for="pass">Phone Number</label></td>
+        <td><input type="number" name="pass" id="pass" placeholder="Phone Number"  class="form-control" formControlName="phone"></td>
+     </tr><br>
+    <tr>
+        <td><label for="password">Password</label></td>
+        <td><input type="password" name="password" id="password" placeholder="Password"  class="form-control" formControlName="password"></td>
+     </tr><br>
+     <tr>
+        <td><label for="password">Confirm Password</label></td>
+        <td><input type="password" name="password" id="confirmpassword" placeholder="Confirm Password"  class="form-control" formControlName="confirm"></td>
+    </tr><br>
+     <tr>
+        <td></td>
+        <td>
+             <span *ngIf=" this.userForm.get('confirm').touched && (this.userForm.value.password!=this.userForm.value.confirm)">please enter same password </span>               
+         <input type="submit"  [disabled]="!userForm.valid" value="Click to submit" name="submit_form"  >
+        </td>
+    </tr><br>
+    </table>
+</form>
+</div>
