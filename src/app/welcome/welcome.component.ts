@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 })
 export class WelcomeComponent implements OnInit {
 
+  aclicked(){
+    console.log();
+  }
   constructor(private router: Router) { }
 
   ngOnInit() {

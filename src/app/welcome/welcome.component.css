@@ -31,14 +31,29 @@
 	margin-left: 10px;
 	padding-top: 10px;
 }
-.cutted-price {
-	
-	font-size: 20px;
-	margin-right: 10px;
-}
+/* 
 .discounted-price {
 	font-size:10px;
 	margin-right: 10px;
 	font-style: italic;
-}
+} */
 
+.t_choose{
+	
+	
+	background: rgb(41, 150, 240);
+	border-radius: 3px;
+	margin-left:5px;
+	color:whitesmoke;
+	font-size: 12px;
+	padding:0 10px 2px 15px;
+	margin-right: 14px;
+	font-weight: bold;
+}
+.t_choose:hover{
+	background:rgba(12, 240, 23, 0.815) 
+}
+a{
+	text-decoration: none;
+	cursor: pointer;
+}

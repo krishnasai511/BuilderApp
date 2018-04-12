@@ -14,6 +14,7 @@ import { ProjectComponent } from './project/project.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { TemplatesComponent } from './templates/templates.component';
 
 const routerroutes : ModuleWithProviders = RouterModule.forRoot([
   {
@@ -25,6 +26,9 @@ const routerroutes : ModuleWithProviders = RouterModule.forRoot([
   },
    {
      path:"login", component:LoginComponent
+  },
+  {
+    path:"template",component:TemplatesComponent
   }
 ]);
 @NgModule({
@@ -38,7 +42,8 @@ const routerroutes : ModuleWithProviders = RouterModule.forRoot([
     WelcomeComponent,
     ProjectComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    TemplatesComponent
   ],
   imports: [
     BrowserModule,routerroutes,
