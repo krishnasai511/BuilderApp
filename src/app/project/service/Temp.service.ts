@@ -10,13 +10,13 @@ export class Temp{
     generateTemp(template:string): Main
     {
       let newTemp=new Main("BuilderApp");
-      let newPg=new PageModel("Home page","trying to print the template");
+      let newPg=new PageModel("Home page","Trying to print the page of template");
       let newSec=new Section("New Section","We will add more sections");
       let newIt=new Items("New Item");
-     let header=new Items('header',"First header");
+     let header=new Items('heade',"rFirst header");
      let footer=new Items('footer',"First Footer");
       newSec.generateItems(newIt,header,footer);
-      newPg.generatesections(newSec)
+      newPg.generatesections(newSec);
       newTemp.generatePages(newPg);
   
     return newTemp;
