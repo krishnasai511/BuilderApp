@@ -10,7 +10,11 @@ export class SignupComponent implements OnInit {
   userForm= new FormGroup({
     name:new FormControl(null,[Validators.required,Validators.minLength(2),Validators.maxLength(20)]),
     email:new FormControl(null,[Validators.required,Validators.email]),
+<<<<<<< HEAD
     phone:new FormControl(null,[Validators.required,Validators.maxLength(15),Validators.pattern('[^0-5][0-9]{9}')]),
+=======
+    phone:new FormControl(null,[Validators.required,Validators.pattern("[^0-5][0-9]{9}")]),
+>>>>>>> 630b05554c389b9ce4549bbfbe187e1851aa85f7
     password:new FormControl(null,[Validators.required,Validators.minLength(6)]),
     confirm:new FormControl(null,[Validators.required,Validators.minLength(6)])
   });

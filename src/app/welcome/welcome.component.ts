@@ -17,9 +17,9 @@ export class WelcomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  movePro(){
+  moveToPro(){
     console.log("Trying to route");
-   this.router.navigate(['/project']);
+   this.router.navigate(['./project']);
   }
 
 }

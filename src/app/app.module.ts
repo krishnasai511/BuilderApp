@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ModuleWithProviders  } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { AppRoutingModule, routingComponents }  from './app-routing.module';
+ 
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './project/parts/header/header.component';
@@ -16,11 +17,11 @@ import { SignupComponent } from './signup/signup.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { TemplatesComponent } from './templates/templates.component';
 
-const routerroutes : ModuleWithProviders = RouterModule.forRoot([
+const routerroutes : Routes=[
   {
-    path:"" ,component: WelcomeComponent
+    path:"",
+    component: WelcomeComponent
   },
-
   {
     path:"signup" , component:SignupComponent
   },
@@ -30,7 +31,8 @@ const routerroutes : ModuleWithProviders = RouterModule.forRoot([
   {
     path:"template",component:TemplatesComponent
   }
-]);
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,10 +48,12 @@ const routerroutes : ModuleWithProviders = RouterModule.forRoot([
     TemplatesComponent
   ],
   imports: [
-    BrowserModule,routerroutes,
+    BrowserModule,
+    RouterModule.forRoot(routerroutes),
    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
-   ReactiveFormsModule 
-  ],
+   ReactiveFormsModule ,
+   AppRoutingModule
+],
   providers: [],
   bootstrap: [AppComponent]
 })
