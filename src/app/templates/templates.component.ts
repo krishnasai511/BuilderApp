@@ -14,9 +14,6 @@ export class TemplatesComponent implements OnInit, AfterViewInit {
   ngOnInit() {
 
  }
- hi(){
-   
- }
  ngAfterViewInit() {
   $(function() {
     $('header#froala-editor').froalaEditor({
@@ -26,6 +23,15 @@ export class TemplatesComponent implements OnInit, AfterViewInit {
       toolbarVisibleWithoutSelection: true
     });
   });
+  $(function() {
+    $('.froala-editor').froalaEditor({
+      toolbarInline: true,
+      charCounterCount: false,
+      toolbarButtons: ['bold', 'italic', 'strikeThrough', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'underline', 'undo', 'redo'],
+      toolbarVisibleWithoutSelection: true
+    });
+  });
+
 
   $(function() {
     $('img#edit').froalaEditor({
