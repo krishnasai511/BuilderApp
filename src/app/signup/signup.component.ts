@@ -10,7 +10,7 @@ export class SignupComponent implements OnInit {
   userForm= new FormGroup({
     name:new FormControl(null,[Validators.required,Validators.minLength(2),Validators.maxLength(20)]),
     email:new FormControl(null,[Validators.required,Validators.email]),
-    phone:new FormControl(null,[Validators.required,Validators.maxLength(15)]),
+    phone:new FormControl(null,[Validators.required,Validators.pattern("[^0-5][0-9]{9}")]),
     password:new FormControl(null,[Validators.required,Validators.minLength(6)]),
     confirm:new FormControl(null,[Validators.required,Validators.minLength(6)])
   });
@@ -20,6 +20,7 @@ export class SignupComponent implements OnInit {
     //   console.log('not matched');
     // }
     console.log(this.userForm.value);
+    this.userForm.reset();
   }
   constructor() { }
 

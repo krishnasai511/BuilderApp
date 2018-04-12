@@ -15,7 +15,7 @@ constructor(title:string,description: string ){
     this.desription=description;
 }
 
-getsections(...sections:any[]){
+generatesections(...sections:any[]){
     for (let section in sections){
        this.sections.push(sections[section]);
     }

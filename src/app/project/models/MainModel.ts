@@ -13,7 +13,7 @@ export class Main{
      this.template=template;
  }
 
- getPages(...pages: any[]){
+ generatePages(...pages: any[]){
     for(let page in pages){
        this.pages.push(pages[page]);
     }
