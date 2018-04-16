@@ -7,18 +7,17 @@ import { TemplatesComponent } from "./templates/templates.component";
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 const routerroutes : Routes =[
     {
-      path:"" ,component: WelcomeComponent, pathMatch: 'full'
+      path:"" ,component: TemplatesComponent, pathMatch: 'full'
     },
-  
     {
       path:"signup" , component:SignupComponent
     },
      {
        path:"login", component:LoginComponent
-    },
-    {
-      path:"template",component:TemplatesComponent
     }
+    // {
+    //   path:"template",component:TemplatesComponent
+    // }
   ];
 
 
