@@ -9,7 +9,30 @@ import { Router } from '@angular/router';
 })
 export class WelcomeComponent implements OnInit {
 
+  
+
+show: boolean=false;
+// forms=[1,2,3];
+
+
+aclicked(){
+    console.log();
+  }
   constructor(private router: Router) { }
+
+// ShowForm(){
+//   this.show=!this.show;
+// }
+
+// AddForm(){
+//   this.forms.push(
+//     {
+
+//     }
+//   )
+// }
+
+
 
   ngOnInit() {
   }

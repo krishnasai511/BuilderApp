@@ -11,11 +11,11 @@ export class Section{
         this.description=description;
     }
 
-    generateItems(...items:any[]){
-        for(let item in items){
-            this.items.push(items[item]);
-        }
-    }
+    // generateItems(...items:any[]){
+    //     for(let item in items){
+    //         this.items.push(items[item]);
+    //     }
+    // }
 
 }
 

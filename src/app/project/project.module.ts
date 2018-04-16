@@ -7,12 +7,12 @@ import { PartsComponent } from './parts/parts.component';
 import { PartsModule } from './parts/parts.module';
 
 
-const ProjectRoutes:Routes= [
+// const ProjectRoutes:Routes= [
 
-{
-    path:'project' , component:ProjectComponent
-}
-];
+// {
+//     path:'project' , component:ProjectComponent
+// }
+// ];
 
 
 
@@ -20,7 +20,7 @@ const ProjectRoutes:Routes= [
  imports: [
 FroalaEditorModule,
 FroalaViewModule,
-RouterModule.forRoot(ProjectRoutes),
+// RouterModule.forRoot(ProjectRoutes),
 PartsComponent,
 PartsModule ],
 

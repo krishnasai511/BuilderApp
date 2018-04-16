@@ -13,10 +13,10 @@ export class Main{
      this.template=template;
  }
 
- generatePages(...pages: any[]){
-    for(let page in pages){
-       this.pages.push(pages[page]);
-    }
+//  generatePages(...pages: any[]){
+//     for(let page in pages){
+//        this.pages.push(pages[page]);
+//     }
 
-}
+// }
 }
