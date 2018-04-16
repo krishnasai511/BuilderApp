@@ -8,21 +8,26 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { FormcomponentComponent } from "./formcomponent/formcomponent.component";
 const routerroutes : Routes =[
     {
-      path:"" ,component: WelcomeComponent, pathMatch: 'full'
+      path:"" ,component: TemplatesComponent, pathMatch: 'full'
     },
-  
     {
       path:"signup" , component:SignupComponent
     },
      {
        path:"login", component:LoginComponent
+<<<<<<< HEAD
     },
     {
       path:"template",component:TemplatesComponent
     },
     {
       path:"form",component:FormcomponentComponent
+=======
+>>>>>>> 956f1970a72f002f2cc437df5a3086bef7e85030
     }
+    // {
+    //   path:"template",component:TemplatesComponent
+    // }
   ];
 
 

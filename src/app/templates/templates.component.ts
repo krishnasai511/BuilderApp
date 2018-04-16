@@ -1,60 +1,40 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angular-froala-wysiwyg';
-declare const $: any;
-//  declare const $img: any;
-declare var jQuery: any;
+import { WelcomeComponent } from '../welcome/welcome.component';
+
 @Component({
   selector: 'app-templates',
   templateUrl: './templates.component.html',
   styleUrls: ['./templates.component.css']
 })
-export class TemplatesComponent implements OnInit, AfterViewInit {
+export class TemplatesComponent implements OnInit {
+  welcome: boolean;
+  temp1: boolean;
+  temp2: boolean;
   title = 'app';
-
+  constructor(){
+    this.welcome=true;
+   this.temp1=false;
+   this.temp2=false;
+  }
   ngOnInit() {
 
+    
  }
- ngAfterViewInit() {
-  $(function() {
-    $('header#froala-editor').froalaEditor({
-      toolbarInline: true,
-      charCounterCount: false,
-      toolbarButtons: ['bold', 'italic', 'strikeThrough', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'underline', 'undo', 'redo'],
-      toolbarVisibleWithoutSelection: true
-    });
-  });
-  $(function() {
-    $('.froala-editor').froalaEditor({
-      toolbarInline: true,
-      charCounterCount: false,
-      toolbarButtons: ['bold', 'italic', 'strikeThrough', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'underline', 'undo', 'redo'],
-      toolbarVisibleWithoutSelection: true
-    });
-  });
+//  notifyme(){
+//    console.log('template');
+//  }
 
-
-  $(function() {
-    $('img#edit').froalaEditor({
-      imageSizeButtons: ['imageBack']
-    });
-  });
-
-  $(function() {
-    $.FroalaEditor.DefineIcon('imageInfo', {NAME: 'info'});
-    $.FroalaEditor.RegisterCommand('imageInfo', {
-      title: 'Info',
-      focus: false,
-      undo: false,
-      refreshAfterCallback: false,
-      callback: function () {
-        const $img = this.image.get();
-        alert($img.attr('src'));
-      }
-    });
-    $('img#edit').froalaEditor({
-      imageEditButtons: ['imageDisplay', 'imageAlign', 'imageInfo', 'imageRemove']
-    });
-  });
-
-  }
+ tempdata1(){
+  console.log('template1');
+  this.welcome=false;
+  this.temp1=true;
+  this.temp2=false;
+ }
+ tempdata2(){
+  console.log('template2');
+  this.welcome=false;
+  this.temp1=false;
+  this.temp2=true;
+ }
 }

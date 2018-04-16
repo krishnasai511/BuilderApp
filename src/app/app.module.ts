@@ -15,7 +15,13 @@ import { ProjectComponent } from './project/project.component';
 // import { LoginComponent } from './login/login.component';
 // import { SignupComponent } from './signup/signup.component';
 import {ReactiveFormsModule} from '@angular/forms';
+<<<<<<< HEAD
 import { FormcomponentComponent } from './formcomponent/formcomponent.component';
+=======
+import { FormsComponent } from './forms/forms.component';
+import { Temp2Component } from './templates/temp2/temp2.component';
+import { Temp1Component } from './templates/temp1/temp1.component';
+>>>>>>> 956f1970a72f002f2cc437df5a3086bef7e85030
 //import { TemplatesComponent } from './templates/templates.component';
 
 // const routerroutes : Routes=[
@@ -43,7 +49,13 @@ import { FormcomponentComponent } from './formcomponent/formcomponent.component'
     // LoginComponent,
     // SignupComponent,
     routingComponents,
+<<<<<<< HEAD
     FormcomponentComponent
+=======
+    FormsComponent,
+    Temp2Component,
+    Temp1Component
+>>>>>>> 956f1970a72f002f2cc437df5a3086bef7e85030
   ],
   imports: [
     BrowserModule,
