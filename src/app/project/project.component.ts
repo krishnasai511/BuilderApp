@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { PageModel } from './models/pagemodel';
+import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angular-froala-wysiwyg';
+declare const $: any;
+//  declare const $img: any;
+declare var jQuery: any;
 
 @Component({
   selector: 'app-project',
@@ -8,13 +12,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectComponent implements OnInit {
 
-  
+  constructor( ) { }
 
-  constructor() { }
-
-  ngOnInit() {
+ 
+ ngOnInit() {
     
   }
+ 
 
-
-}
+  }

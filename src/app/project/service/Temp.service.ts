@@ -15,9 +15,9 @@ export class Temp{
       let newIt=new Items("New Item");
      let header=new Items('header',"First header");
      let footer=new Items('footer',"First Footer");
-      newSec.generateItems(newIt,header,footer);
-      newPg.generatesections(newSec)
-      newTemp.generatePages(newPg);
+      // newSec.generateItems(newIt,header,footer);
+      // newPg.generatesections(newSec)
+      // newTemp.generatePages(newPg);
   
     return newTemp;
 
