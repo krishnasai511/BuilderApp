@@ -37,4 +37,8 @@ export class TemplatesComponent implements OnInit {
   this.temp1=false;
   this.temp2=true;
  }
+
+
+  
+ 
 }

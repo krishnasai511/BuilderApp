@@ -2,13 +2,15 @@ import { PageModel } from "./pagemodel";
 
 
 export class Main{
-
+ id:string='';
  title:string="MainPage";
  description:string;
  pages:PageModel[];
  bgColor: string;
  theme:string;
  template:string="";
+ visible:boolean;
+ heading:string='';
  constructor(template ?: string){
      this.template=template;
  }

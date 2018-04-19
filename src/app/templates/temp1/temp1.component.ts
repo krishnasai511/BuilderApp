@@ -1,62 +1,103 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angular-froala-wysiwyg';
+import { Header } from '../../project/models/header';
+import { Body } from '../../project/models/body';
+import {FroalaOptions} from '../../froala.service';
 declare const $: any;
 //  declare const $img: any;
 declare var jQuery: any;
 @Component({
   selector: 'app-temp1',
   templateUrl: './temp1.component.html',
-  styleUrls: ['./temp1.component.css']
+  styleUrls: ['./temp1.component.css'],
+  providers:[FroalaOptions]
 })
 export class Temp1Component implements OnInit ,AfterViewInit{
 
-  constructor() { }
-
-  ngOnInit() {
+  bodyheaderform: boolean;
+  editbodyheader:boolean;
+  title = 'app';
+  header: Header
+  body: Body
+  visible=false;
+ constructor(){
+    this.header = Header.createsample();
+    this.body = Body.createsample();
+    this.editbodyheader = false;
+    this.bodyheaderform = false;
   }
-  
-  ngAfterViewInit() {
-    $(function() {
-      $('header#froala-editor').froalaEditor({
-        toolbarInline: true,
-        charCounterCount: false,
-        toolbarButtons: ['bold', 'italic', 'strikeThrough', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'underline', 'undo', 'redo'],
-        toolbarVisibleWithoutSelection: true
-      });
-    });
-    $(function() {
+   
+
+  public options: Object = {
+    // placeholderText: 'Edit Your Content Here!',
+    toolbarInline:true, 
+    charCounterCount: false,
+    toolbarButtons: ['bold', 'italic', 'underline', 'color', 'html', 'clearFormatting','paragraphFormat'],
+};
+
+changed(event : any ){
+console.log(JSON.stringify(event));
+}
+
+  addnavlist(){
+    this.header.navlists.push({navlist: 'new '});
+    setTimeout(()=>{
       $('.froala-editor').froalaEditor({
         toolbarInline: true,
         charCounterCount: false,
         toolbarButtons: ['bold', 'italic', 'strikeThrough', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'underline', 'undo', 'redo'],
         toolbarVisibleWithoutSelection: true
       });
-    });
-  
-  
-    $(function() {
-      $('img#edit').froalaEditor({
-        imageSizeButtons: ['imageBack']
+    }, 300)
+    console.log(this.header.navlists);
+    
+  }
+  // editmorebodyheader(){
+  //   this.editbodyheader=true;
+  // }
+  // bodyeditheaderform(){
+  //   this.bodyheaderform = true
+  // }
+ 
+    
+   
+  addbodypages(){
+    this.body.bodysections.push({image:'', title:'new page',description:'this to write about the new pages  short ways'})
+    setTimeout(()=>{
+      $('.froala-editor').froalaEditor({
+        toolbarInline: true,
+        charCounterCount: false,
+        toolbarButtons: ['bold', 'italic', 'strikeThrough', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'underline', 'undo', 'redo'],
+        toolbarVisibleWithoutSelection: true
       });
-    });
-  
-    $(function() {
-      $.FroalaEditor.DefineIcon('imageInfo', {NAME: 'info'});
-      $.FroalaEditor.RegisterCommand('imageInfo', {
-        title: 'Info',
-        focus: false,
-        undo: false,
-        refreshAfterCallback: false,
-        callback: function () {
-          const $img = this.image.get();
-          alert($img.attr('src'));
-        }
+    }, 300)
+    console.log(this.body.bodysections);
+  }
+  menuedit()
+  {
+    setTimeout(()=>{
+      $('.froala-editor').froalaEditor({
+        toolbarInline: true,
+        charCounterCount: false,
+        toolbarButtons: ['bold', 'italic', 'strikeThrough', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'underline', 'undo', 'redo'],
+        toolbarVisibleWithoutSelection: true
       });
-      $('img#edit').froalaEditor({
-        imageEditButtons: ['imageDisplay', 'imageAlign', 'imageInfo', 'imageRemove']
-      });
-    });
+    }, 500)
+    console.log('froala-editior add');
+  }
+  openedit(){
+    this.visible=true;
+    
+  }
+  // makeVisible(){
+  //   this.visible=false;
+  // }
+
+  ngOnInit() {
+  }
   
+   ngAfterViewInit() {
+        
     }
 
 }

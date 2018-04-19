@@ -2,9 +2,7 @@ import { NgModule, Component} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {FroalaEditorModule,FroalaViewModule } from 'angular-froala-wysiwyg';
 import { ProjectComponent } from './project.component';
-import { HomeComponent } from './pages/home/home.component';
-import { PartsComponent } from './parts/parts.component';
-import { PartsModule } from './parts/parts.module';
+
 
 
 const ProjectRoutes:Routes= [
@@ -20,11 +18,9 @@ const ProjectRoutes:Routes= [
  imports: [
 FroalaEditorModule,
 FroalaViewModule,
-RouterModule.forRoot(ProjectRoutes),
-PartsComponent,
-PartsModule ],
+RouterModule.forRoot(ProjectRoutes), ],
 
- declarations: [ HomeComponent,
+ declarations: [
         ProjectComponent,
     ],
        
