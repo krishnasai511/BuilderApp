@@ -15,15 +15,14 @@ import { TextComponent } from './components/text/text.component';
 
 @NgModule({
   declarations: [
-    AppComponent,,
+    AppComponent,
     ProjectComponent,
     routingComponents,
     Temp2Component,
     Temp1Component,
     MainComponent,
-   FormComponent,
-   TextComponent
-
+    FormComponent,
+    TextComponent
   ],
   imports: [
     BrowserModule,

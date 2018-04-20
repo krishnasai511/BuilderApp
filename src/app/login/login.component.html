@@ -1,25 +1,58 @@
-<div class="container" style="background-image:url(assets/img4.jpg); height:665px; width:100%;">
-   <div>
-    <form [formGroup]="userLoginForm" (ngSubmit)="onSubmit()">
-      <h2>Login Please!</h2><hr>
-      <table>
-      <tr>
-           <td><label for="user">User Name : </label></td>
-          <td><input type="text" name="user" id="user" placeholder="Name" class="form-control" formControlName="name"></td>
-      </tr><br>
-      <tr>
-          <td><label for="password">Password :</label></td>
-          <td><input type="password" name="password" id="password" placeholder="Password" class="form-control" formControlName="password"></td>
-       </tr><br>
-       <tr>
-          <td></td>
-          <td>
-                              
-           <input type="submit" value="Click to Login" name="submit_form" onclick="(alert('Working on it'))">
-          </td>
-      </tr><br>
-      </table>
-    </form>
+<header id="main-header">
+    <div class="container">
+        <div class="row">
+         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+       <img  src="assets/Apps-Builder.png" height="40%" width="40%">
+         </div>
+         <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+          <h1> Log In</h1>
+          <h3>New to  Builder App ? <span routerLink="/signup" id="spp">Sign In</span></h3>
+         </div>
+        </div>
+
+ </div>
+</header>
+<!-- section -->
+<section id="showcase">
+    <div class="row">
+    <div class="container">
+     <div class="col-xs-12 7col-sm-6 col-md-6 col-lg-6">
+         <div class="form">
+            <h4>Email</h4>
+             <input type="text" name="" placeholder="enter email">
+            
+             <h4>Password</h4>
+             <input type="password" name="" placeholder="enter password" ><br><br>
+            <a href="#"> <input  type="submit" name=""  value="Log In"><br></a>
+            
+             
+         </div>
     </div>
-    
+    <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+            <div class="vl"></div>
+    </div>
+    <div id="f1">
+    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+           <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+           <a href="https://twitter.com/" class="fa fa-twitter"></a>
+           <a href="https://www.google.com/" class="fa fa-google"></a><br>
+           <a href="https://www.linkedin.com/" class="fa fa-linkedin"></a>
+           <a href="https://www.youtube.com/" class="fa fa-youtube"></a>
+           <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+    </div>
 </div>
+    </div>
+    </div>
+ </section>
+    
+
+
+<footer id="main-footer">
+<div class="container">
+    <div class="row center-xs center-sm center-md center-lg">
+       <p>* By logging in, you agree to our <span>Terms of Use, Privacy<br>
+   Policy</span> and receive App Buider emails,newletters & updates. </p>
+
+    </div>
+</div>
+</footer>

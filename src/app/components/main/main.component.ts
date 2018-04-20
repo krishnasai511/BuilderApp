@@ -1,18 +1,20 @@
+
 import { Component, OnInit, ComponentFactoryResolver, Type, ViewChild,
   ViewContainerRef } from '@angular/core';
-import { FormComponent } from '../form/form.component';
+
 import { TextComponent } from '../text/text.component';
+import { FormComponent } from '../form/form.component';
 
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  // styleUrls: ['./main.component.css']
+   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
 
  @ViewChild('container', {read: ViewContainerRef}) container: ViewContainerRef;
-
+  visible=true;
  components = [];
 
  formcomponentclass=FormComponent
@@ -27,6 +29,7 @@ export class MainComponent implements OnInit {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentClass);
     const component = this.container.createComponent(componentFactory);
     this.components.push(component);
+    this.visible=false;
   }
 
   removeComponent(componentClass: Type<any>) {

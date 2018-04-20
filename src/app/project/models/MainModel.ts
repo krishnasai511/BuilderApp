@@ -2,8 +2,7 @@ import { PageModel } from "./pagemodel";
 
 
 export class Main{
-
-id:string='';
+ id:string='';
  title:string="MainPage";
  description:string;
  pages:PageModel[];
@@ -11,10 +10,8 @@ id:string='';
  bgImg:string;
  theme:string;
  template:string="";
-visible:boolean;
-heading:string='';
-
-
+ visible:boolean;
+ heading:string='';
  constructor(template ?: string){
      this.template=template;
  }

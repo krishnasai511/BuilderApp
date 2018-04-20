@@ -1,12 +1,49 @@
- <!-- Pass the component class as an argument to add and remove based on the component class -->
- <button (click)="addComponent(formcomponentclass)">Add Form</button>
- <button (click)="removeComponent(formcomponentclass)">Remove Form</button>
- <button (click)="addComponent(textcomponentclass)">Add Text</button>
- <button (click)="removeComponent(textcomponentclass)">Remove Text</button>
+<section class="project-block sidebar-adjust  Browser block-browser" *ngIf="visible">
+    <div class="row main-row">
+        <p>Click here to select</p>
+        <div class="large-8 columns large-centered browser-wrapper">
+            <div class="cancel">
+              <span class="icon icon-thin-close"></span>
+            </div>
+            <div class="browser">
+              <section class="modes">
+                <div class="mode new-blocks active">
+                  <div class="icon icon-plus">
+                      <div class="text">
+                        <span class="active-name">Create</span>
+                        <span class="extra">New Content</span>
+                      </div>
+                  </div>
+                </div>
+              </section>
+              <section class="new">
+                <div class="block-type block-type-text" (click)="addComponent(textcomponentclass)">
+                  <div class="icon">
+                    <img src="" alt="">
+                  </div>
+                  <span class="label">Text</span>
+                </div>
+                <div class="block-type block-type-text" (click)="addComponent(formcomponentclass)">
+                    <div class="icon">
+                      <img src="" alt="">
+                    </div>
+                    <span class="label">Form</span>
+                  </div>
+              </section>
+            </div>
+        </div>
+    </div>  
 
- <div>
-   <!-- Use ng-template to ensure that the generated components end up in the right place -->
-   <ng-template #container>
+</section>
+<!--nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn-->
+<!-- <button (click)="addComponent(formcomponentclass)">Add Form</button> -->
+<!-- <button (click)="removeComponent(formcomponentclass)">Remove Form</button> -->
+<!-- <button (click)="addComponent(textcomponentclass)">Add Text</button> -->
+<!-- <button (click)="removeComponent(textcomponentclass)">Remove Text</button> -->
 
-   </ng-template>
- </div>
+<div>
+  <!-- Use ng-template to ensure that the generated components end up in the right place -->
+  <ng-template #container>
+
+  </ng-template>
+</div>
