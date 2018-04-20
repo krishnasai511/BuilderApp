@@ -1,0 +1,12 @@
+ <!-- Pass the component class as an argument to add and remove based on the component class -->
+ <button (click)="addComponent(formcomponentclass)">Add Form</button>
+ <button (click)="removeComponent(formcomponentclass)">Remove Form</button>
+ <button (click)="addComponent(textcomponentclass)">Add Text</button>
+ <button (click)="removeComponent(textcomponentclass)">Remove Text</button>
+
+ <div>
+   <!-- Use ng-template to ensure that the generated components end up in the right place -->
+   <ng-template #container>
+
+   </ng-template>
+ </div>

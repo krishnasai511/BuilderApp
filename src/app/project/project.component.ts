@@ -1,23 +1,9 @@
-<<<<<<< HEAD
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { Main } from './models/MainModel';
-import { Temp } from './service/Temp.service';
-import { PageModel } from './models/pagemodel';
-import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angular-froala-wysiwyg';
-
-declare const $: any;
-//  declare const $img: any;
-declare var jQuery: any;
-
-
-=======
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { PageModel } from './models/pagemodel';
 import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angular-froala-wysiwyg';
 declare const $: any;
 //  declare const $img: any;
 declare var jQuery: any;
->>>>>>> 956f1970a72f002f2cc437df5a3086bef7e85030
 
 @Component({
   selector: 'app-project',
@@ -25,7 +11,6 @@ declare var jQuery: any;
   styleUrls: ['./project.component.css']
 })
 
-<<<<<<< HEAD
 export class ProjectComponent implements OnInit,AfterViewInit {
   
 @ViewChild('edit') Editor : ElementRef 
@@ -39,12 +24,6 @@ values:string;
     console.log(this.Page);
     this.values=this.Editor.nativeElement.innerHTML;
     console.log(this.values);
-=======
-  constructor( ) { }
-
- 
- ngOnInit() {
->>>>>>> 956f1970a72f002f2cc437df5a3086bef7e85030
     
    }
 

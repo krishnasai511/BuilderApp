@@ -5,7 +5,7 @@ import {  Routes, RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { TemplatesComponent } from "./templates/templates.component";
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-import { FormcomponentComponent } from "./formcomponent/formcomponent.component";
+
 const routerroutes : Routes =[
     {
       path:"" ,component: TemplatesComponent, pathMatch: 'full'
@@ -15,15 +15,6 @@ const routerroutes : Routes =[
     },
      {
        path:"login", component:LoginComponent
-<<<<<<< HEAD
-    },
-    {
-      path:"template",component:TemplatesComponent
-    },
-    {
-      path:"form",component:FormcomponentComponent
-=======
->>>>>>> 956f1970a72f002f2cc437df5a3086bef7e85030
     }
     // {
     //   path:"template",component:TemplatesComponent
@@ -40,4 +31,4 @@ const routerroutes : Routes =[
 
 
  }
- export const routingComponents=[WelcomeComponent,SignupComponent,LoginComponent,TemplatesComponent,FormcomponentComponent]
+ export const routingComponents=[WelcomeComponent,SignupComponent,LoginComponent,TemplatesComponent]

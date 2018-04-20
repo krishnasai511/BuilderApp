@@ -2,8 +2,14 @@ import { Items } from "./ItemModel";
 
 export class Section{
 
-    title: string = 'New Section';
+   _id: string = '';
+	title: string = 'Section';
     description: string = '';
+    icon:string = '';
+    showIcon:boolean = true;
+    visible:boolean=true;
+    width:number;
+    type:string;
     items:Items[]
 
     constructor(title:string,description:string){
@@ -11,11 +17,11 @@ export class Section{
         this.description=description;
     }
 
-    // generateItems(...items:any[]){
-    //     for(let item in items){
-    //         this.items.push(items[item]);
-    //     }
-    // }
+    generateItems(...items:any[]){
+        for(let item in items){
+            this.items.push(items[item]);
+        }
+    }
 
 }
 
