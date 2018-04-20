@@ -13,7 +13,7 @@ declare var jQuery: any;
   providers:[FroalaOptions]
 })
 export class Temp1Component implements OnInit ,AfterViewInit{
-
+  data:Object;
   bodyheaderform: boolean;
   editbodyheader:boolean;
   title = 'app';
@@ -33,6 +33,11 @@ export class Temp1Component implements OnInit ,AfterViewInit{
     toolbarInline:true, 
     charCounterCount: false,
     toolbarButtons: ['bold', 'italic', 'underline', 'color', 'html', 'clearFormatting','paragraphFormat'],
+    events:{
+      'froalaEditor.contentChanged':function(e){
+        console.log(e.target.innerText);
+      }
+    }
 };
 
 changed(event : any ){
@@ -63,14 +68,14 @@ console.log(JSON.stringify(event));
    
   addbodypages(){
     this.body.bodysections.push({image:'', title:'new page',description:'this to write about the new pages  short ways'})
-    setTimeout(()=>{
-      $('.froala-editor').froalaEditor({
-        toolbarInline: true,
-        charCounterCount: false,
-        toolbarButtons: ['bold', 'italic', 'strikeThrough', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'underline', 'undo', 'redo'],
-        toolbarVisibleWithoutSelection: true
-      });
-    }, 300)
+    // setTimeout(()=>{
+    //   $('.froala-editor').froalaEditor({
+    //     toolbarInline: true,
+    //     charCounterCount: false,
+    //     toolbarButtons: ['bold', 'italic', 'strikeThrough', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'underline', 'undo', 'redo'],
+    //     toolbarVisibleWithoutSelection: true
+    //   });
+    // }, 300)
     console.log(this.body.bodysections);
   }
   menuedit()
@@ -80,7 +85,7 @@ console.log(JSON.stringify(event));
         toolbarInline: true,
         charCounterCount: false,
         toolbarButtons: ['bold', 'italic', 'strikeThrough', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'underline', 'undo', 'redo'],
-        toolbarVisibleWithoutSelection: true
+        toolbarVisibleWithoutSelection: true,
       });
     }, 500)
     console.log('froala-editior add');
@@ -89,12 +94,33 @@ console.log(JSON.stringify(event));
     this.visible=true;
     
   }
-  // makeVisible(){
+  // // makeVisible(){
   //   this.visible=false;
   // }
 
   ngOnInit() {
   }
+  changes(){
+
+    setTimeout(() => {
+      this.data={
+          navheader:this.header.navheader,
+          navlist:this.header.navlists,
+          title:this.body.title,
+          description:this.body.description,
+          bodyAboutTitle:this.body.bodyAboutTitle,
+          bodyAboutContent:this.body.bodyAboutContent,
+          bodysection:this.body.bodysections,
+          bgColor:this.body.bgColor,
+          bgImg:this.body.bgImg
+        
+  };
+  
+        console.log(this.data);
+        
+      }, 200);  
+   }
+  
   
    ngAfterViewInit() {
         

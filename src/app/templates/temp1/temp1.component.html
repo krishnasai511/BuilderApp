@@ -24,11 +24,11 @@
 <nav class="navbar navbar-defalut" >
   <div class="container">
     <div class="navbar-header" >
-      <div class="navbar-brand   mb-0" [froalaEditor]='options' href="javascript:void(0)" [(froalaModel)]="header.navheader"></div>
+      <div class="navbar-brand   mb-0" [froalaEditor]='options'  [(froalaModel)]="header.navheader"></div>
     </div>
     <ul class="nav navbar-nav">
       <li class="active" *ngFor="let navlist of header.navlists; let i=index;">
-        <a href="javascript:void(0)" [froalaEditor]='options' [(froalaModel)]="header.navlists[i].navlist"></a>
+        <a  [froalaEditor]='options' [(froalaModel)]="header.navlists[i].navlist"></a>
        </li>   
     </ul>
     <a (click)="addnavlist()"  style="margin-top:50px">
@@ -36,7 +36,8 @@
       </a> 
   </div>
 </nav>
-<section class="masthead bg-primary text-white text-center">
+<button class="btn btn-primary" (click)='changes()'>Save</button>
+<section class="masthead bg-primary text-white text-center" [ngStyle]="{'background-color': ''}">
   <div class="container">
       <div class="create-menu-button" (click)="menuedit()">
           <div class="icon icon-plus "> <span class="glyphicon glyphicon-pencil"></span></div>
