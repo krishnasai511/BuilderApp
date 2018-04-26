@@ -1,44 +1,39 @@
 import { Component, OnInit} from '@angular/core';
 import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angular-froala-wysiwyg';
-import { WelcomeComponent } from '../welcome/welcome.component';
+import { SpecialEventsComponent } from '../special-events/special-events.component';
 
 @Component({
   selector: 'app-templates',
   templateUrl: './templates.component.html',
   styleUrls: ['./templates.component.css']
+ 
 })
 export class TemplatesComponent implements OnInit {
   welcome: boolean;
-  temp1: boolean;
-  temp2: boolean;
-  title = 'app';
+  template1: boolean;
+  template2: boolean;
+
   constructor(){
     this.welcome=true;
-   this.temp1=false;
-   this.temp2=false;
+   this.template1=false;
+   this.template2=false;
+  
   }
   ngOnInit() {
-
-    
- }
-//  notifyme(){
-//    console.log('template');
-//  }
+}
 
  tempdata1(){
   console.log('template1');
   this.welcome=false;
-  this.temp1=true;
-  this.temp2=false;
+  this.template1=true;
+  this.template2=false;
  }
+
  tempdata2(){
   console.log('template2');
   this.welcome=false;
-  this.temp1=false;
-  this.temp2=true;
- }
-
-
-  
+  this.template1=false;
+  this.template2=true;
+ } 
  
 }

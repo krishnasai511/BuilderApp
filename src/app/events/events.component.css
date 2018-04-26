@@ -1,0 +1,58 @@
+.container{
+	margin-top:50px;
+}
+.layout{
+	height:100%;
+	width:100%;
+	background: skyblue;
+}
+.single-item {
+	margin-top: 10px;
+	margin-bottom: 20px;
+	height: 320px;
+	border: solid 1px silver;
+	box-shadow: 0 0 5px gray;
+	
+}
+.noPadding {
+	padding: 0;
+}
+.top {
+	background: maroon;
+	height: 200px;
+	}
+	.top img {
+		height: 100%;
+		width: 100%;
+	}
+.bottom{
+	height: 100px;
+	
+}
+
+.item-title {
+	color: maroon;
+	margin-top: 0;
+	margin-left: 10px;
+	padding-top: 10px;
+}
+
+.t_choose{
+	
+	
+	background: rgb(41, 150, 240);
+	border-radius: 3px;
+	margin-left:5px;
+	color:whitesmoke;
+	font-size: 12px;
+	padding:0 10px 2px 15px;
+	margin-right: 14px;
+	font-weight: bold;
+}
+.t_choose:hover{
+	background:rgba(12, 240, 23, 0.815) 
+}
+a{
+	text-decoration: none;
+	cursor: pointer;
+}

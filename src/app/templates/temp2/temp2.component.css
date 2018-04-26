@@ -79,3 +79,13 @@
    
    }
    
+   ul{
+       list-style-type:none;
+       padding-left: 5px;
+   }
+   a{
+       padding-left: 5px;
+   }
+   .iconi{
+    magin-left:10%;
+   }

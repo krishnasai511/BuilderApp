@@ -18,7 +18,8 @@ import { ProjectComponent } from './project.component';
  imports: [
 FroalaEditorModule,
 FroalaViewModule,
-RouterModule.forRoot(ProjectRoutes), ],
+// RouterModule.forRoot(ProjectRoutes), 
+],
 
  declarations: [
         ProjectComponent,

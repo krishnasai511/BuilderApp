@@ -1,5 +1,95 @@
+/* .container{
+	margin-top:50px;
+}
+.single-item {
+	margin-top: 10px;
+	margin-bottom: 20px;
+	height: 320px;
+	border: solid 1px silver;
+	box-shadow: 0 0 5px gray;
+	
+}
+.noPadding {
+	padding: 0;
+}
+.top {
+	background: maroon;
+	height: 200px;
+	}
+	.top img {
+		height: 100%;
+		width: 100%;
+	}
+.bottom{
+	height: 100px;
+	
+}
+
+.item-title {
+	color: maroon;
+	margin-top: 0;
+	margin-left: 10px;
+	padding-top: 10px;
+} */
+/* 
+.discounted-price {
+	font-size:10px;
+	margin-right: 10px;
+	font-style: italic;
+} */
+/* 
+.t_choose{
+	
+	
+	background: rgb(41, 150, 240);
+	border-radius: 3px;
+	margin-left:5px;
+	color:whitesmoke;
+	font-size: 12px;
+	padding:0 10px 2px 15px;
+	margin-right: 14px;
+	font-weight: bold;
+}
+.t_choose:hover{
+	background:rgba(12, 240, 23, 0.815) 
+}
+a{
+	text-decoration: none;
+	cursor: pointer;
+}
+.header{
+    background-image: url('assets/bg-img.jpeg');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    width:100%;
+    height: 660px;
+}
+
+.header h1{
+    text-align: center;
+    padding-top: 200px;
+    padding-bottom: 100px;
+    color: burlywood;
+    font-size: 5em;
+
+}
+.header h4{
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 100px;
+    color: black;
+    font-size: 3em;
+} */
+
 .container{
 	margin-top:50px;
+}
+.layout{
+	height:100%;
+	width:100%;
+	background: skyblue;
 }
 .single-item {
 	margin-top: 10px;
@@ -57,22 +147,23 @@ a{
 	text-decoration: none;
 	cursor: pointer;
 }
-.header{
-    background-image: url('assets/bg-img.jpeg');
+ .header{
+    background-image: url('/assets/hjk.jpg');
     background-position: center top;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
     width:100%;
-    height: 660px;
-}
+    height: 100%;
+} 
 
 .header h1{
     text-align: center;
     padding-top: 200px;
     padding-bottom: 100px;
-    color: burlywood;
-    font-size: 5em;
+    color:whitesmoke;
+	font-size: 5em;
+	font: bold;
 
 }
 .header h4{
@@ -82,3 +173,14 @@ a{
     color: black;
     font-size: 3em;
 }
+
+
+
+
+
+
+
+/* ========================================================= */
+
+
+

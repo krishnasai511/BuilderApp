@@ -3,6 +3,7 @@ import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angul
 import { Header } from '../../project/models/header';
 import { Body } from '../../project/models/body';
 import {FroalaOptions} from '../../froala.service';
+import { SaveTemp } from '../../project/service/save.service';
 declare const $: any;
 //  declare const $img: any;
 declare var jQuery: any;
@@ -20,7 +21,7 @@ export class Temp1Component implements OnInit ,AfterViewInit{
   header: Header
   body: Body
   visible=false;
- constructor(){
+ constructor(private savetemp: SaveTemp){
     this.header = Header.createsample();
     this.body = Body.createsample();
     this.editbodyheader = false;
@@ -33,16 +34,16 @@ export class Temp1Component implements OnInit ,AfterViewInit{
     toolbarInline:true, 
     charCounterCount: false,
     toolbarButtons: ['bold', 'italic', 'underline', 'color', 'html', 'clearFormatting','paragraphFormat'],
-    events:{
-      'froalaEditor.contentChanged':function(e){
-        console.log(e.target.innerText);
-      }
-    }
+    // events:{
+    //   'froalaEditor.contentChanged':function(e){
+    //     console.log(e.target.innerText);
+    //   }
+    // }
 };
 
-changed(event : any ){
-console.log(JSON.stringify(event));
-}
+// changed(event : any ){
+// console.log(JSON.stringify(event));
+// }
 
   addnavlist(){
     this.header.navlists.push({navlist: 'new '});
@@ -112,13 +113,14 @@ console.log(JSON.stringify(event));
           bodyAboutContent:this.body.bodyAboutContent,
           bodysection:this.body.bodysections,
           bgColor:this.body.bgColor,
-          bgImg:this.body.bgImg
+          bgImg:this.body.bgImg,
+          footerTitle:this.body.footerTitle
         
   };
-  
-        console.log(this.data);
-        
-      }, 200);  
+
+  this.savetemp.getdata(this.data)
+      
+      }, 1000);  
    }
   
   
