@@ -3,6 +3,8 @@ import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angul
 import { Header } from '../../project/models/header';
 import { Body } from '../../project/models/body';
 import {FroalaOptions} from '../../froala.service';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { SaveTemp } from '../../project/service/save.service';
 declare const $: any;
 //  declare const $img: any;
 declare var jQuery: any;
@@ -20,7 +22,7 @@ export class Temp1Component implements OnInit ,AfterViewInit{
   header: Header
   body: Body
   visible=false;
- constructor(){
+ constructor(private savetemp: SaveTemp){
     this.header = Header.createsample();
     this.body = Body.createsample();
     this.editbodyheader = false;
@@ -116,7 +118,7 @@ console.log(JSON.stringify(event));
         
   };
   
-        console.log(this.data);
+        this.savetemp.getdata(this.data);
         
       }, 200);  
    }

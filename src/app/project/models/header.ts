@@ -4,9 +4,19 @@ export interface Navlist{
  export class Header{
  navheader: string;
  navlists: Navlist[];
+ options:any=[
+    {
+        label:'option',
+        image:'',
+        attr: {
+            class: '',
+            style: '',
+          }
+    }
+ ]
  constructor(navheader: string,navlist: Navlist[]){
      this.navheader = navheader;
-     this.navlists = navlist;``
+     this.navlists = navlist;
  }
  
   public static createsample(): Header{
