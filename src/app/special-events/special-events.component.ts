@@ -33,8 +33,7 @@ export class SpecialEventsComponent implements OnInit {
    }  
 
    aclicked2(){
-
-   console.log(this.temp2.emit(this.temp));
+    this.temp2.emit(true);
        }  
 //         aclicked3(){
 // this.temp3.emit(this.temp);
