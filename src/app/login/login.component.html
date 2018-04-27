@@ -1,4 +1,4 @@
-<header id="main-header">
+<!-- <header id="main-header">
     <div class="container">
         <div class="row">
          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -11,9 +11,9 @@
         </div>
 
  </div>
-</header>
+</header> -->
 <!-- section -->
-<section id="showcase">
+<!-- <section id="showcase">
     <div class="row">
     <div class="container">
      <div class="col-xs-12 7col-sm-6 col-md-6 col-lg-6">
@@ -55,4 +55,19 @@
 
     </div>
 </div>
-</footer>
+</footer> -->
+
+<div class="bg-img">
+    <form action="/action_page.php">
+      <div class="container">
+        <h1>Login</h1>
+  
+        <label for="email"><b>Email</b></label>
+        <input type="text" class="form-control rounded-0" [(ngModel)]="loginUserData.email" name="email" required>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" class="form-control rounded-0" [(ngModel)]="loginUserData.password" name="password" required>
+  
+        <button type="button" (click)="loginUser()" class="btn btn-success float-right">Login</button>
+      </div>
+    </form>
+  </div>

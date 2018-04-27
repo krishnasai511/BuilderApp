@@ -5,12 +5,12 @@ import { ProjectComponent } from './project.component';
 
 
 
-const ProjectRoutes:Routes= [
+// const ProjectRoutes:Routes= [
 
-{
-    path:'project' , component:ProjectComponent
-}
-];
+// {
+//     path:'project' , component:ProjectComponent
+// }
+// ];
 
 
 
@@ -18,11 +18,13 @@ const ProjectRoutes:Routes= [
  imports: [
 FroalaEditorModule,
 FroalaViewModule,
-RouterModule.forRoot(ProjectRoutes), ],
+// RouterModule.forRoot(ProjectRoutes), 
+],
 
  declarations: [
         ProjectComponent,
     ],
+   
        
     providers: []
 })

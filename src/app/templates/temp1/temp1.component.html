@@ -37,12 +37,10 @@
 </nav>
 
 <button class="btn btn-primary" (click)='changes()'>Save</button>
-<section class="masthead  text-white text-center" [ngStyle]="{'background-color':body.bgColor}" >
-  <div class="container">
-      <div class="create-menu-button" (click)="menuedit()">
-          <div class="icon icon-plus btn" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-pencil"></span></div>
-           
-          
+<section class="masthead bg-primary text-white text-center" >
+  <div class="container" [ngStyle]="{'background-color': body.bgColor}">
+      <div class="create-menu-button" >
+          <div class="icon icon-plus "> <span class="glyphicon glyphicon-pencil" ></span></div>
         </div>
         <div id="myModal" class="modal fade" role="dialog">
           <div class="modal-dialog">
@@ -66,9 +64,9 @@
           </div>
           </div>
     <div class="col-md-6 ">
-        <h1 class="text mb-0 " [froalaEditor]='options' [(froalaModel)]="body.title" (froalaModelChange)="changed($event)" ></h1>
+        <h1 class="text mb-0 " [froalaEditor]='options' [(froalaModel)]="body.title" ></h1>
         <hr class="star-light">
-        <h2 class="font-weight-light mb-0"  [froalaEditor]='options' [froalaModel]="body.description"></h2>
+        <h2 class="font-weight-light mb-0"  [froalaEditor]='options' [(froalaModel)]="body.description"></h2>
     </div>
     <!-- <div class="col-md-6">
         <a (click)="editmorebodyheader()" style="color:black">
@@ -125,11 +123,11 @@
 <!-- About Section -->
 <section class="bg-primary text-white mb-0" id="about" >
   <div class="container">
-    <h2 class="text-center text-uppercase text-white"[froalaEditor]='options'>About</h2>
+    <h2 class="text-center text-uppercase text-white"[froalaEditor]='options' [(froalaModel)]="body.bodyAboutTitle" ></h2>
     <hr class="star-light mb-5">
     <div class="row">
       <div class="col-lg-4 ml-auto">
-        <p class="lead" [froalaEditor]='options'>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+        <p class="lead" [froalaEditor]='options' [(froalaModel)]="body.bodyAboutContent"></p>
       </div>
       <div class="col-lg-4 mr-auto">
         <p class="lead" [froalaEditor]='options'>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
@@ -147,7 +145,7 @@
 <!-- Contact Section -->
 <section id="contact" >
   <div class="container">
-    <h2 class="text-center text-uppercase text-secondary mb-0" [froalaEditor]='options'>Contact Me</h2>
+    <h2 class="text-center text-uppercase text-secondary mb-0" [froalaEditor]='options' [(froalaModel)]="body.footerTitle" >Contact Me</h2>
     <hr class="star-dark mb-5">
     <div class="row">
       <div class="col-lg-8 mx-auto">

@@ -34,7 +34,7 @@ templatetype:string;
 }
 
  public static createsample(): Body{
-     return new Body('First Template','Page Title','Page Description short way',"","",[{image:'', title:'page 1',description:'Write Something'}],
+     return new Body('First Template','Page Title','Page Description short way',"red","",[{image:'', title:'page 1',description:'Write Something'}],
     "About us","Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization."
 ,"Contact Me","")
  }

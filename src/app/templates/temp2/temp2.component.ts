@@ -3,6 +3,7 @@ import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angul
 import { Header } from '../../project/models/header';
 import {FroalaOptions} from '../../froala.service';
 import { Body } from '../../project/models/body';
+import { SaveTemp } from '../../project/service/save.service';
 declare const $: any;
 //  declare const $img: any;
 declare var jQuery: any;
@@ -17,14 +18,9 @@ export class Temp2Component implements OnInit {
   data:Object;
   header:Header;
   body:Body;
-  constructor(){
+  constructor(private savetemp:SaveTemp ){
     this.header = Header.createsample();
     this.body = Body.createsample();
-  }
-  addbodypages(){
-    this.body.bodysections.push({image:'', title:'new page',description:'this to write about the new pages  short ways'})
-    
-    console.log(this.body.bodysections);
   }
   ngOnInit() {
 
@@ -56,6 +52,12 @@ export class Temp2Component implements OnInit {
       
     }
 
+    addbodypages(){
+      this.body.bodysections.push({image:'', title:'new page',description:'this to write about the new pages  short ways'})
+      
+      console.log(this.body.bodysections);
+    }
+
     changes(){
      setTimeout(() => {
         this.data={
@@ -67,14 +69,11 @@ export class Temp2Component implements OnInit {
             bodyAboutContent:this.body.bodyAboutContent,
             bodysection:this.body.bodysections,
             bgColor:this.body.bgColor,
-            bgImg:this.body.bgImg
+            bgImg:this.body.bgImg,
+            footerTitle:this.body.footerTitle
           };
-         console.log(this.data);
-      }, 200);  
-  }
-
-  color(){
-    console.log(this.body.bgColor);
+         this.savetemp.getdata(this.data);
+      }, 1000);  
   }
 
 }

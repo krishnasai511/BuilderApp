@@ -1,143 +1,34 @@
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-    line-height: 1.5em;
-    margin: 0;
-    padding: 0;
-    background-color: brown;
-    }
-    
-#main-header container{
-        margin: auto;
-    }
-#main-header  h1{
-    margin: 0;
-    padding-top:  100px;
-    padding-right: 150px;
-    text-align: center;
-    font-size: 40px;
-    font-family: 'Times New Roman', Times, serif;
+.ng-valid[required], .ng-valid.required {
+    border-left:5px solid green;
 }
 
-#main-header  h3{
-    font-family: 'Times New Roman', Times, serif; 
+.ng-invalid:not(form) {
+    border-left: 5px solid red;
 }
 
-span{
-    color: cornflowerblue;
-}
 
 .form{
-    padding-top: 20px;
-padding-left:80px;
-}
-
-.form p{
-    margin: 0;
-    padding:0;
-    font-weight: bold;
-}
-
-.form input{
-    width: 80%;
-    margin-bottom: 20px;
-}
-
-
-
-.form input[type="text"],input[type="password"]{
-    border:none;
-    border-bottom: 1px solid grey;
-    background:transparent;
-    outline: none;
-    height: 40px;
-
-    font-size: 16px;
-}.form input[type="submit"]
-{
-    border: none;
-    outline:none;
-    height:40px;
-    width: 50%;
-    background: #1c8adb;
-    color: #fff;
-    font-size: 18px;
-    border-radius: 20px;
-}
-.form input[type="submit"]:hover
-{
-    background: #0077B5;
-    color: #fff;
-}
-.form input login{
-    background-color: #fff;
-    color: #1c8adb;
-}
-.form input login:hover{
-    background-color: #fff;
-    color: 1c8adb
-}
- .vl{
-    border-left: 2px solid rgb(163, 158, 158);
-    height: 300px;
-    /* position: absolute; */
-    left: 50%;
-    /* margin-left: -3px; */
-    padding-right: 40px;
-    padding-top: 20px;
-  margin-top: 20px;
-}
-
-.fa{
-    padding:30px;
-    font-size:30px;
-    width:50px;
-    text-align:center;
-    text-decoration:none;
-    margin: 5px 2px;
-    height: 20px;
-}
-.fa:hover{
-    opacity: 0.7;
-    }
-  
-    .fa-facebook{
-        
-        background: #3b5998;
-        color: white;
-        size: 10;
+    /* background-image: url('assets/bg-img.jpg'); */
+     background-repeat: no-repeat; 
     
-    }
-    .fa-twitter{
-        background: #00aced;
-        color: white;
-    }
-    .fa-google{
-        background: #d34836;
-        color: white;
-    }
-    .fa-linkedin{
-        background: #0077B5;
-        color: white;
-    }
-    .fa-youtube{
-        background: #ff0000;
-        color: white;
-    }
-    .fa-instagram{
-        background: #e95950;
-        color: white;
-    }
+    border: 2px solid ; 
+    padding: 25px; 
+    
+    /* background-repeat: no-repeat; */
+    /* background-size: 300px 100px; */
+}
 
-    #main-footer{
-        padding-top: 50px;
-        
-        margin: auto;
-    }
-    #main-footer p{
-        color: darkslategray;
-            padding-left: 450px;
-    }
-    #spp{
-        cursor: pointer;
-    }
+ /* .body{
+    background-image: url('assets/sad.jpg');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    width:100%;
+    height: 660px;
+}  */
+
+
+
+    
+

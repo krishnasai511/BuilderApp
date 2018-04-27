@@ -1,62 +1,93 @@
-<header id="main-header">
-    <div class="container">
-        <div class="row">
-         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-       <img  src="assets/Apps-Builder.png" height="40%" width="40%">
-         </div>
-         <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-          <h1> Sign In</h1>
-          <h3>New to  Builder App ? <span routerLink="/login" id="spp">Log In</span></h3>
-         </div>
-        </div>
-
- </div>
-</header>
-<!-- section -->
-<section id="showcase">
-    <div class="row">
-    <div class="container">
-     <div class="col-xs-12 7 col-sm-6 col-md-6 col-lg-6">
-         <div class="form">
-
-            <h4>Email</h4>
-             <input type="text" name="" placeholder="enter email">
-            <h4>Type Your email again</h4>
-            <input type="text" name="" placeholder="enter email">
-             <h4>Password</h4>
-             <input type="password" name="" placeholder="enter password" ><br><br>
-             <h4>Type your password again</h4>
-             <input type="password" name="" placeholder="enter password" ><br><br>
-            <a href="#"> <input  type="submit" name=""  value="Sign Up"><br></a>
-            
-             
-         </div>
-    </div>
-    <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-            <div class="vl"></div>
-    </div>
-    <div id="f1">
-    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-           <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
-           <a href="https://twitter.com/" class="fa fa-twitter"></a>
-           <a href="https://www.google.com/" class="fa fa-google"></a><br>
-           <a href="https://www.linkedin.com/" class="fa fa-linkedin"></a>
-           <a href="https://www.youtube.com/" class="fa fa-youtube"></a>
-           <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
-    </div>
-</div>
-    </div>
-    </div>
- </section>
+<div class="layout" style="background:url('/assets/sad.jpg');  background-size:100% auto" >
+    <div class="py-5">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <span class="anchor" id="formLogin"></span>
     
-
-
-<footer id="main-footer">
-<div class="container">
-    <div class="row center-xs center-sm center-md center-lg">
-       <p>* By signing in, you agree to our <span>Terms of Use, Privacy<br>
-   Policy</span> and receive App Buider emails,newletters & updates. </p>
-
+          <!-- form card login -->
+          <div class="card rounded-0">
+            <div class="card-header">
+              <h3 class="mb-0">Register</h3>
+            </div>
+            <div class="card-body">
+              <form class="form" #registerform = "ngForm">
+                <div class="form-group">
+                  <label for="username"><strong>Username</strong></label>
+                  <input type="text" [(ngModel)]="registerUserData.username" id = "username" name="username" class="form-control" required  minlength = 4 maxlength = 13 #username = "ngModel" >
+                <div *ngIf = "username?.errors && (username?.dirty || username?.touched)" class = "alert alert-danger">
+                    
+                  <div [hidden]= "!username?.errors.required">
+                      Username is required
+                  </div>
+                  <div [hidden]= "!username?.errors.minlength">
+                        username must be atleast 4 characters long.
+                  </div>
+                  <div [hidden]= "!username?.errors.maxlength">
+                        username cannot be morethan 13 characters long.
+                  </div>
+                </div>
+                </div>
+                <div class="form-group">
+                  <label><strong>Email</strong></label>
+                  <input type="text" [(ngModel)]="registerUserData.email" id ="email" name="email" class="form-control"  required minlength = 5 maxlength = 32 pattern="[a-zA-Z0-9]+(@)[a-zA-Z]+(.)[a-zA-Z]+" #email = "ngModel">
+                  <div *ngIf = "email?.errors && (email?.dirty || email?.touched)" class = "alert alert-danger">
+                    <div [hidden]= "!email?.errors.valid">
+                      enter valid email
+                  </div>
+                    <div [hidden]= "!email?.errors.required">
+                        must be required
+                    </div>
+                    <div [hidden]= "!email?.errors.minlength">
+                          email must be atleast 5 characters long.
+                    </div>
+                    <div [hidden]= "!email?.errors.maxlength">
+                          email cannot be morethan 32 characters long.
+                    </div>
+                  </div>
+              </div>
+                <div class="form-group">
+                  <label><strong>PhoneNumber</strong></label>
+                  <input type="number" id ="phonenumber" [(ngModel)]="registerUserData.phonenumber" name="phonenumber" class="form-control"  required minlength = 5 maxlength = 10 pattern = "[^0-5][0-9]{9}" #phonenumber = "ngModel">
+                  <div *ngIf = "phonenumber?.errors && (phonenumber?.dirty || phonenumber?.touched)" class = "alert alert-danger">
+                    <div [hidden]= "!phonenumber?.errors.required">
+                       must be required
+                    </div>
+                    <div [hidden]= "!phonenumber?.errors.valid">
+                      enter valid phonenumber
+                   </div>
+                    <div [hidden]= "!phonenumber?.errors.minlength">
+                          phonenumber must be atleast 5 characters long.
+                    </div>
+                    <div [hidden]= "!phonenumber?.errors.maxlength">
+                          phonenumber cannot be morethan 10 characters long.
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label><strong>Password</strong></label>
+                  <input type="password" id ="password" [(ngModel)]="registerUserData.password" name="password" class="form-control"  required minlength = 4  maxlength = 8 #password = "ngModel">
+                  <div *ngIf = "password?.errors && (password?.dirty || password?.touched)" class = "alert alert-danger">
+                    <div [hidden]= "!password?.errors.required">
+                        password is required
+                    </div>
+                    <div [hidden]= "!password?.errors.minlength">
+                          password must be atleast 4 characters long.
+                    </div>
+                    <div [hidden]= "!password?.errors.maxlength">
+                          password cannot be morethan 8 characters long.
+                    </div>
+                  </div>
+                </div>
+                <button type="button"  [disabled]= "!registerform.valid" (click)="registerUser()" onclick="alert('registerd successfully')" class="btn btn-primary float-right">Register</button>
+              </form>
+            </div>
+            <!--/card-block-->
+          </div>
+          <!-- /form card login -->
+    
+        </div>
+    
+    
+      </div>
     </div>
-</div>
-</footer>
+    </div>
