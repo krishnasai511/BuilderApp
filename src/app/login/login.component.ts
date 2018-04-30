@@ -17,12 +17,21 @@ export class LoginComponent implements OnInit {
               private _router: Router) { }
 
   ngOnInit() {
+    var log=localStorage.getItem("token");
+   
+    if(log=="false")
+    {}
+    else{
+      this._router.navigate(['/special']);
+    }
   }
 
   loginUser () {
     this._auth.loginUser(this.loginUserData)
     .subscribe(
       res => {
+        console.log("user_id",res)
+        localStorage.setItem('userid', res.user._id)
         localStorage.setItem('token', res.token)
         this._router.navigate(['/special'])
       },

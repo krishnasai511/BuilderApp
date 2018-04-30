@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angular-froala-wysiwyg';
-import { Header } from '../../project/models/header';
+//import { Header } from '../../project/models/header';
 import {FroalaOptions} from '../../froala.service';
 import { Body } from '../../project/models/body';
 import { SaveTemp } from '../../project/service/save.service';
@@ -16,10 +16,10 @@ declare var jQuery: any;
 })
 export class Temp2Component implements OnInit {
   data:Object;
-  header:Header;
+  //header:Header;
   body:Body;
   constructor(private savetemp:SaveTemp ){
-    this.header = Header.createsample();
+   // this.header = Header.createsample();
     this.body = Body.createsample();
   }
   ngOnInit() {
@@ -39,7 +39,7 @@ export class Temp2Component implements OnInit {
     };
 
     addnavlist(){
-      this.header.navlists.push({navlist: 'new '});
+      this.body.hnavlists.push({navlist: 'new '});
       setTimeout(()=>{
         $('.froala-editor').froalaEditor({
           toolbarInline: true,
@@ -48,7 +48,7 @@ export class Temp2Component implements OnInit {
           toolbarVisibleWithoutSelection: true
         });
       }, 300)
-      console.log(this.header.navlists);
+      console.log(this.body.hnavlists);
       
     }
 
@@ -61,8 +61,8 @@ export class Temp2Component implements OnInit {
     changes(){
      setTimeout(() => {
         this.data={
-            navheader:this.header.navheader,
-            navlist:this.header.navlists,
+            navheader:this.body.hbrandName,
+            navlist:this.body.hnavlists,
             title:this.body.title,
             description:this.body.description,
             bodyAboutTitle:this.body.bodyAboutTitle,
@@ -72,7 +72,7 @@ export class Temp2Component implements OnInit {
             bgImg:this.body.bgImg,
             footerTitle:this.body.footerTitle
           };
-         this.savetemp.getdata(this.data);
+         this.savetemp.adddata(this.data);
       }, 1000);  
   }
 

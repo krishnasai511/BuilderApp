@@ -15,6 +15,13 @@ export class SignupComponent implements OnInit {
               private _router: Router) { }
 
   ngOnInit() {
+    var log=localStorage.getItem("token");
+    if(log=="true")
+    {
+      this._router.navigate(['/special'])
+    }
+    else{
+    }
   }
 
   registerUser() {

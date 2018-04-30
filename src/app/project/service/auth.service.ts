@@ -20,8 +20,9 @@ export class AuthService {
   }
 
   logoutUser() {
-    localStorage.removeItem('token')
-    this._router.navigate(['/events'])
+    localStorage.removeItem('token');
+    localStorage.removeItem('userid');
+    this._router.navigate(['/welcome']);
   }
 
   getToken() {

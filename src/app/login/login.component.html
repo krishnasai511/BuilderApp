@@ -1,83 +1,63 @@
-<!-- <header id="main-header">
-    <div class="container">
-        <div class="row">
-         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-       <img  src="assets/Apps-Builder.png" height="40%" width="40%">
-         </div>
-         <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-          <h1> Log In</h1>
-          <h3>New to  Builder App ? <span routerLink="/signup" id="spp">Sign In</span></h3>
-         </div>
-        </div>
-
- </div>
-</header> -->
-<!-- section -->
-<!-- <section id="showcase">
+<div class="layout" style="background:url('/assets/sad.jpg');  background-size:100% auto; min-height: 600px; background-position: center;
+background-repeat: no-repeat;" >
+  <div class="py-5">
     <div class="row">
-    <div class="container">
-     <div class="col-xs-12 7col-sm-6 col-md-6 col-lg-6">
-         <div class="form">
-            <h4>Email</h4>
-             <input type="text" name="" placeholder="enter email">
-            
-             <h4>Password</h4>
-             <input type="password" name="" placeholder="enter password" ><br><br>
-            <a href="#"> <input  type="submit" name=""  value="Log In"><br></a>
-            
-             
-         </div>
-    </div>
-    <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-            <div class="vl"></div>
-    </div>
-    <div id="f1">
-    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-           <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
-           <a href="https://twitter.com/" class="fa fa-twitter"></a>
-           <a href="https://www.google.com/" class="fa fa-google"></a><br>
-           <a href="https://www.linkedin.com/" class="fa fa-linkedin"></a>
-           <a href="https://www.youtube.com/" class="fa fa-youtube"></a>
-           <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
-    </div>
-</div>
-    </div>
-    </div>
- </section>
-    
-
-
-<footer id="main-footer">
-<div class="container">
-    <div class="row center-xs center-sm center-md center-lg">
-       <p>* By logging in, you agree to our <span>Terms of Use, Privacy<br>
-   Policy</span> and receive App Buider emails,newletters & updates. </p>
-
-    </div>
-</div>
-</footer> -->
-
-<div class="bg-img">
-    <form action="/action_page.php">
-      <div class="container">
-        <h1>Login</h1>
+      <div class="col-md-6 mx-auto">
+        <span class="anchor" id="formLogin"></span>
   
-        <label for="email"><b>Email</b></label>
-        <input type="text" class="form-control rounded-0" [(ngModel)]="loginUserData.email" name="email" required>
-        <label for="psw"><b>Password</b></label>
-        <input type="password" class="form-control rounded-0" [(ngModel)]="loginUserData.password" name="password" required>
+        <!-- form card login -->
+        <div class="card rounded-0">
+          <div class="card-header">
+            <h3 class="mb-0">LogIn</h3>
+          </div>
+          <div class="card-body">
+            <form class="form" #loginform = "ngForm">
+              <div class="form-group">
+                <label><strong>Email</strong></label>
+                <input type="text" [(ngModel)]="loginUserData.email" id ="email" name="email" class="form-control"  required minlength = 5 maxlength = 32  pattern="[a-zA-Z0-9]+(@)[a-zA-z]+(.)(com|co.in|in|org)" #email = "ngModel">
+                <div *ngIf = "email?.errors && (email?.dirty || email?.touched)" class = "alert alert-danger">
+                  <div [hidden]= "!email?.errors.valid">
+                    enter valid email
+                </div>
+                  <div [hidden]= "!email?.errors.required">
+                      must be required
+                  </div>
+                  <div [hidden]= "!email?.errors.minlength">
+                        email must be atleast 5 characters long.
+                  </div>
+                  <div [hidden]= "!email?.errors.maxlength">
+                        email cannot be morethan 32 characters long.
+                  </div>
+                </div>
+            </div>
+              <div class="form-group">
+                <label><strong>Password</strong></label>
+                <input type="password" id ="password"[(ngModel)]="loginUserData.password" name="password" class="form-control"  required minlength = 4  maxlength = 8 #password = "ngModel">
+                <div *ngIf = "password?.errors && (password?.dirty || password?.touched)" class = "alert alert-danger">
+                  <div [hidden]= "!password?.errors.required">
+                      password is required
+                  </div>
+                  <div [hidden]= "!password?.errors.minlength">
+                        password must be atleast 4 characters long.
+                  </div>
+                  <div [hidden]= "!password?.errors.maxlength">
+                        password cannot be morethan 8 characters long.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <a routerLink="/forget-password"><span>Forget Password?</span></a>
+              </div> 
+              <button type="button"  [disabled]= "!loginform.valid" (click)="loginUser()"  class="btn btn-success float-right">LogIn</button>
+            </form>
+          </div>
+          <!--/card-block-->
+        </div>
+        <!-- /form card login -->
   
-        <button type="button" (click)="loginUser()" class="btn btn-success float-right">Login</button>
-     
-                <h4>Not registered yet?<a routerLink='/signup'>  Signup</a></h4>
-                
-         
-    
+      </div>
+  
+  
     </div>
-     
-    </form>
-    
-    
-
   </div>
- 
+  </div>
