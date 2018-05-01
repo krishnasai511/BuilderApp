@@ -105,13 +105,14 @@ export class Temp1Component implements OnInit ,AfterViewInit{
 
     setTimeout(() => {
       this.data={
+          templatetype:"First",
           navheader:this.header.navheader,
-          navlist:this.header.navlists,
+          navlists:this.header.navlists,
           title:this.body.title,
           description:this.body.description,
           bodyAboutTitle:this.body.bodyAboutTitle,
           bodyAboutContent:this.body.bodyAboutContent,
-          bodysection:this.body.bodysections,
+          bodysections:this.body.bodysections,
           bgColor:this.body.bgColor,
           bgImg:this.body.bgImg,
           footerTitle:this.body.footerTitle

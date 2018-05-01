@@ -23,6 +23,7 @@ import { SpecialEventsComponent } from './special-events/special-events.componen
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { TemplatesComponent } from './templates/templates.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ LoginComponent,
     FormComponent,
     TextComponent,
     EventsComponent,
-    SpecialEventsComponent
+    SpecialEventsComponent,
+    TemplatesComponent
   ],
   imports: [
     BrowserModule,

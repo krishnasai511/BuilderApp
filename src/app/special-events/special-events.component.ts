@@ -33,8 +33,7 @@ export class SpecialEventsComponent implements OnInit {
    }  
 
    aclicked2(){
-
-   console.log(this.temp2.emit(this.temp));
+    this.temp2.emit(true);
        }  
 //         aclicked3(){
 // this.temp3.emit(this.temp);
@@ -50,14 +49,27 @@ export class SpecialEventsComponent implements OnInit {
 //                }  
         
   ngOnInit() {
-    this._eventService.getSpecialEvents()
-      .subscribe(
-        res => this.specialEvents = res,
-        err => {
-          if( err instanceof HttpErrorResponse ) {
-            if (err.status === 401) {
-              this._router.navigate(['/login'])
-            }}})}
+    // this._eventService.getSpecialEvents()
+    //   .subscribe(
+    //     res => this.specialEvents = res,
+    //     err => {
+    //       if( err instanceof HttpErrorResponse ) {
+    //         if (err.status === 401) {
+    //           this._router.navigate(['/login'])
+    //         }}})}
+    var log=localStorage.getItem("token");
+
+  
+    if(!log)
+    {
+      
+    }
+    else{
+     this._router.navigate(['/special'])
+    }
+  }
+
+
   }
 
 
