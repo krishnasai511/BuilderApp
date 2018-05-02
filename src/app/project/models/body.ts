@@ -3,7 +3,7 @@
 export interface BodySections {
     image: string;
     title: string;
-    description: string
+    description: string;
 
 }
 
@@ -43,7 +43,7 @@ export class Body {
         footerData?: string,
         hbrandname?: string, hnavlist?: Navlist[], hpgTitle?: string, hpgDescription?: string,
         hnavigation?: Navigation[], hbgColor?: string, hbgImg?: string) {
-        this.templatetype = templatetype
+        this.templatetype = templatetype;
         this.title = title;
         this.description = description;
         this.bodysections = bodysection;
@@ -52,7 +52,7 @@ export class Body {
         this.bodyAboutTitle = bodyAboutTitle;
         this.bodyAboutContent = bodyAboutContent;
         this.footerData = footerData;
-        this.footerTitle = footerTitle
+        this.footerTitle = footerTitle;
 
         this.hbrandname = hbrandname;
         this.hnavlists = hnavlist;
@@ -64,10 +64,12 @@ export class Body {
     }
 
     public static createsample(): Body {
-        return new Body('', 'Page Title', 'Page Description short way', "red", "", [{ image: '', title: 'page 1', description: 'Write Something' }],
-            "About us", "Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization."
-            , "Contact Me", "",'Page Header',[{navlist:'About'},{navlist:'Contact Us'}],"Welcone to our page",
-            "This is the page for template Editing",[{bgColor:'red', Logo:''}])
+        // tslint:disable-next-line:max-line-length
+        return new Body('', 'Page Title', 'Page Description short way', 'red', ' ', [{ image: '', title: 'page 1', description: 'Write Something' }],
+            // tslint:disable-next-line:max-line-length
+            'About us', `Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.`
+            , 'Contact Me', '', 'Page Header', [{ navlist: 'About' }, { navlist: 'Contact Us' }], 'Welcone to our page',
+            'This is the page for template Editing', [{ bgColor: 'red', Logo: '' }]);
     }
 
 }

@@ -74,8 +74,8 @@ const routes: Routes = [
     component: SignupComponent
   },
   {
-    path:'forgotpassword',
-    component:ForgotpasswordComponent
+    path: 'forgotpassword',
+    component: ForgotpasswordComponent
   }
 ];
 
