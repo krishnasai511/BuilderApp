@@ -26,8 +26,9 @@ export class Temp1Component implements OnInit ,AfterViewInit{
   visible=false;
  constructor(private savetemp: SaveTemp){
    // this.header = Header.createsample();
-  //  this.body = Body.createsample();
-    this.editbodyheader = false;
+  //  this.body=Body.createsample();
+
+   this.editbodyheader = false;
     this.bodyheaderform = false;
     this.id = userid(); 
     this.datatoget();
@@ -100,31 +101,33 @@ export class Temp1Component implements OnInit ,AfterViewInit{
 
   ngOnInit() {
    
-    // this.savetemp.getdata(this.id).
-    // then((res)=>{
-    //    console.log(res)
-    //   console.log("edited data", res)
-    //   this.body= res;
-    // })
-    
-  }
+ }
 
-  datatoget(){
+ datatoget(){
     this.savetemp.getdata(this.id).
     then((res)=>{
-       console.log(res)
-      console.log("edited data", res)
-    //  this.sai=res;
-     this.body= res;
-    console.log("gyguyu",this.body[0].hbrandname);
+      console.log("edited data", res);
+      if(res.length==0)
+       {
+        console.log("true");
+        
+       this.body=Body.createsample();
+       console.log(this.body);
+      }
+    else{
+      console.log("hi");
+      this.body=res[0];
+      console.log(this.body);
+    }
     })
   }
+  
   changes(){
 
     setTimeout(() => {
       this.data={
           templatetype:"First",
-          hbrandname:this.body.hbrandName,
+          hbrandname:this.body.hbrandname,
           hnavlists:this.body.hnavlists,
           title:this.body.title,
           description:this.body.description,

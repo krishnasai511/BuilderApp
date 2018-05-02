@@ -20,7 +20,7 @@ export interface Navlist {
 
 export class Body {
 
-    hbrandName: string;
+    hbrandname: string;
     hpgTitle: string;
     hpgDescription: string;
     hnavigations: Navigation[];
@@ -54,7 +54,7 @@ export class Body {
         this.footerData = footerData;
         this.footerTitle = footerTitle
 
-        this.hbrandName = hbrandname;
+        this.hbrandname = hbrandname;
         this.hnavlists = hnavlist;
         this.hbgColor = hbgColor;
         this.hbgImg = hbgImg;

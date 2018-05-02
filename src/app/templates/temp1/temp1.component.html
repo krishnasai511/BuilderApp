@@ -24,7 +24,7 @@
 <nav class="navbar navbar-default" >
   <div class="container">
     <div class="navbar-header" >
-      <div class="navbar-brand   mb-0" [froalaEditor]='options'  [(froalaModel)]="body[0].hbrandname"></div>
+      <div class="navbar-brand   mb-0" [froalaEditor]='options'  [(froalaModel)]="body.hbrandname"></div>
     </div>
     <ul class="nav navbar-nav">
       <li class="active" *ngFor="let navlist of body.hnavlists; let i=index;">
@@ -43,9 +43,9 @@
           <div class="icon icon-plus "> <span class="glyphicon glyphicon-pencil" ></span></div>
         </div>
     <div class="col-md-6 ">
-        <h1 class="text mb-0 " [froalaEditor]='options' [(froalaModel)]="body[0].title" ></h1>
+        <h1 class="text mb-0 " [froalaEditor]='options' [(froalaModel)]="body.title" ></h1>
         <hr class="star-light">
-        <h2 class="font-weight-light mb-0"  [froalaEditor]='options' [(froalaModel)]="body[0].description"></h2>
+        <h2 class="font-weight-light mb-0"  [froalaEditor]='options' [(froalaModel)]="body.description"></h2>
     </div>
     <!-- <div class="col-md-6">
         <a (click)="editmorebodyheader()" style="color:black">
@@ -100,11 +100,11 @@
 <!-- About Section -->
 <section class="bg-primary text-white mb-0" id="about" >
   <div class="container">
-    <h2 class="text-center text-uppercase text-white"[froalaEditor]='options' [(froalaModel)]="body[0].bodyAboutTitle" ></h2>
+    <h2 class="text-center text-uppercase text-white"[froalaEditor]='options' [(froalaModel)]="body.bodyAboutTitle" ></h2>
     <hr class="star-light mb-5">
     <div class="row">
       <div class="col-lg-4 ml-auto">
-        <p class="lead" [froalaEditor]='options' [(froalaModel)]="body[0].bodyAboutContent"></p>
+        <p class="lead" [froalaEditor]='options' [(froalaModel)]="body.bodyAboutContent"></p>
       </div>
       <div class="col-lg-4 mr-auto">
         <p class="lead" [froalaEditor]='options'>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>

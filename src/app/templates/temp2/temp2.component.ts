@@ -61,7 +61,7 @@ export class Temp2Component implements OnInit {
     changes(){
      setTimeout(() => {
         this.data={
-            navheader:this.body.hbrandName,
+            navheader:this.body.hbrandname,
             navlist:this.body.hnavlists,
             title:this.body.title,
             description:this.body.description,

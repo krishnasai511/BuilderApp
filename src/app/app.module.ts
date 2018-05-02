@@ -24,6 +24,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { TemplatesComponent } from './templates/templates.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ LoginComponent,
     TextComponent,
     EventsComponent,
     SpecialEventsComponent,
-    TemplatesComponent
+    TemplatesComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,

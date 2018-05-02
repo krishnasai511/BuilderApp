@@ -29,6 +29,7 @@ export class SignupComponent implements OnInit {
     .subscribe(
       res => {
         localStorage.setItem('token', res.token)
+        localStorage.setItem('userid',res.user._id)
         this._router.navigate(['/special'])
       },
       err => console.log(err)

@@ -20,13 +20,10 @@ background-repeat: no-repeat;" >
                     enter valid email
                 </div>
                   <div [hidden]= "!email?.errors.required">
-                      must be required
-                  </div>
-                  <div [hidden]= "!email?.errors.minlength">
-                        email must be atleast 5 characters long.
+                      email is required
                   </div>
                   <div [hidden]= "!email?.errors.maxlength">
-                        email cannot be morethan 32 characters long.
+                        email cannot be more than 32 characters long.
                   </div>
                 </div>
             </div>
@@ -46,7 +43,7 @@ background-repeat: no-repeat;" >
                 </div>
               </div>
               <div class="form-group">
-                <a routerLink="/forget-password"><span>Forget Password?</span></a>
+                <a routerLink="/forgotpassword"><span>Forgot Password?</span></a>
               </div> 
               <button type="button"  [disabled]= "!loginform.valid" (click)="loginUser()"  class="btn btn-success float-right">LogIn</button>
             </form>

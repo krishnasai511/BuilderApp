@@ -31,4 +31,14 @@ getdata(values: string):Promise<any> {
           return res.json().data;
      });
   }
-  }
+forgotPassword(values:String){
+    console.log(values);
+//    return this.http.post('http://localhost:3000/routes/forgotpassword',values)
+//     .toPromise().then((res)=>{
+//         console.log(res);
+//     })
+}
+
+}
+
+  
