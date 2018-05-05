@@ -15,6 +15,7 @@ declare var jQuery: any;
   providers:[FroalaOptions]
 })
 export class Temp1Component implements OnInit ,AfterViewInit{
+  flag: boolean=false;
   id: string;
   data:Object;
   bodyheaderform: boolean;
@@ -24,6 +25,7 @@ export class Temp1Component implements OnInit ,AfterViewInit{
   body: Body;
   //sai:any;
   visible=false;
+  savebutton: boolean;
  constructor(private savetemp: SaveTemp){
    // this.header = Header.createsample();
   //  this.body=Body.createsample();
@@ -113,14 +115,32 @@ export class Temp1Component implements OnInit ,AfterViewInit{
         
        this.body=Body.createsample();
        console.log(this.body);
+       this.savebutton=true;
+       //this.changes();
       }
-    else{
-      console.log("hi");
-      this.body=res[0];
-      console.log(this.body);
+      else{
+        for(let i=0;i<res.length;i++)
+        {
+          if(res[i].templatetype=="First")
+          {
+            console.log("hi");
+
+            this.body=res[i];
+            this.savebutton=false;
+            this.flag=true;
+           
+         }}
+         if(this.flag!==true){
+           this.body=Body.createsample();
+           this.flag=false;
+           this.savebutton=false;
+         }
+
     }
     })
+
   }
+
   
   changes(){
 
@@ -139,14 +159,42 @@ export class Temp1Component implements OnInit ,AfterViewInit{
           footerTitle:this.body.footerTitle,
           userhref: this.id
   };
-
+;
   this.savetemp.adddata(this.data)
-      
+     
       }, 1000);  
    }
   
+   update(){
+
+    setTimeout(() => {
+      this.data={
+          templatetype:"First",
+          hbrandname:this.body.hbrandname,
+          hnavlists:this.body.hnavlists,
+          title:this.body.title,
+          description:this.body.description,
+          bodyAboutTitle:this.body.bodyAboutTitle,
+          bodyAboutContent:this.body.bodyAboutContent,
+          bodysections:this.body.bodysections,
+          bgColor:this.body.bgColor,
+          bgImg:this.body.bgImg,
+          footerTitle:this.body.footerTitle,
+          // userhref: this.id
+  };
+
+  this.savetemp.updatedata(this.data,this.body._id).then(()=>
+{
+  window.alert("data updated");
+})
+     
+      }, 1000);
+
+   }
+
   
-   ngAfterViewInit() {
+  
+  ngAfterViewInit() {
 
    
    

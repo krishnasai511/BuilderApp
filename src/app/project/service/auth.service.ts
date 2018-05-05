@@ -7,6 +7,9 @@ export class AuthService {
 
   private _registerUrl = "http://localhost:3000/routes/signup";
   private _loginUrl = "http://localhost:3000/routes/login";
+  public user={
+    name:'',
+  }
 
   constructor(private http: HttpClient,
               private _router: Router) { }
@@ -23,6 +26,7 @@ export class AuthService {
   logoutUser() {
     localStorage.removeItem('token');
     localStorage.removeItem('userid');
+    localStorage.removeItem('username');
     this._router.navigate(['/welcome']);
   }
 
@@ -31,6 +35,6 @@ export class AuthService {
   }
 
   loggedIn() {
-    return !!localStorage.getItem('token')    
+    return !!localStorage.getItem('token')   
   }
 }

@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ModuleWithProviders  } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppRoutingModule }  from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AppComponent } from './app.component';
 import { ProjectComponent } from './project/project.component';
-import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Temp2Component } from './templates/temp2/temp2.component';
 import { Temp1Component } from './templates/temp1/temp1.component';
 import { MainComponent } from './components/main/main.component';
@@ -25,14 +25,16 @@ import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { TemplatesComponent } from './templates/templates.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { FetchData } from './project/service/fetchdata';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectComponent,
-   SignupComponent,
-   WelcomeComponent,
-LoginComponent,
+    SignupComponent,
+    WelcomeComponent,
+    LoginComponent,
     Temp2Component,
     Temp1Component,
     MainComponent,
@@ -45,21 +47,22 @@ LoginComponent,
   ],
   imports: [
     BrowserModule,
-   FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
-   ReactiveFormsModule ,
-   AppRoutingModule,
-   HttpModule,
-   FormsModule,
-   HttpClientModule
-],
-entryComponents:[FormComponent,TextComponent],
-  providers: [AuthService,AuthGuard, EventService, 
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpModule,
+    FormsModule,
+    HttpClientModule,
+   
+  ],
+  entryComponents: [FormComponent, TextComponent],
+  providers: [AuthService, AuthGuard, EventService,
     {
-       provide: HTTP_INTERCEPTORS,
-       useClass: TokenInterceptorService,
-       multi: true
-  },
-    SaveTemp],
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    },
+    SaveTemp, FetchData],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

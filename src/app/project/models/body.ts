@@ -19,7 +19,7 @@ export interface Navlist {
 
 
 export class Body {
-
+    _id:String;
     hbrandname: string;
     hpgTitle: string;
     hpgDescription: string;

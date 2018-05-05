@@ -11,6 +11,7 @@ import { AuthService } from '../project/service/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+
   loginUserData = {}
 
   constructor(private _auth: AuthService,
@@ -31,7 +32,9 @@ export class LoginComponent implements OnInit {
     .subscribe(
       res => {
        // console.log("user_id",res)
-       // console.log("username",res.user)
+      //  console.log("username",res.user.username)
+      this._auth.user.name=res.user.username;
+        localStorage.setItem('username',res.user.username)
         localStorage.setItem('userid', res.user._id)
         localStorage.setItem('token', res.token)
         this._router.navigate(['/special'])
@@ -39,5 +42,17 @@ export class LoginComponent implements OnInit {
       err => console.log(err)
     ) 
   }
-
+  // loginUser () {
+  //   this._auth.loginUser(this.loginUserData)
+  //   .toPromise().then(
+  //     (res) => {
+  //      // console.log("user_id",res)
+  //     //  console.log("username",res.user.username)
+  //       localStorage.setItem('username',res.user.username)
+  //       localStorage.setItem('userid', res.user._id)
+  //       localStorage.setItem('token', res.token)
+  //     }
+  //   ).then((res)=>{
+  //      this._router.navigate(['/special'])}) 
+  // }
 }

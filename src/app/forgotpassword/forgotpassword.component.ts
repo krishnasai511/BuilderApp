@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SaveTemp } from '../project/service/save.service';
+//import { SaveTemp } from '../project/service/save.service';
 
 @Component({
   selector: 'app-forgotpassword',
@@ -8,12 +8,12 @@ import { SaveTemp } from '../project/service/save.service';
 })
 export class ForgotpasswordComponent implements OnInit {
 email :any;
-  constructor(private savetemp: SaveTemp) { }
+  constructor() { }
 
   ngOnInit() {
   }
-  submitted(){
-  this.savetemp.forgotPassword(this.email);
-  }
+  // submitted(){
+  // this.savetemp.forgotPassword(this.email);
+  // }
 
 }

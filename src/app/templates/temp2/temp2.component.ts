@@ -4,6 +4,8 @@ import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angul
 import {FroalaOptions} from '../../froala.service';
 import { Body } from '../../project/models/body';
 import { SaveTemp } from '../../project/service/save.service';
+import { userid } from '../../shared/userid';
+import { FetchData } from '../../project/service/fetchdata';
 declare const $: any;
 //  declare const $img: any;
 declare var jQuery: any;
@@ -15,12 +17,15 @@ declare var jQuery: any;
 
 })
 export class Temp2Component implements OnInit {
+  id: string;
   data:Object;
-  //header:Header;
   body:Body;
-  constructor(private savetemp:SaveTemp ){
-   // this.header = Header.createsample();
-    this.body = Body.createsample();
+  flag:boolean=false;
+  savebutton:boolean;
+  constructor(private savetemp:SaveTemp,private fetchdata : FetchData ){
+    this.id = userid(); 
+  // this.fetchdata.datatoget();
+  this.datatoget();
   }
   ngOnInit() {
 
@@ -58,22 +63,89 @@ export class Temp2Component implements OnInit {
       console.log(this.body.bodysections);
     }
 
+
+    datatoget(){
+      this.savetemp.getdata(this.id).
+      then((res)=>{
+        console.log("edited data", res);
+        if(res.length==0)
+         {
+  
+          console.log("true");
+          
+         this.body=Body.createsample();
+
+        console.log(this.body);
+        this.savebutton=true;
+         //this.changes();
+        }
+        else{
+          for(let i=0;i<res.length;i++)
+          {
+          if(res[i].templatetype=="Second")
+            {
+              console.log("hi");
+              this.body=res[i];
+             // console.log(this.body);
+            this.flag=true;
+            this.savebutton=false
+            } }
+          if(this.flag!==true){
+            this.body=Body.createsample();
+            this.flag=false;
+            this.savebutton=false;
+          }  
+      }
+      })
+    }
+  
+
+
+
+
     changes(){
      setTimeout(() => {
         this.data={
-            navheader:this.body.hbrandname,
-            navlist:this.body.hnavlists,
-            title:this.body.title,
-            description:this.body.description,
-            bodyAboutTitle:this.body.bodyAboutTitle,
-            bodyAboutContent:this.body.bodyAboutContent,
-            bodysection:this.body.bodysections,
-            bgColor:this.body.bgColor,
-            bgImg:this.body.bgImg,
-            footerTitle:this.body.footerTitle
+          templatetype:"Second",
+          hbrandname:this.body.hbrandname,
+          hnavlists:this.body.hnavlists,
+          title:this.body.title,
+          description:this.body.description,
+          bodyAboutTitle:this.body.bodyAboutTitle,
+          bodyAboutContent:this.body.bodyAboutContent,
+          bodysections:this.body.bodysections,
+          bgColor:this.body.bgColor,
+          bgImg:this.body.bgImg,
+          footerTitle:this.body.footerTitle,
+          userhref: this.id
           };
          this.savetemp.adddata(this.data);
       }, 1000);  
   }
+  update(){
 
+    setTimeout(() => {
+      this.data={
+          templatetype:"Second",
+          hbrandname:this.body.hbrandname,
+          hnavlists:this.body.hnavlists,
+          title:this.body.title,
+          description:this.body.description,
+          bodyAboutTitle:this.body.bodyAboutTitle,
+          bodyAboutContent:this.body.bodyAboutContent,
+          bodysections:this.body.bodysections,
+          bgColor:this.body.bgColor,
+          bgImg:this.body.bgImg,
+          footerTitle:this.body.footerTitle,
+          // userhref: this.id
+  };
+
+  this.savetemp.updatedata(this.data,this.body._id).then(()=>
+{
+  window.alert("data updated");
+})
+     
+      }, 1000);
+
+   }
 }
