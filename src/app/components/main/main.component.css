@@ -6,14 +6,16 @@
     position: relative;
     box-shadow: 0 1px 0 0 rgba(129, 162, 178, 0.2), 0 -1px 0 0 rgba(129, 162, 178, 0.2);
     overflow:hidden;
+    
 
 
 }
 .project-block.block-browser{
     background: #f8f8f8;
     padding:10% 0;
-    max-width: 750px;
-    position: relative;
+
+    position:0 50% 0 50%;
+
 
 
 }
@@ -174,3 +176,79 @@ img{
     font-weight: 400;
     letter-spacing: .1em;
 }
+.block-border {
+    position: relative;
+    height: 0;
+    width: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    z-index: 9;
+    outline:none;
+  }
+  .block-border .line {
+    z-index: 3;
+    width: 100%;
+    height: 20px;
+    border: 0;
+    background: rgba(51,175,255,.55);
+    cursor: pointer;
+    left: 0;
+    top: -10px;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    box-shadow: 0 0 8px rgba(0,0,0,.05);
+  }
+  .block-border .line {
+    -webkit-transition: all .15s ease;
+    transition: all .15s ease;
+    position: absolute;
+  }
+  hr {
+    display: block;
+    unicode-bidi: isolate;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+  }
+  .block-border .create-block-button {
+    left: 50%;
+    top: 50%;
+    margin-left: -18px;
+    margin-top: -18px;
+    z-index: 4;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 36px;
+    font-size: 90%;
+    color: #b3b3b3;
+    border: 1px solid #d9d9d9;
+    background: hsla(0,0%,100%,.7);
+    cursor: pointer;
+  }
+  .block-border .create-block-button, .block-border .line {
+      transition: all .15s ease;
+      position: absolute;
+  }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './project/service/auth.service';
+import { username } from './shared/username';
 
 
 
@@ -10,7 +11,8 @@ import { AuthService } from './project/service/auth.service';
 })
 export class AppComponent  {
   title = 'app';
+  
   constructor(private _authService: AuthService){}
+user=username();
 
- // user=username();
 }

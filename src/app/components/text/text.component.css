@@ -1,0 +1,21 @@
+.project-block {
+    background: #f8f8f8;
+    padding: 5% 0;
+    position: 0 50% 0 50%;
+    height:400px;
+}
+.text-heading{
+    font-size:40px;
+    padding-left:35%;
+    margin-top:0%;
+}
+
+.sub{
+    font-size:30px;
+    padding-left:42%;
+}
+.desc{
+    font-size:20px;
+    padding-left:37%;
+    
+}

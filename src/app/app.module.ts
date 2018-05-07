@@ -24,8 +24,13 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { TemplatesComponent } from './templates/templates.component';
+import { Temp3Component } from './templates/temp3/temp3.component';
+
+import { VideoComponent } from './components/video/video.component';
+import { SafePipe } from './safe.pipe';
+
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
-import { FetchData } from './project/service/fetchdata';
+
 
 
 @NgModule({
@@ -43,26 +48,28 @@ import { FetchData } from './project/service/fetchdata';
     EventsComponent,
     SpecialEventsComponent,
     TemplatesComponent,
+    Temp3Component,
+    VideoComponent,
+    SafePipe,
     ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,
-    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
-    ReactiveFormsModule,
-    AppRoutingModule,
-    HttpModule,
-    FormsModule,
-    HttpClientModule,
-   
-  ],
-  entryComponents: [FormComponent, TextComponent],
-  providers: [AuthService, AuthGuard, EventService,
+   FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
+   ReactiveFormsModule ,
+   AppRoutingModule,
+   HttpModule,
+   FormsModule,
+   HttpClientModule
+],
+entryComponents:[FormComponent,TextComponent,VideoComponent],
+  providers: [AuthService,AuthGuard, EventService, 
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true
     },
-    SaveTemp, FetchData],
+    SaveTemp],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

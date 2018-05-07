@@ -1,4 +1,4 @@
-body, html {
+/* body, html {
     height: 100%;
   }
   
@@ -11,7 +11,7 @@ body, html {
     background-image: url("/assets/sad.jpg");
   
   
-    min-height: 700px;
+    min-height: 600px;
   
     
     background-position: center;
@@ -24,7 +24,8 @@ body, html {
   .container {
     position: absolute;
     right: 0;
-    margin: 20px;
+    margin-top: 50px;
+    margin-right:580px;
     max-width: 300px;
     padding: 16px;
     background-color: white;
@@ -58,4 +59,4 @@ body, html {
   .btn:hover {
     opacity: 1;
   }
-  
+   */

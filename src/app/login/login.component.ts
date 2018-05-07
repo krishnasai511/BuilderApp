@@ -15,19 +15,17 @@ export class LoginComponent implements OnInit {
   loginUserData = {}
 
   constructor(private _auth: AuthService,
-              private _router: Router) { }
+    private _router: Router) { }
 
   ngOnInit() {
-    var log=localStorage.getItem("token");
-   
-    if(log=="false")
-    {}
-    else{
+    const log = localStorage.getItem('token');
+
+    if (log === 'false') { } else {
       this._router.navigate(['/special']);
     }
   }
 
-  loginUser () {
+  loginUser() {
     this._auth.loginUser(this.loginUserData)
     .subscribe(
       res => {
@@ -42,17 +40,5 @@ export class LoginComponent implements OnInit {
       err => console.log(err)
     ) 
   }
-  // loginUser () {
-  //   this._auth.loginUser(this.loginUserData)
-  //   .toPromise().then(
-  //     (res) => {
-  //      // console.log("user_id",res)
-  //     //  console.log("username",res.user.username)
-  //       localStorage.setItem('username',res.user.username)
-  //       localStorage.setItem('userid', res.user._id)
-  //       localStorage.setItem('token', res.token)
-  //     }
-  //   ).then((res)=>{
-  //      this._router.navigate(['/special'])}) 
-  // }
+ 
 }

@@ -22,8 +22,13 @@
         "styles.css",
         "../node_modules/froala-editor/css/froala_editor.pkgd.min.css",
         "../node_modules/froala-editor/css/froala_style.min.css",
+<<<<<<< HEAD
          "../node_modules/font-awesome/css/font-awesome.css"
 
+=======
+         "../node_modules/font-awesome/css/font-awesome.css",
+         "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+>>>>>>> b822d8af9877369e4d4126cf7124730f11fdd044
          ],
       "scripts": ["../node_modules/jquery/dist/jquery.min.js",
   "../node_modules/froala-editor/js/froala_editor.pkgd.min.js",

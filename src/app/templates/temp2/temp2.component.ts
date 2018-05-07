@@ -5,7 +5,6 @@ import {FroalaOptions} from '../../froala.service';
 import { Body } from '../../project/models/body';
 import { SaveTemp } from '../../project/service/save.service';
 import { userid } from '../../shared/userid';
-import { FetchData } from '../../project/service/fetchdata';
 declare const $: any;
 //  declare const $img: any;
 declare var jQuery: any;
@@ -22,7 +21,7 @@ export class Temp2Component implements OnInit {
   body:Body;
   flag:boolean=false;
   savebutton:boolean;
-  constructor(private savetemp:SaveTemp,private fetchdata : FetchData ){
+  constructor(private savetemp:SaveTemp ){
     this.id = userid(); 
   // this.fetchdata.datatoget();
   this.datatoget();
@@ -119,7 +118,7 @@ export class Temp2Component implements OnInit {
           footerTitle:this.body.footerTitle,
           userhref: this.id
           };
-         this.savetemp.adddata(this.data);
+         this.savetemp.getdata(this.data);
       }, 1000);  
   }
   update(){

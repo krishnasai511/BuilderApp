@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 import { AuthService } from '../project/service/auth.service';
 
 @Component({
@@ -10,22 +10,22 @@ import { AuthService } from '../project/service/auth.service';
 })
 export class SignupComponent implements OnInit {
 
-  registerUserData = {}
+  registerUserData = {};
   constructor(private _auth: AuthService,
-              private _router: Router) { }
+    private _router: Router) { }
 
   ngOnInit() {
-    var log=localStorage.getItem("token");
-    if(log=="true")
-    {
-      this._router.navigate(['/special'])
-    }
-    else{
+    const log = localStorage.getItem('token');
+    // tslint:disable-next-line:triple-equals
+    if (log == 'true') {
+      this._router.navigate(['/special']);
+    } else {
     }
   }
 
   registerUser() {
     this._auth.registerUser(this.registerUserData)
+
     .subscribe(
       res => {
         this._auth.user.name=res.user.username
@@ -36,6 +36,7 @@ export class SignupComponent implements OnInit {
       },
       err => console.log(err)
     )      
+      
   }
 
 
