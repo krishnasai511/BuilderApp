@@ -1,9 +1,11 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angular-froala-wysiwyg';
-import { Header } from '../../project/models/header';
+// import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angular-froala-wysiwyg';
+//import { Header } from '../../project/models/header';
 import { Body } from '../../project/models/body';
 import {FroalaOptions} from '../../froala.service';
 import { SaveTemp } from '../../project/service/save.service';
+import { userid } from '../../shared/userid';
+import { MainComponent } from '../../components/main/main.component';
 declare const $: any;
 //  declare const $img: any;
 declare var jQuery: any;
@@ -14,39 +16,37 @@ declare var jQuery: any;
   providers:[FroalaOptions]
 })
 export class Temp1Component implements OnInit ,AfterViewInit{
+  id: string;
   data:Object;
+  flag:boolean=false;
   bodyheaderform: boolean;
   editbodyheader:boolean;
   title = 'app';
-  header: Header
-  body: Body
+  component:Array<MainComponent>=[];
+  body: Body;
   visible=false;
- constructor(private savetemp: SaveTemp){
-    this.header = Header.createsample();
-    this.body = Body.createsample();
+ constructor(private savetemp: SaveTemp,private options:FroalaOptions){
+ 
     this.editbodyheader = false;
     this.bodyheaderform = false;
-  }
+    this.id = userid(); 
+    this.datatoget();
+      }
    
+  
 
-  public options: Object = {
-    // placeholderText: 'Edit Your Content Here!',
-    toolbarInline:true, 
-    charCounterCount: false,
-    toolbarButtons: ['bold', 'italic', 'underline', 'color', 'html', 'clearFormatting','paragraphFormat'],
-    // events:{
-    //   'froalaEditor.contentChanged':function(e){
-    //     console.log(e.target.innerText);
-    //   }
-    // }
-};
+  // public options: Object = {
+  //   toolbarInline:true, 
+  //   charCounterCount: false,
+  //   toolbarButtons: ['bold', 'italic', 'underline', 'color', 'html', 'clearFormatting','paragraphFormat'],  
+  // };
 
 // changed(event : any ){
 // console.log(JSON.stringify(event));
 // }
 
   addnavlist(){
-    this.header.navlists.push({navlist: 'new '});
+    this.body.hnavlists.push({navlist: 'new '});
     setTimeout(()=>{
       $('.froala-editor').froalaEditor({
         toolbarInline: true,
@@ -55,7 +55,7 @@ export class Temp1Component implements OnInit ,AfterViewInit{
         toolbarVisibleWithoutSelection: true
       });
     }, 300)
-    console.log(this.header.navlists);
+    console.log(this.body.hnavlists);
     
   }
   // editmorebodyheader(){
@@ -69,14 +69,7 @@ export class Temp1Component implements OnInit ,AfterViewInit{
    
   addbodypages(){
     this.body.bodysections.push({image:'', title:'new page',description:'this to write about the new pages  short ways'})
-    // setTimeout(()=>{
-    //   $('.froala-editor').froalaEditor({
-    //     toolbarInline: true,
-    //     charCounterCount: false,
-    //     toolbarButtons: ['bold', 'italic', 'strikeThrough', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'underline', 'undo', 'redo'],
-    //     toolbarVisibleWithoutSelection: true
-    //   });
-    // }, 300)
+   
     console.log(this.body.bodysections);
   }
   menuedit()
@@ -91,23 +84,61 @@ export class Temp1Component implements OnInit ,AfterViewInit{
     }, 500)
     console.log('froala-editior add');
   }
-  openedit(){
-    this.visible=true;
-    
-  }
+  
   // // makeVisible(){
   //   this.visible=false;
   // }
 
   ngOnInit() {
+   
+    // this.savetemp.getdata(this.id).
+    // then((res)=>{
+    //    console.log(res)
+    //   console.log("edited data", res)
+    //   this.body= res;
+    // })
+    
+  }
+
+  datatoget(){
+    this.savetemp.getdata(this.id).
+    then((res)=>{
+      console.log("edited data", res);
+      if(res.length==0)
+       {
+        console.log("true");
+        
+       this.body=Body.createsample();
+       console.log(this.body);
+       //this.changes();
+      }
+      else{
+        for(let i=0;i<res.length;i++)
+        {
+          if(res[i].templatetype=="First")
+          {
+            console.log("hi");
+
+            this.body=res[i];
+            this.flag=true;
+           
+         }}
+         if(this.flag!==true){
+           this.body=Body.createsample();
+           this.flag=false;
+         }
+
+    }
+    })
+
   }
   changes(){
 
     setTimeout(() => {
       this.data={
           templatetype:"First",
-          navheader:this.header.navheader,
-          navlists:this.header.navlists,
+          hbrandname:this.body.hbrandname,
+          hnavlists:this.body.hnavlists,
           title:this.body.title,
           description:this.body.description,
           bodyAboutTitle:this.body.bodyAboutTitle,
@@ -115,18 +146,20 @@ export class Temp1Component implements OnInit ,AfterViewInit{
           bodysections:this.body.bodysections,
           bgColor:this.body.bgColor,
           bgImg:this.body.bgImg,
-          footerTitle:this.body.footerTitle
-        
+          footerTitle:this.body.footerTitle,
+          userhref: this.id
   };
 
-  this.savetemp.getdata(this.data)
+  this.savetemp.adddata(this.data)
       
       }, 1000);  
    }
   
   
    ngAfterViewInit() {
-        
-    }
 
+   
+   
+
+   }
 }

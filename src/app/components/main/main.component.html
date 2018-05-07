@@ -1,6 +1,13 @@
+<section class="block-border">
+  <hr class="line">
+  <div class="create-block-button" (click)="openedit()">
+    <div class="icon icon-plus "><i class="fa fa-plus" style="color:black" aria-hidden="true"></i></div>
+  </div>
+</section>
 <section class="project-block sidebar-adjust  Browser block-browser" *ngIf="visible">
+    <button type="button" class="close" *ngIf="!visible">&times;</button>
     <div class="row main-row">
-        <p>Click here to select</p>
+        <h4 style="margin-left:45%;font-size:18px">Click here to select</h4>
         <div class="large-8 columns large-centered browser-wrapper">
             <div class="cancel">
               <span class="icon icon-thin-close"></span>
@@ -29,6 +36,13 @@
                     </div>
                     <span class="label">Form</span>
                   </div>
+                  <div class="block-type block-type-text" (click)="addComponent(videocomponentclass)">
+                    <div class="icon">
+                      <img src="" alt="">
+                    </div>
+                    <span class="label">Video</span>
+                  </div>
+                  
               </section>
             </div>
         </div>

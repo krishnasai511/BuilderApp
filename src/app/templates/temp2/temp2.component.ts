@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angular-froala-wysiwyg';
-import { Header } from '../../project/models/header';
+//import { Header } from '../../project/models/header';
 import {FroalaOptions} from '../../froala.service';
 import { Body } from '../../project/models/body';
 import { SaveTemp } from '../../project/service/save.service';
+import { userid } from '../../shared/userid';
 declare const $: any;
 //  declare const $img: any;
 declare var jQuery: any;
@@ -15,12 +16,15 @@ declare var jQuery: any;
 
 })
 export class Temp2Component implements OnInit {
+  id: any;
   data:Object;
-  header:Header;
+  //header:Header;
   body:Body;
+  flag:boolean=false;
   constructor(private savetemp:SaveTemp ){
-    this.header = Header.createsample();
+   // this.header = Header.createsample();
     this.body = Body.createsample();
+    this.id=userid();
   }
   ngOnInit() {
 
@@ -39,7 +43,7 @@ export class Temp2Component implements OnInit {
     };
 
     addnavlist(){
-      this.header.navlists.push({navlist: 'new '});
+      this.body.hnavlists.push({navlist: 'new '});
       setTimeout(()=>{
         $('.froala-editor').froalaEditor({
           toolbarInline: true,
@@ -48,7 +52,7 @@ export class Temp2Component implements OnInit {
           toolbarVisibleWithoutSelection: true
         });
       }, 300)
-      console.log(this.header.navlists);
+      console.log(this.body.hnavlists);
       
     }
 
@@ -61,8 +65,9 @@ export class Temp2Component implements OnInit {
     changes(){
      setTimeout(() => {
         this.data={
-            navheader:this.header.navheader,
-            navlist:this.header.navlists,
+          templatetype:"Second",
+            navheader:this.body.hbrandname,
+            navlist:this.body.hnavlists,
             title:this.body.title,
             description:this.body.description,
             bodyAboutTitle:this.body.bodyAboutTitle,
@@ -72,8 +77,41 @@ export class Temp2Component implements OnInit {
             bgImg:this.body.bgImg,
             footerTitle:this.body.footerTitle
           };
-         this.savetemp.getdata(this.data);
+         this.savetemp.adddata(this.data);
       }, 1000);  
+  }
+
+  datatoget(){
+    this.savetemp.getdata(this.id).
+    then((res)=>{
+      console.log("edited data", res);
+      if(res.length==0)
+       {
+        console.log("true");
+        
+       this.body=Body.createsample();
+       console.log(this.body);
+       //this.changes();
+      }
+      else{
+        for(let i=0;i<res.length;i++)
+        {
+          if(res[i].templatetype=="First")
+          {
+            console.log("hi");
+
+            this.body=res[i];
+            this.flag=true;
+           
+         }}
+         if(this.flag!==true){
+           this.body=Body.createsample();
+           this.flag=false;
+         }
+
+    }
+    })
+
   }
 
 }

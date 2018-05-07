@@ -1,9 +1,9 @@
-
 import { Component, OnInit, ComponentFactoryResolver, Type, ViewChild,
   ViewContainerRef } from '@angular/core';
 
 import { TextComponent } from '../text/text.component';
 import { FormComponent } from '../form/form.component';
+import { VideoComponent } from '../video/video.component';
 
 
 @Component({
@@ -19,6 +19,7 @@ export class MainComponent implements OnInit {
 
  formcomponentclass=FormComponent
  textcomponentclass=TextComponent
+ videocomponentclass=VideoComponent
 
  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
@@ -41,5 +42,8 @@ export class MainComponent implements OnInit {
       this.components.splice(componentIndex, 1);
     }
   }
-
+  openedit(){
+    this.visible=true;
+  
+  }
 }

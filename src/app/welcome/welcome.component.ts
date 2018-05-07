@@ -11,8 +11,7 @@ export class WelcomeComponent implements OnInit {
   constructor(private _router: Router) { }
 
   ngOnInit() {
-    var log=localStorage.getItem("token");
-    console.log("token",log);
+    var log=localStorage.getItem("userid");
   
      if(!log)
     {
@@ -26,3 +25,4 @@ export class WelcomeComponent implements OnInit {
 
 
 }
+

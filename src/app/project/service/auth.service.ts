@@ -7,7 +7,9 @@ export class AuthService {
 
   private _registerUrl = "http://localhost:3000/routes/signup";
   private _loginUrl = "http://localhost:3000/routes/login";
-
+  public user ={
+    name: '',
+  }
   constructor(private http: HttpClient,
               private _router: Router) { }
 
@@ -20,8 +22,9 @@ export class AuthService {
   }
 
   logoutUser() {
-    localStorage.removeItem('token')
-    this._router.navigate(['/events'])
+    localStorage.removeItem('token');
+    localStorage.removeItem('userid');
+    this._router.navigate(['/welcome']);
   }
 
   getToken() {

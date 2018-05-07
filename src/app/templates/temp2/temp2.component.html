@@ -1,14 +1,14 @@
 <br><br><div class="bgimg">
   <!--For Navbar-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand"  [froalaEditor]='options' [(froalaModel)]="header.navheader"></a>
+    <a class="navbar-brand"  [froalaEditor]='options' [(froalaModel)]="body.hbrandName"></a>
     <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button> -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="active" *ngFor="let navlist of header.navlists; let i=index;">
-          <a  [froalaEditor]='options' [(froalaModel)]="header.navlists[i].navlist"></a>
+        <li class="active" *ngFor="let navlist of body.hnavlists; let i=index;">
+          <a  [froalaEditor]='options' [(froalaModel)]="body.hnavlists[i].navlist"></a>
          </li>
         
       </ul>

@@ -24,6 +24,11 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { TemplatesComponent } from './templates/templates.component';
+import { Temp3Component } from './templates/temp3/temp3.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { VideoComponent } from './components/video/video.component';
+import { SafePipe } from './safe.pipe';
+
 
 @NgModule({
   declarations: [
@@ -39,18 +44,21 @@ LoginComponent,
     TextComponent,
     EventsComponent,
     SpecialEventsComponent,
-    TemplatesComponent
+    TemplatesComponent,
+    Temp3Component,
+    VideoComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
-   FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
+   FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),NgbModule.forRoot(),
    ReactiveFormsModule ,
    AppRoutingModule,
    HttpModule,
    FormsModule,
    HttpClientModule
 ],
-entryComponents:[FormComponent,TextComponent],
+entryComponents:[FormComponent,TextComponent,VideoComponent],
   providers: [AuthService,AuthGuard, EventService, 
     {
        provide: HTTP_INTERCEPTORS,

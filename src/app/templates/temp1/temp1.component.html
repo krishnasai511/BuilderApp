@@ -1,60 +1,44 @@
-<!-- <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase">
-  <div class="container">
-    <a class="navbar-brand js-scroll-trigger" href="#page-top"[froalaEditor]>Start Bootstrap</a>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-           href="#portfolio"[froalaEditor]>Services</a>
-        </li>&nbsp;&nbsp;&nbsp;&nbsp;
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-           href="#about"[froalaEditor]>About</a>
-        </li>
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-           href="#contact"[froalaEditor]>Contact</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav> -->
-<br><br><br>
-<nav class="navbar navbar-defalut" >
+<nav class="navbar navbar-default" >
   <div class="container">
     <div class="navbar-header" >
-      <div class="navbar-brand   mb-0" [froalaEditor]='options'  [(froalaModel)]="header.navheader"></div>
+      <div class="navbar-brand   mb-0" [froalaEditor]='options.options'  [(froalaModel)]="body.hbrandname"></div>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active" *ngFor="let navlist of header.navlists; let i=index;">
-        <a  [froalaEditor]='options' [(froalaModel)]="header.navlists[i].navlist"></a>
+      <li class="nav-item" *ngFor="let navlist of body.hnavlists; let i=index;">
+        <p  [froalaEditor]='options.options' [(froalaModel)]="body.hnavlists[i].navlist"></p>
        </li>   
+       <li class="nav-item"> <a (click)="addnavlist()"  style="margin-top:50px">
+        <i class="fa fa-plus" style="color:black" aria-hidden="true"></i>
+        </a></li>
     </ul>
-    <a (click)="addnavlist()"  style="margin-top:50px">
-        <span class="glyphicon glyphicon-plus"></span>
-      </a> 
+    
   </div>
 </nav>
 
-<button class="btn btn-primary" (click)='changes()'>Save</button>
-<section class="masthead bg-primary text-white text-center" >
-  <div class="container" [ngStyle]="{'background-color': body.bgColor}">
+
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Open modal
+</button> -->
+<section class="masthead  text-white text-center" [ngStyle]="{'background-color': body.bgColor}">
+  <div class="container" >
       <div class="create-menu-button" >
-          <div class="icon icon-plus "> <span class="glyphicon glyphicon-pencil" ></span></div>
-        </div>
-        <div id="myModal" class="modal fade" role="dialog">
+          <div   data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil" style="color:black" aria-hidden="true"></i></div>
+      </div>
+        <div  class="modal fade" role="dialog" id="myModal">
           <div class="modal-dialog">
         
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
+                  <button class="btn btn-primary" (click)='changes()'>Save</button>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Style</h4>
               </div>
-              <div class="modal-body">
-                <p>Some text in the modal.</p>
-                <label for="">Enter Color</label>
+              <div class="modal-body" style="color:black">
+                <p>Choose Setting</p>
+                <label for="">Enter Color:</label>
                 <input type="color" [(ngModel)]="body.bgColor">
+                
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -64,51 +48,31 @@
           </div>
           </div>
     <div class="col-md-6 ">
-        <h1 class="text mb-0 " [froalaEditor]='options' [(froalaModel)]="body.title" ></h1>
+        <h1 class="text mb-0 " [froalaEditor]='options.options' [(froalaModel)]="body.title" ></h1>
         <hr class="star-light">
-        <h2 class="font-weight-light mb-0"  [froalaEditor]='options' [(froalaModel)]="body.description"></h2>
+        <h2 class="font-weight-light mb-0"  [froalaEditor]='options.options' [(froalaModel)]="body.description"></h2>
     </div>
-    <!-- <div class="col-md-6">
-        <a (click)="editmorebodyheader()" style="color:black">
-            <span class="glyphicon glyphicon-plus"></span>
-          </a> 
-      <div *ngIf="editbodyheader">
-       <a style="color:black" (click)="bodyeditheaderform()">add Form</a>
-       <div *ngIf="bodyheaderform">
-       </div>
-      </div>
-         
-    </div> -->
   </div>
 </section>
 
-<section class="block-border">
-  <hr class="line">
-  <div class="create-block-button" (click)="openedit()">
-    <div class="icon icon-plus "> <span class="glyphicon glyphicon-plus"></span></div>
-  </div>
-</section>
+
    <div >
-     <app-main *ngIf="visible"></app-main>
+     <app-main></app-main>
    </div> 
-   <!-- <ng-template #ElseBlock visible="false">
-   </ng-template> -->
-
-
 <!-- Portfolio Grid Section -->
 
 <section class="portfolio" id="portfolio"  >
   <div class="container">
-    <h2 class="text-center text-uppercase text-secondary mb-0 " [froalaEditor]='options'>Portfolio</h2>
+    <h2 class="text-center text-uppercase text-secondary mb-0 " [froalaEditor]='options.options'>Portfolio</h2>
     <hr class="star-dark mb-5">
     <div class="row">
       <div *ngFor="let bodysection of body.bodysections; let i= index;">
           <div class="col-md-4">
-              <a class="portfolio-item d-block mx-auto" [froalaEditor]='options' href="#portfolio-modal-1">
+              <a class="portfolio-item d-block mx-auto" [froalaEditor]='options.options' href="#portfolio-modal-1">
                 <img class="img-fluid edit"  width="250px" height="250px" src="{{body.bodysections[i].image? 'body.bodysections[i].image':'/assets/portfolio/cabin.png'}}" alt="">
               </a>
-              <h2 [froalaEditor]='options' [(froalaModel)]="body.bodysections[i].title"></h2>
-              <p [froalaEditor]='options' [(froalaModel)]="body.bodysections[i].description"></p>
+              <h2 [froalaEditor]='options.options' [(froalaModel)]="body.bodysections[i].title"></h2>
+              <p [froalaEditor]='options.options' [(froalaModel)]="body.bodysections[i].description"></p>
             </div>
       </div>
       <a (click)="addbodypages()">
@@ -123,18 +87,18 @@
 <!-- About Section -->
 <section class="bg-primary text-white mb-0" id="about" >
   <div class="container">
-    <h2 class="text-center text-uppercase text-white"[froalaEditor]='options' [(froalaModel)]="body.bodyAboutTitle" ></h2>
+    <h2 class="text-center text-uppercase text-white"[froalaEditor]='options.options' [(froalaModel)]="body.bodyAboutTitle" ></h2>
     <hr class="star-light mb-5">
     <div class="row">
       <div class="col-lg-4 ml-auto">
-        <p class="lead" [froalaEditor]='options' [(froalaModel)]="body.bodyAboutContent"></p>
+        <p class="lead" [froalaEditor]='options.options' [(froalaModel)]="body.bodyAboutContent"></p>
       </div>
       <div class="col-lg-4 mr-auto">
-        <p class="lead" [froalaEditor]='options'>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+        <p class="lead" [froalaEditor]='options.options'>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
       </div>
     </div>
     <div class="text-center mt-4" >
-      <a class="btn btn-xl btn-outline-light" href="#"[froalaEditor]='options'>
+      <a class="btn btn-xl btn-outline-light" href="#"[froalaEditor]='options.options'>
         <i class="fa fa-download mr-2"></i>
         Download Now!
       </a>
@@ -145,7 +109,7 @@
 <!-- Contact Section -->
 <section id="contact" >
   <div class="container">
-    <h2 class="text-center text-uppercase text-secondary mb-0" [froalaEditor]='options' [(froalaModel)]="body.footerTitle" >Contact Me</h2>
+    <h2 class="text-center text-uppercase text-secondary mb-0" [froalaEditor]='options.options' [(froalaModel)]="body.footerTitle" >Contact Me</h2>
     <hr class="star-dark mb-5">
     <div class="row">
       <div class="col-lg-8 mx-auto">
@@ -183,7 +147,7 @@
           <br>
           <div id="success"></div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton" [froalaEditor]='options'>Send</button>
+            <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton" [froalaEditor]='options.options'>Send</button>
           </div>
         </div>
       </div>
@@ -196,12 +160,12 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4 mb-5 mb-lg-0">
-        <h4 class="text-uppercase mb-4" [froalaEditor]='options'>Location</h4>
-        <p class="lead mb-0" [froalaEditor]='options'>2215 John Daniel Drive
+        <h4 class="text-uppercase mb-4" [froalaEditor]='options.options'>Location</h4>
+        <p class="lead mb-0" [froalaEditor]='options.options'>2215 John Daniel Drive
           <br>Clark, MO 65243</p>
       </div>
       <div class="col-md-4 mb-5 mb-lg-0">
-        <h4 class="text-uppercase mb-4" [froalaEditor]='options'>Around the Web</h4>
+        <h4 class="text-uppercase mb-4" [froalaEditor]='options.options'>Around the Web</h4>
         <ul class="list-inline mb-0">
           <li class="list-inline-item">
             <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
@@ -231,9 +195,9 @@
         </ul>
       </div>
       <div class="col-md-4">
-        <h4 class="text-uppercase mb-4" [froalaEditor]='options'>About Freelancer</h4>
-        <p class="lead mb-0" [froalaEditor]='options'>Freelance is a free to use, open source Bootstrap theme created by
-          <a href="http://startbootstrap.com" [froalaEditor]='options'>Start Bootstrap</a>.</p>
+        <h4 class="text-uppercase mb-4" [froalaEditor]='options.options'>About Freelancer</h4>
+        <p class="lead mb-0" [froalaEditor]='options.options'>Freelance is a free to use, open source Bootstrap theme created by
+          <a href="http://startbootstrap.com" [froalaEditor]='options.options'>Start Bootstrap</a>.</p>
       </div>
     </div>
   </div>
@@ -241,7 +205,7 @@
 
 <div class="copyright py-4 text-center text-white froala-editor" >
   <div class="container">
-    <small [froalaEditor]='options'>Copyright &copy; Your Website 2018</small>
+    <small [froalaEditor]='options.options'>Copyright &copy; Your Website 2018</small>
   </div>
 </div>
 
