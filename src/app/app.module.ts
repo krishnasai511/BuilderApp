@@ -29,6 +29,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { VideoComponent } from './components/video/video.component';
 import { SafePipe } from './safe.pipe';
 
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ LoginComponent,
     TemplatesComponent,
     Temp3Component,
     VideoComponent,
-    SafePipe
+    SafePipe,
+    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,

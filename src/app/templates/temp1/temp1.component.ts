@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 // import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angular-froala-wysiwyg';
 //import { Header } from '../../project/models/header';
 import { Body } from '../../project/models/body';
-import {FroalaOptions} from '../../froala.service';
+import { FroalaOptions } from '../../froala.service';
 import { SaveTemp } from '../../project/service/save.service';
 import { userid } from '../../shared/userid';
 import { MainComponent } from '../../components/main/main.component';
@@ -13,14 +13,14 @@ declare var jQuery: any;
   selector: 'app-temp1',
   templateUrl: './temp1.component.html',
   styleUrls: ['./temp1.component.css'],
-  providers:[FroalaOptions]
+  providers: [FroalaOptions]
 })
-export class Temp1Component implements OnInit ,AfterViewInit{
+export class Temp1Component  {
   id: string;
   data:Object;
   flag:boolean=false;
   bodyheaderform: boolean;
-  editbodyheader:boolean;
+  editbodyheader: boolean;
   title = 'app';
   component:Array<MainComponent>=[];
   body: Body;
@@ -29,34 +29,29 @@ export class Temp1Component implements OnInit ,AfterViewInit{
  
     this.editbodyheader = false;
     this.bodyheaderform = false;
-    this.id = userid(); 
+    this.id = userid();
     this.datatoget();
       }
-   
+
   
 
-  // public options: Object = {
-  //   toolbarInline:true, 
-  //   charCounterCount: false,
-  //   toolbarButtons: ['bold', 'italic', 'underline', 'color', 'html', 'clearFormatting','paragraphFormat'],  
-  // };
+  // changed(event : any ){
+  // console.log(JSON.stringify(event));
+  // }
 
-// changed(event : any ){
-// console.log(JSON.stringify(event));
-// }
-
-  addnavlist(){
-    this.body.hnavlists.push({navlist: 'new '});
-    setTimeout(()=>{
+  addnavlist() {
+    this.body.hnavlists.push({ navlist: 'new ' });
+    setTimeout(() => {
       $('.froala-editor').froalaEditor({
         toolbarInline: true,
         charCounterCount: false,
-        toolbarButtons: ['bold', 'italic', 'strikeThrough', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'underline', 'undo', 'redo'],
+        toolbarButtons: ['bold', 'italic', 'strikeThrough', 'fontFamily', 'fontSize', '|', 'color',
+         'emoticons', 'underline', 'undo', 'redo'],
         toolbarVisibleWithoutSelection: true
       });
-    }, 300)
+    }, 300);
     console.log(this.body.hnavlists);
-    
+
   }
   // editmorebodyheader(){
   //   this.editbodyheader=true;
@@ -64,24 +59,24 @@ export class Temp1Component implements OnInit ,AfterViewInit{
   // bodyeditheaderform(){
   //   this.bodyheaderform = true
   // }
- 
-    
-   
-  addbodypages(){
-    this.body.bodysections.push({image:'', title:'new page',description:'this to write about the new pages  short ways'})
-   
+
+
+
+  addbodypages() {
+    this.body.bodysections.push({ image: '', title: 'new page', description: 'this to write about the new pages  short ways' });
+
     console.log(this.body.bodysections);
   }
-  menuedit()
-  {
-    setTimeout(()=>{
+  menuedit() {
+    setTimeout(() => {
       $('.froala-editor').froalaEditor({
         toolbarInline: true,
         charCounterCount: false,
-        toolbarButtons: ['bold', 'italic', 'strikeThrough', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'underline', 'undo', 'redo'],
+        toolbarButtons: ['bold', 'italic', 'strikeThrough', 'fontFamily', 'fontSize', '|', 'color',
+         'emoticons', 'underline', 'undo', 'redo'],
         toolbarVisibleWithoutSelection: true,
       });
-    }, 500)
+    }, 500);
     console.log('froala-editior add');
   }
   
@@ -89,18 +84,9 @@ export class Temp1Component implements OnInit ,AfterViewInit{
   //   this.visible=false;
   // }
 
-  ngOnInit() {
-   
-    // this.savetemp.getdata(this.id).
-    // then((res)=>{
-    //    console.log(res)
-    //   console.log("edited data", res)
-    //   this.body= res;
-    // })
-    
-  }
+ 
 
-  datatoget(){
+  datatoget() {
     this.savetemp.getdata(this.id).
     then((res)=>{
       console.log("edited data", res);
@@ -132,34 +118,35 @@ export class Temp1Component implements OnInit ,AfterViewInit{
     })
 
   }
-  changes(){
+
+  changes() {
 
     setTimeout(() => {
-      this.data={
-          templatetype:"First",
-          hbrandname:this.body.hbrandname,
-          hnavlists:this.body.hnavlists,
-          title:this.body.title,
-          description:this.body.description,
-          bodyAboutTitle:this.body.bodyAboutTitle,
-          bodyAboutContent:this.body.bodyAboutContent,
-          bodysections:this.body.bodysections,
-          bgColor:this.body.bgColor,
-          bgImg:this.body.bgImg,
-          footerTitle:this.body.footerTitle,
-          userhref: this.id
-  };
+      this.data = {
+        templatetype: 'First',
+        hbrandname: this.body.hbrandname,
+        hnavlists: this.body.hnavlists,
+        title: this.body.title,
+        description: this.body.description,
+        bodyAboutTitle: this.body.bodyAboutTitle,
+        bodyAboutContent: this.body.bodyAboutContent,
+        bodysections: this.body.bodysections,
+        bgColor: this.body.bgColor,
+        bgImg: this.body.bgImg,
+        footerTitle: this.body.footerTitle,
+        userhref: this.id
+      };
 
-  this.savetemp.adddata(this.data)
-      
-      }, 1000);  
-   }
-  
-  
-   ngAfterViewInit() {
+      this.savetemp.adddata(this.data);
 
-   
-   
+    }, 1000);
+  }
 
-   }
+
+  ngAfterViewInit() {
+
+
+
+
+  }
 }

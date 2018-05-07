@@ -1,12 +1,12 @@
-import { Component, OnInit} from '@angular/core';
-import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angular-froala-wysiwyg';
+import { Component, OnInit } from '@angular/core';
+import { FroalaEditorModule, FroalaViewModule, FroalaEditorDirective } from 'angular-froala-wysiwyg';
 import { SpecialEventsComponent } from '../special-events/special-events.component';
 
 @Component({
   selector: 'app-templates',
   templateUrl: './templates.component.html',
   styleUrls: ['./templates.component.css']
- 
+
 })
 export class TemplatesComponent implements OnInit {
   welcome: boolean;
@@ -20,7 +20,7 @@ export class TemplatesComponent implements OnInit {
   this.template3=false;
   }
   ngOnInit() {
-}
+  }
 
  tempdata1(){
   console.log('template1');
