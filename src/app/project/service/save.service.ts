@@ -43,6 +43,25 @@ updatedata(data,id):Promise<any>{
     })
 }
 
+checkemail(email):Promise<any>{
+   
+    return  this.http.post('http://localhost:3000/routes/checkemail',{email})
+    .toPromise().then((res)=>{
+      return res.json();
+    })
+}
+
+resetpassword(password,id):Promise<any>{
+    
+    return this.http.post('http://localhost:3000/routes/resetpassword',{password},{
+        params:{
+            'id':id
+        }
+    })
+    .toPromise().then((res)=>{
+        console.log(res);
+    })
+}
 
 
 }

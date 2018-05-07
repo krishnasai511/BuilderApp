@@ -15,6 +15,10 @@ declare var jQuery: any;
   providers:[FroalaOptions]
 })
 export class Temp1Component implements OnInit ,AfterViewInit{
+  ngAfterViewInit()
+  {
+    
+  }
   flag: boolean=false;
   id: string;
   data:Object;
@@ -193,11 +197,5 @@ export class Temp1Component implements OnInit ,AfterViewInit{
    }
 
   
-  
-  ngAfterViewInit() {
-
-   
-   
-
-   }
+ 
 }
