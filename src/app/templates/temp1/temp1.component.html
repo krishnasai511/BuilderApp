@@ -3,7 +3,7 @@
     <div class="navbar-header" >
       <div class="navbar-brand   mb-0" [froalaEditor]='options.options'  [(froalaModel)]="body.hbrandname"></div>
     </div>
-    <ul class="nav navbar-nav">
+    <ul class="navbar-nav ">
       <li class="nav-item" *ngFor="let navlist of body.hnavlists; let i=index;">
         <p  [froalaEditor]='options.options' [(froalaModel)]="body.hnavlists[i].navlist"></p>
        </li>   

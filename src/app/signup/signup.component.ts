@@ -25,17 +25,6 @@ export class SignupComponent implements OnInit {
 
   registerUser() {
     this._auth.registerUser(this.registerUserData)
-<<<<<<< HEAD
-    .subscribe(
-      res => {
-        localStorage.setItem('username',res.user.username)
-        localStorage.setItem('userid',res.user._id)
-        localStorage.setItem('token', res.token)
-        this._router.navigate(['/special'])
-      },
-      err => console.log(err)
-    )      
-=======
       .subscribe(
         res => {
           localStorage.setItem('token', res.token);
@@ -45,7 +34,6 @@ export class SignupComponent implements OnInit {
         err => console.log(err)
       );
 
->>>>>>> 17c4464f5096d42dc42c97b85945977f60740b93
   }
 
 
