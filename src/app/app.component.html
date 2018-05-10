@@ -14,11 +14,12 @@
       </li>
     </ul>
     <ul class="navbar-nav">
-       <li><span class="glyphicon glyphicon-log-in"></span> <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a></li>
-       <li><span class="glyphicon glyphicon-user"></span> <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/signup" routerLinkActive="active">Register</a></li>
-        <li><a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a> </li>     
-       <li> <a class="nav-link" *ngIf="_authService.loggedIn()" style="color:aliceblue">{{_authService.user.name}}</a></li>
-      </ul>
+        <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
+        <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/signup" routerLinkActive="active">Register</a>
+        <a class="nav-link" *ngIf="_authService.loggedIn()" style="color:aliceblue">{{_authService.user.name}}</a>
+        <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a> 
+              
+    </ul>
   </div>
 </nav>    
 <div>

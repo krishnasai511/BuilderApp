@@ -4,3 +4,18 @@
     position: 0 50% 0 50%;
     height:400px;
 }
+.iframes{
+    background: #f8f8f8;
+    padding: 5% 0;
+    position: 0 50% 0 50%;
+    height:700px;
+}
+.file-path{
+    width: 380px;
+	padding: 10px 5px;
+	border: none;
+	border-bottom: 1px silver solid;
+    outline: none;
+    background: #f1f1f1;
+    font-size:18px;
+}

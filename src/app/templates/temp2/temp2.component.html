@@ -1,7 +1,7 @@
 <br><br><div class="bgimg">
   <!--For Navbar-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand"  [froalaEditor]='options' [(froalaModel)]="body.hbrandName"></a>
+    <a class="navbar-brand"  [froalaEditor]='options' [(froalaModel)]="body.hbrandname"></a>
     <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button> -->
@@ -18,7 +18,8 @@
     </div>
   </nav>
   </div>
-  <button class="btn btn-primary" (click)='changes()'>Save</button>
+  <button *ngIf="!savebutton" class="btn btn-primary" (click)='update()'>Update</button>
+<button *ngIf="savebutton" class="btn btn-primary" (click)='changes()'>Save</button>
 
   <div class="container text-center text-danger headerset" [ngStyle]="{'background-color':body.bgColor}" >
       <h2>Welcome To Our Template </h2>
@@ -47,7 +48,10 @@
       </div>
     </div>
 <br>
-
+<!--Add of Plus -->
+<div >
+    <app-main></app-main>
+</div>
 <!--Services Part-->
 <section class="container ourservices text-center">
   <h1  [froalaEditor]='options' [(froalaModel)]="body.bodyAboutTitle" ></h1>

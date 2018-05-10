@@ -14,7 +14,7 @@ import { VideoComponent } from '../video/video.component';
 export class MainComponent implements OnInit {
 
  @ViewChild('container', {read: ViewContainerRef}) container: ViewContainerRef;
-  visible=true;
+  visible=false;
  components = [];
 
  formcomponentclass=FormComponent
@@ -45,5 +45,8 @@ export class MainComponent implements OnInit {
   openedit(){
     this.visible=true;
   
+  }
+  close(){
+    this.visible=false;
   }
 }

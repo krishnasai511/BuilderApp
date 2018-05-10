@@ -25,6 +25,7 @@ export class Temp1Component  {
   component:Array<MainComponent>=[];
   body: Body;
   visible=false;
+  savebutton:boolean;
  constructor(private savetemp: SaveTemp,private options:FroalaOptions){
  
     this.editbodyheader = false;
@@ -96,6 +97,7 @@ export class Temp1Component  {
         
        this.body=Body.createsample();
        console.log(this.body);
+       this.savebutton=true;
        //this.changes();
       }
       else{
@@ -106,12 +108,14 @@ export class Temp1Component  {
             console.log("hi");
 
             this.body=res[i];
+            this.savebutton=false;
             this.flag=true;
            
          }}
          if(this.flag!==true){
            this.body=Body.createsample();
            this.flag=false;
+           this.savebutton=false;
          }
 
     }
@@ -119,34 +123,57 @@ export class Temp1Component  {
 
   }
 
-  changes() {
+  
+  changes(){
 
     setTimeout(() => {
-      this.data = {
-        templatetype: 'First',
-        hbrandname: this.body.hbrandname,
-        hnavlists: this.body.hnavlists,
-        title: this.body.title,
-        description: this.body.description,
-        bodyAboutTitle: this.body.bodyAboutTitle,
-        bodyAboutContent: this.body.bodyAboutContent,
-        bodysections: this.body.bodysections,
-        bgColor: this.body.bgColor,
-        bgImg: this.body.bgImg,
-        footerTitle: this.body.footerTitle,
-        userhref: this.id
-      };
+      this.data={
+          templatetype:"First",
+          hbrandname:this.body.hbrandname,
+          hnavlists:this.body.hnavlists,
+          title:this.body.title,
+          description:this.body.description,
+          bodyAboutTitle:this.body.bodyAboutTitle,
+          bodyAboutContent:this.body.bodyAboutContent,
+          bodysections:this.body.bodysections,
+          bgColor:this.body.bgColor,
+          bgImg:this.body.bgImg,
+          footerTitle:this.body.footerTitle,
+          userhref: this.id
+  };
+;
+  this.savetemp.getdata(this.data)
+     
+      }, 1000);  
+   }
+  
+   update(){
 
-      this.savetemp.adddata(this.data);
+    setTimeout(() => {
+      this.data={
+          templatetype:"First",
+          hbrandname:this.body.hbrandname,
+          hnavlists:this.body.hnavlists,
+          title:this.body.title,
+          description:this.body.description,
+          bodyAboutTitle:this.body.bodyAboutTitle,
+          bodyAboutContent:this.body.bodyAboutContent,
+          bodysections:this.body.bodysections,
+          bgColor:this.body.bgColor,
+          bgImg:this.body.bgImg,
+          footerTitle:this.body.footerTitle,
+          // userhref: this.id
+  };
 
-    }, 1000);
-  }
+  this.savetemp.updatedata(this.data,this.body._id).then(()=>
+{
+  window.alert("data updated");
+})
+     
+      }, 1000);
 
+   }
 
-  ngAfterViewInit() {
-
-
-
-
-  }
+  
+ 
 }

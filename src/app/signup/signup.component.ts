@@ -25,15 +25,18 @@ export class SignupComponent implements OnInit {
 
   registerUser() {
     this._auth.registerUser(this.registerUserData)
-      .subscribe(
-        res => {
-          localStorage.setItem('token', res.token);
-          localStorage.setItem('userid', res.user._id);
-          this._router.navigate(['/special']);
-        },
-        err => console.log(err)
-      );
 
+    .subscribe(
+      res => {
+        this._auth.user.name=res.user.username
+        localStorage.setItem('token', res.token)
+        localStorage.setItem('userid',res.user._id)
+        localStorage.setItem('username',res.user.username)
+        this._router.navigate(['/special'])
+      },
+      err => console.log(err)
+    )      
+      
   }
 
 

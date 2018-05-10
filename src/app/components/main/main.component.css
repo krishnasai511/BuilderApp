@@ -252,3 +252,7 @@ img{
       transition: all .15s ease;
       position: absolute;
   }
+  .close{
+      margin-right:10%;
+     
+  }

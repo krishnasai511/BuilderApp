@@ -79,5 +79,10 @@ export class Temp3Component implements OnInit {
       console.log(this.body.hnavlists);
       
     }
-  
+    photo:string='http://res.cloudinary.com/saw/image/upload/v1525885923/kqzwgdkli6pblv6zlpxd.jpg';
+    image_change(event){
+      console.log(event);
+      // this.savetemp.imgupload(imgdata);
+    }
+    
 }

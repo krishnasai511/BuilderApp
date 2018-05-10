@@ -13,14 +13,12 @@
     </ul>
     
   </div>
+
 </nav>
-
-
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Open modal
-</button> -->
-<section class="masthead  text-white text-center" [ngStyle]="{'background-color': body.bgColor}">
-  <div class="container" >
+<button *ngIf="!savebutton" class="btn btn-primary" (click)='update()'>Update</button>
+<button *ngIf="savebutton" class="btn btn-primary" (click)='changes()'>Save</button>
+<section class="masthead  text-white text-center"  [ngStyle]="{'background-color': body.bgColor}">
+  <div class="container">
       <div class="create-menu-button" >
           <div   data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil" style="color:black" aria-hidden="true"></i></div>
       </div>
@@ -83,6 +81,10 @@
      
   </div>
 </section>
+<!--Add of Plus -->
+<div >
+    <app-main></app-main>
+</div>
 
 <!-- About Section -->
 <section class="bg-primary text-white mb-0" id="about" >
@@ -106,6 +108,10 @@
   </div>
 </section>
 
+<!--Add of Plus -->
+<div >
+    <app-main></app-main>
+</div>
 <!-- Contact Section -->
 <section id="contact" >
   <div class="container">

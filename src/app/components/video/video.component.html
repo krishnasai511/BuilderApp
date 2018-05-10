@@ -1,8 +1,13 @@
-<div class="project-block">
-    
-  <h1 [froalaEditor]='options.options' class="text-heading">Click To Add Video</h1>
-  <input type="text" [(ngModel)]="video">Please Add Video File
-  <button class="btn btn-primary" (click)="attr()">Submit</button>
- <!-- <iframe [src]="videoUrl | safe" frameborder="0"></iframe> -->
-  
+<div class="project-block" *ngIf="isvisible">
+  <div style="margin-left:25%">  
+  <h1 [froalaEditor]='options.options' class="text-heading">Link To Add Video</h1>
+  <input type="text" [(ngModel)]="video" class="file-path">
+  <br>
+  <button class="btn btn-primary" style="margin-left:25%;margin-top:5%" (click)="attr()">Submit</button>
+  </div>
+</div>
+<div class="iframes" *ngIf="!isvisible">
+  <div>
+  <iframe width="810" height="400" [src]="videoUrl | safe" frameborder="2" allowfullscreen
+  style="margin-top:2%;margin-left:5%"></iframe></div>
 </div>

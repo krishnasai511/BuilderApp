@@ -16,15 +16,15 @@ declare var jQuery: any;
 
 })
 export class Temp2Component implements OnInit {
-  id: any;
+  id: string;
   data:Object;
-  //header:Header;
   body:Body;
   flag:boolean=false;
+  savebutton:boolean;
   constructor(private savetemp:SaveTemp ){
-   // this.header = Header.createsample();
-    this.body = Body.createsample();
-    this.id=userid();
+    this.id = userid(); 
+  // this.fetchdata.datatoget();
+  this.datatoget();
   }
   ngOnInit() {
 
@@ -62,56 +62,89 @@ export class Temp2Component implements OnInit {
       console.log(this.body.bodysections);
     }
 
+
+    datatoget(){
+      this.savetemp.getdata(this.id).
+      then((res)=>{
+        console.log("edited data", res);
+        if(res.length==0)
+         {
+  
+          console.log("true");
+          
+         this.body=Body.createsample();
+
+        console.log(this.body);
+        this.savebutton=true;
+         //this.changes();
+        }
+        else{
+          for(let i=0;i<res.length;i++)
+          {
+          if(res[i].templatetype=="Second")
+            {
+              console.log("hi");
+              this.body=res[i];
+             // console.log(this.body);
+            this.flag=true;
+            this.savebutton=false
+            } }
+          if(this.flag!==true){
+            this.body=Body.createsample();
+            this.flag=false;
+            this.savebutton=false;
+          }  
+      }
+      })
+    }
+  
+
+
+
+
     changes(){
      setTimeout(() => {
         this.data={
           templatetype:"Second",
-            navheader:this.body.hbrandname,
-            navlist:this.body.hnavlists,
-            title:this.body.title,
-            description:this.body.description,
-            bodyAboutTitle:this.body.bodyAboutTitle,
-            bodyAboutContent:this.body.bodyAboutContent,
-            bodysection:this.body.bodysections,
-            bgColor:this.body.bgColor,
-            bgImg:this.body.bgImg,
-            footerTitle:this.body.footerTitle
+          hbrandname:this.body.hbrandname,
+          hnavlists:this.body.hnavlists,
+          title:this.body.title,
+          description:this.body.description,
+          bodyAboutTitle:this.body.bodyAboutTitle,
+          bodyAboutContent:this.body.bodyAboutContent,
+          bodysections:this.body.bodysections,
+          bgColor:this.body.bgColor,
+          bgImg:this.body.bgImg,
+          footerTitle:this.body.footerTitle,
+          userhref: this.id
           };
-         this.savetemp.adddata(this.data);
+         this.savetemp.getdata(this.data);
       }, 1000);  
   }
+  update(){
 
-  datatoget(){
-    this.savetemp.getdata(this.id).
-    then((res)=>{
-      console.log("edited data", res);
-      if(res.length==0)
-       {
-        console.log("true");
-        
-       this.body=Body.createsample();
-       console.log(this.body);
-       //this.changes();
-      }
-      else{
-        for(let i=0;i<res.length;i++)
-        {
-          if(res[i].templatetype=="First")
-          {
-            console.log("hi");
+    setTimeout(() => {
+      this.data={
+          templatetype:"Second",
+          hbrandname:this.body.hbrandname,
+          hnavlists:this.body.hnavlists,
+          title:this.body.title,
+          description:this.body.description,
+          bodyAboutTitle:this.body.bodyAboutTitle,
+          bodyAboutContent:this.body.bodyAboutContent,
+          bodysections:this.body.bodysections,
+          bgColor:this.body.bgColor,
+          bgImg:this.body.bgImg,
+          footerTitle:this.body.footerTitle,
+          // userhref: this.id
+  };
 
-            this.body=res[i];
-            this.flag=true;
-           
-         }}
-         if(this.flag!==true){
-           this.body=Body.createsample();
-           this.flag=false;
-         }
+  this.savetemp.updatedata(this.data,this.body._id).then(()=>
+{
+  window.alert("data updated");
+})
+     
+      }, 1000);
 
-    }
-    })
-
-  }
-
+   }
 }

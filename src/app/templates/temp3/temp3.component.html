@@ -23,10 +23,39 @@
 </nav>
 
 <!-- Header -->
-<header class="masthead">
-  
- 
+<header class="masthead" [ngStyle]="{'background-image': 'url(' + photo+ ')'}">
   <div class="container">
+      <div class="create-menu-button" >
+          <div   data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil" style="color:black" aria-hidden="true"></i></div>
+      </div>
+      <div  class="modal fade" role="dialog" id="myModal">
+          <div class="modal-dialog">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Style</h4>
+              </div>
+              <div class="modal-body" style="color:black">
+                <p>Choose Setting</p>
+                <div class="card">
+                    <img src="http://fillmurray.com/g/300/300" id="img-preview" #event/>
+                    <label class="file-upload-container" for="file-upload">
+                      <input id="file-upload" type="file" style="display:none;" (click)="image_change()">
+                      Select an Image
+                    </label>
+                  </div>
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+        
+          </div>
+           <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+          </div>
     <div class="intro-text">
       <div class="intro-lead-in"  [froalaEditor]='options'>Welcome To Our Studio!</div>
       <div class="intro-heading text-uppercase"  [froalaEditor]='options' >It's Nice To Meet You</div>
@@ -78,6 +107,10 @@
   </div>
 </section>
 
+<!--Add of Plus -->
+<div >
+    <app-main></app-main>
+</div>
 <!-- Portfolio Grid -->
 <section class="bg-light" id="portfolio">
   <div class="container">
@@ -176,6 +209,10 @@
   </div>
 </section>
 
+<!--Add of Plus -->
+<div >
+    <app-main></app-main>
+</div>
 <!-- About -->
 <section id="about">
   <div class="container">
@@ -257,6 +294,10 @@
   </div>
 </section>
 
+<!--Add of Plus -->
+<div >
+    <app-main></app-main>
+</div>
 <!-- Team -->
 <section class="bg-light" id="team">
   <div class="container">
@@ -348,6 +389,10 @@
   </div>
 </section>
 
+<!--Add of Plus -->
+<div >
+    <app-main></app-main>
+</div>
 <!-- Clients -->
 <section class="py-5">
   <div class="container">

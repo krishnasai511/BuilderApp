@@ -10,25 +10,21 @@ export class VideoComponent implements OnInit {
    files:string;
    video;
    videoUrl:string;
+   isvisible:boolean=true;
   constructor(private options:FroalaOptions) { }
+
+  embed=function(videoUrl){
+    return videoUrl.replace("https://www.youtube.com/watch?v=","https://www.youtube.com/embed/");
+  }
 
   attr(){
     this.videoUrl=this.video;
-
-    console.log(JSON.parse(this.videoUrl));
-    this.getUrlVars(this.videoUrl)
+    this.videoUrl=this.embed(this.videoUrl);
+    console.log(this.videoUrl);
+    this.isvisible=false;
     
   }
-  getUrlVars(url) {
-    var hash;
-    var myJson = {};
-    var hashes = url.slice(url.indexOf('?') + 1).split('&');
-    for (var i = 0; i < hashes.length; i++) {
-        hash = hashes[i].split('=');
-        myJson[hash[0]] = hash[1];
-    }
-    console.log('hohahahahh', myJson);
-}
+  
   ngOnInit() {
   }
 

@@ -13,11 +13,13 @@ export class TemplatesComponent implements OnInit {
   template1: boolean;
   template2: boolean;
   template3:boolean;
+  template4:boolean;
   constructor(){
     this.welcome=true;
    this.template1=false;
    this.template2=false;
   this.template3=false;
+  this.template4=false;
   }
   ngOnInit() {
   }
@@ -28,7 +30,7 @@ export class TemplatesComponent implements OnInit {
   this.template1=true;
   this.template2=false;
   this.template3=false;
-
+  this.template4=false;
  }
 
  tempdata2(){
@@ -37,7 +39,7 @@ export class TemplatesComponent implements OnInit {
   this.template1=false;
   this.template2=true;
   this.template3=false;
-
+  this.template4=false;
  }
  tempdata3(){
   console.log('template3');
@@ -45,6 +47,15 @@ export class TemplatesComponent implements OnInit {
   this.template1=false;
   this.template2=false;
   this.template3=true;
+  this.template4=false;
+ } 
+ tempdata4(){
+  console.log('template3');
+  this.welcome=false;
+  this.template1=false;
+  this.template2=false;
+  this.template3=false;
+  this.template4=true;
  } 
  
 }

@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ModuleWithProviders  } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppRoutingModule }  from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AppComponent } from './app.component';
 import { ProjectComponent } from './project/project.component';
-import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Temp2Component } from './templates/temp2/temp2.component';
 import { Temp1Component } from './templates/temp1/temp1.component';
 import { MainComponent } from './components/main/main.component';
@@ -25,19 +25,23 @@ import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { TemplatesComponent } from './templates/templates.component';
 import { Temp3Component } from './templates/temp3/temp3.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+
 import { VideoComponent } from './components/video/video.component';
 import { SafePipe } from './safe.pipe';
 
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { Temp4Component } from './templates/temp4/temp4.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectComponent,
-   SignupComponent,
-   WelcomeComponent,
-LoginComponent,
+    SignupComponent,
+    WelcomeComponent,
+    LoginComponent,
     Temp2Component,
     Temp1Component,
     MainComponent,
@@ -49,11 +53,12 @@ LoginComponent,
     Temp3Component,
     VideoComponent,
     SafePipe,
-    ForgotpasswordComponent
+    ForgotpasswordComponent,
+    Temp4Component
   ],
   imports: [
     BrowserModule,
-   FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),NgbModule.forRoot(),
+   FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
    ReactiveFormsModule ,
    AppRoutingModule,
    HttpModule,
@@ -63,10 +68,10 @@ LoginComponent,
 entryComponents:[FormComponent,TextComponent,VideoComponent],
   providers: [AuthService,AuthGuard, EventService, 
     {
-       provide: HTTP_INTERCEPTORS,
-       useClass: TokenInterceptorService,
-       multi: true
-  },
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    },
     SaveTemp],
   bootstrap: [AppComponent]
 })

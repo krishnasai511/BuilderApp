@@ -9,39 +9,54 @@ export class SaveTemp {
 
 
     constructor(private http: Http) { }
+imgupload(data):Promise<any>{
+    console.log(data);
+   return this.http.post('http://localhost:3000/routes/imgupload',{data}).toPromise();
+}
 
+getdata(values):Promise<any> {
+    console.log(values);
+    return this.http.get('http://localhost:3000/routes/checkid',{
+        params:{
+            'id': values
+        }
+     }).
+      toPromise().then((res)=>{
+          return res.json().data;
+     });
+  }
 
-    adddata(values) {
+updatedata(data,id):Promise<any>{
+    
+ return  this.http.put('http://localhost:3000/routes/updatedata',data,{
+        params:{
+            'id':id
+        }
+    }).toPromise().then((res)=>{
+        return res.json().data
+    })
+}
 
-        console.log(values);
-        this.http.post('http://localhost:3000/routes/saveRecord', values).
-            toPromise().then((res) => {
-                console.log(res);
-            });
-    }
+checkemail(email):Promise<any>{
+   
+    return  this.http.post('http://localhost:3000/routes/checkemail',{email})
+    .toPromise().then((res)=>{
+      return res.json();
+    })
+}
 
-    getdata(values: string): Promise<any> {
-        console.log(values);
-        return this.http.get('http://localhost:3000/routes/checkid', {
-            params: {
-                'id': values
-            }
-        }).
-            toPromise().then((res) => {
-                return res.json().data;
-            });
-    }
-    forgotPassword(values: String) {
-        console.log(values);
-           return this.http.post('http://localhost:3000/routes/forgotpassword', values)
-            .toPromise().then((res) => {
-                console.log(res);
-            });
-    }
+resetpassword(password,id):Promise<any>{
+    
+    return this.http.post('http://localhost:3000/routes/resetpassword',{password},{
+        params:{
+            'id':id
+        }
+    })
+    .toPromise().then((res)=>{
+        console.log(res);
+    })
+}
 
-    Passwordsubmit(values: string) {
-        console.log(values);
-    }
 
 }
 
