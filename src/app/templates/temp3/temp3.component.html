@@ -23,7 +23,7 @@
 </nav>
 
 <!-- Header -->
-<header class="masthead" [ngStyle]="{'background-image': 'url(' + photo+ ')'}">
+<header class="masthead" [ngStyle]="{'background-image': 'url(' +curl+ ')'}">
   <div class="container">
       <div class="create-menu-button" >
           <div   data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil" style="color:black" aria-hidden="true"></i></div>
@@ -40,9 +40,9 @@
               <div class="modal-body" style="color:black">
                 <p>Choose Setting</p>
                 <div class="card">
-                    <img src="http://fillmurray.com/g/300/300" id="img-preview" #event/>
+                    <img [src]="curl" id="img-preview" #event style="max-height:100%;max-width:100%">
                     <label class="file-upload-container" for="file-upload">
-                      <input id="file-upload" type="file" style="display:none;" (click)="image_change()">
+                      <input id="file-upload" type="file" style="display:none;" (change)="image_change($event)">
                       Select an Image
                     </label>
                   </div>
@@ -54,7 +54,6 @@
             </div>
         
           </div>
-           <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
           </div>
     <div class="intro-text">
       <div class="intro-lead-in"  [froalaEditor]='options'>Welcome To Our Studio!</div>

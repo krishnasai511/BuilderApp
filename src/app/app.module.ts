@@ -34,7 +34,6 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { Temp4Component } from './templates/temp4/temp4.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +62,8 @@ import { Temp4Component } from './templates/temp4/temp4.component';
    AppRoutingModule,
    HttpModule,
    FormsModule,
-   HttpClientModule
+   HttpClientModule,
+  
 ],
 entryComponents:[FormComponent,TextComponent,VideoComponent],
   providers: [AuthService,AuthGuard, EventService, 
@@ -73,6 +73,7 @@ entryComponents:[FormComponent,TextComponent,VideoComponent],
       multi: true
     },
     SaveTemp],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }
