@@ -32,6 +32,9 @@ import { SafePipe } from './safe.pipe';
 
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { Temp4Component } from './templates/temp4/temp4.component';
+import { FroalaOptions } from './froala.service';
+import { Temp5Component } from './templates/temp5/temp5.component';
+import { ImageUplode } from './image.service';
 
 
 @NgModule({
@@ -53,7 +56,8 @@ import { Temp4Component } from './templates/temp4/temp4.component';
     VideoComponent,
     SafePipe,
     ForgotpasswordComponent,
-    Temp4Component
+    Temp4Component,
+    Temp5Component
   ],
   imports: [
     BrowserModule,
@@ -72,7 +76,8 @@ entryComponents:[FormComponent,TextComponent,VideoComponent],
       useClass: TokenInterceptorService,
       multi: true
     },
-    SaveTemp],
+    SaveTemp,FroalaOptions,
+  ImageUplode],
   bootstrap: [AppComponent],
 
 })

@@ -11,5 +11,5 @@ export class FroalaOptions {
            toolbarButtons: ['bold', 'italic', 'underline', 'color', 'html', 'clearFormatting','paragraphFormat'],
        };
    
-   }
+}
    

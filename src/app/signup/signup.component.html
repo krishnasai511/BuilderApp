@@ -78,7 +78,7 @@
                     </div>
                   </div>
                 </div>
-                <button type="button"  [disabled]= "!registerform.valid" (click)="registerUser()" onclick="alert('Registered successfully')" class="btn btn-primary float-right">Register</button>
+                <button type="button submit"  [disabled]= "!registerform.valid" (click)="registerUser()" onclick="alert('Registered successfully')" class="btn btn-primary float-right">Register</button>
               </form>
               <p>Already registered ?</p><a routerLink="/login" style="margin-left:30%;margin-top:-2%">Log in</a>
               </div>

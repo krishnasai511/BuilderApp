@@ -6,8 +6,10 @@ import { FroalaOptions } from '../../froala.service';
 import { SaveTemp } from '../../project/service/save.service';
 import { userid } from '../../shared/userid';
 import { MainComponent } from '../../components/main/main.component';
-declare const $: any;
+import axios from 'axios';
+import { ImageUplode } from '../../image.service';
 //  declare const $img: any;
+declare const $:any;
 declare var jQuery: any;
 @Component({
   selector: 'app-temp1',
@@ -26,19 +28,18 @@ export class Temp1Component  {
   body: Body;
   visible=false;
   savebutton:boolean;
- constructor(private savetemp: SaveTemp,private options:FroalaOptions){
+
+ constructor(private savetemp: SaveTemp,private options:FroalaOptions,private editor :ImageUplode){
  
     this.editbodyheader = false;
     this.bodyheaderform = false;
     this.id = userid();
     this.datatoget();
+   
       }
 
+      
   
-
-  // changed(event : any ){
-  // console.log(JSON.stringify(event));
-  // }
 
   addnavlist() {
     this.body.hnavlists.push({ navlist: 'new ' });
@@ -162,6 +163,7 @@ export class Temp1Component  {
           bgColor:this.body.bgColor,
           bgImg:this.body.bgImg,
           footerTitle:this.body.footerTitle,
+        
           // userhref: this.id
   };
 
@@ -174,6 +176,31 @@ export class Temp1Component  {
 
    }
 
-  
- 
+image_change(event){
+    // console.log(event);
+
+     // this.savetemp.imgupload(imgdata);
+     console.log('check');
+     this.editor.edit(event);
+     
+   }
+  //  getmystyle(){
+    
+  //   let style;
+  //   if(this.curl!=null)
+  //   {
+  //      style ={
+  //       'background-color':null,
+  //       'background-image':this.curl
+  //     }
+  //   }
+  //   else {
+  //      style={
+  //        'background-image':null,
+  //       'background-color':this.body.bgColor,
+  //     }
+  //   }
+   
+  //   return style;
+  // }
 }

@@ -82,7 +82,9 @@ a{
     color: black;
     font-size: 3em;
 } */
-
+.header{
+	margin-top:-6%;
+}
 .container{
 	margin-top:50px;
 }

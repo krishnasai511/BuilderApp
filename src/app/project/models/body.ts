@@ -16,6 +16,13 @@ export interface Navlist {
     navlist: string;
 }
 
+export interface Forms{
+    Fhead:string
+    username:string;
+    email:string;
+    phonenumber:string;
+    submit:string;
+}
 
 export class Body {
     _id:String;
@@ -36,12 +43,13 @@ export class Body {
     bodyAboutContent: string;
     footerTitle: string;
     footerData: string;
+    forms:Forms[];
 
     constructor(templatetype?: string, title?: string, description?: string, bgColor?: string, bgImg?: string,
         bodysection?: BodySections[], bodyAboutTitle?: string, bodyAboutContent?: string, footerTitle?: string,
         footerData?: string,
         hbrandname?: string, hnavlist?: Navlist[], hpgTitle?: string, hpgDescription?: string,
-        hnavigation?: Navigation[], hbgColor?: string, hbgImg?: string) {
+        hnavigation?: Navigation[], hbgColor?: string, hbgImg?: string, forms?: Forms[]) {
         this.templatetype = templatetype;
         this.title = title;
         this.description = description;
@@ -60,16 +68,22 @@ export class Body {
         this.hnavigations = hnavigation;
         this.hpgTitle = hpgTitle;
         this.hpgDescription = hpgDescription;
+
+        this.forms=forms
+
     }
 
     public static createsample(): Body {
-        // tslint:disable-next-line:max-line-length
-        return new Body('', 'Page Title', 'Page Description short way', 'red', '', [{ image: ' ', title: 'page 1', description: 'Write Something' }],
-            // tslint:disable-next-line:max-line-length
+       
+        return new Body('', 'Page Title', 'Page Description short way', 'red', 'http://www.villagetweet.co.uk/_root/images/bgimage.jpg',
+         [{ image: '', title: 'page 1', description: 'Write Something' }],
+            
             'About us', `Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.`
             , 'Contact Me', '', 'Page Header', [{ navlist: 'About' }, { navlist: 'Contact Us' }], 'Welcone to our page',
-            'This is the page for template Editing', [{ bgColor: 'red', Logo: '' }]);
+            'This is the page for template Editing', [{ bgColor: 'red', Logo: '' }],"","",
+            [{ Fhead:'Fill the Form' ,username: 'Username', email: 'Email', phonenumber:'Phonenumber',submit:'Submit'}]);
     }
 
 }
 
+1

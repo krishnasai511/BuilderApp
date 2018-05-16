@@ -56,9 +56,9 @@
           </div>
           </div>
     <div class="intro-text">
-      <div class="intro-lead-in"  [froalaEditor]='options'>Welcome To Our Studio!</div>
-      <div class="intro-heading text-uppercase"  [froalaEditor]='options' >It's Nice To Meet You</div>
-      <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"  [froalaEditor]='options'>Tell Me More</a>
+      <div class="intro-lead-in"  [froalaEditor]='options' [(froalaModel)]="body.title"></div>
+      <div class="intro-heading text-uppercase"  [froalaEditor]='options' [(froalaModel)]="body.description"></div>
+      
     </div>
   </div>
 </header>

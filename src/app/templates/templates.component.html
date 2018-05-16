@@ -1,6 +1,6 @@
 <div *ngIf="welcome">
     <app-special-events (temp1)="tempdata1()" (temp2)="tempdata2()" 
-    (temp3)="tempdata3()" (temp4)="tempdata4()"></app-special-events>>
+    (temp3)="tempdata3()" (temp4)="tempdata4()" (temp5)="tempdata5()"></app-special-events>>
 </div>
 <div *ngIf="template1">
     <app-temp1   ></app-temp1>
@@ -13,4 +13,7 @@
  </div>
  <div *ngIf="template4">
      <app-temp4></app-temp4>
+ </div>
+ <div *ngIf="template5">
+     <app-temp5></app-temp5>
  </div>

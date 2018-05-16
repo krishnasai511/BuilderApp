@@ -17,6 +17,7 @@ export class SpecialEventsComponent implements OnInit {
 @Output()  temp2=new EventEmitter<boolean>();
 @Output() temp3=new EventEmitter<boolean>();  
 @Output() temp4=new EventEmitter<boolean>();  
+@Output() temp5=new EventEmitter<boolean>();  
 
 
   constructor(private _eventService: EventService,
@@ -40,9 +41,9 @@ export class SpecialEventsComponent implements OnInit {
  aclicked4(){
    this.temp4.emit(this.temp);
   }  
-//        aclicked5(){
-//         this.temp5.emit(this.temp);
-//            }  
+ aclicked5(){
+  this.temp5.emit(this.temp);
+  }  
 //            aclicked6(){
 //             this.temp6.emit(this.temp);
 //                }  

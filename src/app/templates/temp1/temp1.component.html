@@ -1,60 +1,83 @@
-<nav class="navbar navbar-default" >
-  <div class="container">
-    <div class="navbar-header" >
-      <div class="navbar-brand   mb-0" [froalaEditor]='options.options'  [(froalaModel)]="body.hbrandname"></div>
-    </div>
-    <ul class="navbar-nav ">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNav">
+  <div class="navbar-brand   mb-0" [froalaEditor]='options.options'  [(froalaModel)]="body.hbrandname" style="margin-left:6%"></div>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
       <li class="nav-item" *ngFor="let navlist of body.hnavlists; let i=index;">
         <p  [froalaEditor]='options.options' [(froalaModel)]="body.hnavlists[i].navlist"></p>
        </li>   
        <li class="nav-item"> <a (click)="addnavlist()"  style="margin-top:50px">
-        <i class="fa fa-plus" style="color:black" aria-hidden="true"></i>
+        <i class="fa fa-plus-circle" style="color:aliceblue" aria-hidden="true"></i>
         </a></li>
     </ul>
-    
   </div>
-
 </nav>
 <button *ngIf="!savebutton" class="btn btn-primary" (click)='update()'>Update</button>
-<button *ngIf="savebutton" class="btn btn-primary" (click)='changes()'>Save</button>
-<section class="masthead  text-white text-center"  [ngStyle]="{'background-color': body.bgColor}">
-  <div class="container">
-      <div class="create-menu-button" >
-          <div   data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil" style="color:black" aria-hidden="true"></i></div>
-      </div>
+<!-- <button *ngIf="savebutton" class="btn btn-primary" (click)='changes()'>Save</button> -->
+<section class="masthead  text-white text-center" [ngStyle]="{'background-image': 'url(' +editor.curl+ ')'}">
+  <div class="row menu-container">
+    <div class="col-xl-6 col-ssm-6 md-6 colume">
+        <div class="create-menu-button">
+            <div   data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil" style="color:black" aria-hidden="true"></i></div>            
+        </div>
         <div  class="modal fade" role="dialog" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Style</h4>
+                </div>
+                <div class="modal-body" style="color:black">
+                  <p>Choose Setting</p>
+                  <label for="">Enter Color:</label>
+                  <input type="color" [(ngModel)]="body.bgColor">
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+          
+            </div>
+        </div>
+        <div class="create-menu-button2">
+          <div   data-toggle="modal" data-target="#myimage"><i class="fa fa-image" style="color:black" aria-hidden="true"></i></div>
+        </div>
+        <div  class="modal fade" role="dialog" id="myimage">
           <div class="modal-dialog">
-        
-            <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
-                  <button class="btn btn-primary" (click)='changes()'>Save</button>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Style</h4>
               </div>
-              <div class="modal-body" style="color:black">
-                <p>Choose Setting</p>
-                <label for="">Enter Color:</label>
-                <input type="color" [(ngModel)]="body.bgColor">
-                
+              <div class="card">
+                <img [src]="editor.curl" id="img-preview" #event style="max-height:100%;max-width:100%">
+                <label class="file-upload-container" for="file-upload">
+                  <input id="file-upload" type="file" style="display:none;" (change)="image_change($event)">
+                  Select an Image
+                </label>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
             </div>
-        
-          </div>
-          </div>
-    <div class="col-md-6 ">
-        <h1 class="text mb-0 " [froalaEditor]='options.options' [(froalaModel)]="body.title" ></h1>
-        <hr class="star-light">
-        <h2 class="font-weight-light mb-0"  [froalaEditor]='options.options' [(froalaModel)]="body.description"></h2>
+           </div>
     </div>
   </div>
+      </div>
+     <div class="row">
+        <div class="col-xl-12 col-sm-12 md-12">
+        <div><h1 class="text mb-0 " [froalaEditor]='options.options' [(froalaModel)]="body.title" ></h1></div>
+        <hr class="star-light">
+        <h2 class="font-weight-light mb-0"  [froalaEditor]='options.options' [(froalaModel)]="body.description"></h2>
+      </div>
+    </div>  
 </section>
 
 
-   <div >
+   <div style="background-color:#f8f8f8">
      <app-main></app-main>
    </div> 
 <!-- Portfolio Grid Section -->
@@ -65,7 +88,7 @@
     <hr class="star-dark mb-5">
     <div class="row">
       <div *ngFor="let bodysection of body.bodysections; let i= index;">
-          <div class="col-md-4">
+          <div class="col-md-12 col-sm-8 md-4">
               <a class="portfolio-item d-block mx-auto" [froalaEditor]='options.options' href="#portfolio-modal-1">
                 <img class="img-fluid edit"  width="250px" height="250px" src="{{body.bodysections[i].image? 'body.bodysections[i].image':'/assets/portfolio/cabin.png'}}" alt="">
               </a>
@@ -74,7 +97,7 @@
             </div>
       </div>
       <a (click)="addbodypages()">
-          <span class="glyphicon glyphicon-plus"></span>
+          <i class="fa fa-plus"></i>
       </a>
     </div>
     

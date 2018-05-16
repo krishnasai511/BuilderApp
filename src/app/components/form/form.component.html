@@ -1,27 +1,29 @@
 <section >
+    <button (click)="print()">Print the form</button>
     <form>
-        <h2 [froalaEditor]='options.options'>Fill the Form</h2><hr>
+    
+        <h2 [froalaEditor]='options' [(froalaModel)]="body.forms[0].Fhead"></h2><hr>
         <table>
           <tr>
-            <td [froalaEditor]='options.options'><label for="user">User Name</label></td>
+            <td [froalaEditor]='options' [(froalaModel)]="body.forms[0].username"><label for="user"></label></td>
             <td><input type="text" name="user" id="user"></td>
           </tr> <br>
           <tr>
-            <td [froalaEditor]='options.options'><label for="pass">Email</label></td>
+            <td [froalaEditor]='options' [(froalaModel)]="body.forms[0].email"><label for="pass"></label></td>
             <td><input type="email" name="pass" id="pass"></td>
           </tr><br>
           <tr>
-            <td [froalaEditor]='options.options'><label for="num">Phone Number</label></td>
+            <td [froalaEditor]='options' [(froalaModel)]="body.forms[0].phonenumber"><label for="num"></label></td>
             <td><input type="number" name="num" id="num"></td>
           </tr><br>
-          <tr [froalaEditor]='options.options'>
+          
             <td></td>
             
             <td style="margin:20%">
-            
-             <button [froalaEditor]='options.options' class='btn btn-primary'>Submit</button>
+          
+             <button [froalaEditor]='options' [(froalaModel)]="body.forms[0].submit" class='btn btn-primary'></button>
             </td>
-          </tr>
+        
         </table>
       </form>
 </section>

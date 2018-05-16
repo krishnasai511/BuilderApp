@@ -48,7 +48,7 @@
                 <div class="form-group">
                   <a routerLink="/forgotpassword"><span>Forgot Password?</span></a>
                 </div> 
-                <button type="button"  [disabled]= "!loginform.valid" (click)="loginUser()"  class="btn btn-success float-right">LogIn</button>
+                <button type="button submit"  [disabled]= "!loginform.valid" (click)="loginUser()"  class="btn btn-success float-right">LogIn</button>
               </form>
             </div>
             <!--/card-block-->

@@ -2,8 +2,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom " id="mainNav">
       <div class="container">
-        <a class="navbar-brand" [froalaEditor]='options.options' [(froalaModel)]="body.hbrandname">
-          </a>
+        <div class="navbar-brand" [froalaEditor]='options' [(froalaModel)]="body.hbrandname">
+        </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" 
         data-target="#navbarResponsive" aria-controls="navbarResponsive" 
         aria-expanded="false" aria-label="Toggle navigation">
@@ -31,8 +31,8 @@
     <header class="masthead text-center text-white">
       <div class="masthead-content">
         <div class="container">
-          <h1 class="masthead-heading mb-0" [froalaEditor]='options' >One Page Wonder</h1>
-          <h2 class="masthead-subheading mb-0" [froalaEditor]='options' >Will Rock Your Socks Off</h2>
+          <h1 class="masthead-heading mb-0" [froalaEditor]='options' [(froalaModel)]="body.description">One Page Wonder</h1>
+          <h2 class="masthead-subheading mb-0" [froalaEditor]='options' [(froalaModel)]="body.description">Will Rock Your Socks Off</h2>
           <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5" [froalaEditor]='options' >Learn More</a>
         </div>
       </div>
@@ -53,7 +53,7 @@
           <div class="col-lg-6 order-lg-1">
             <div class="p-5">
               <h2 [froalaEditor]='options' class="display-4">For those about to rock...</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+              <p [froalaEditor]='options'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
                 Quod aliquid, mollitia odio veniam sit iste esse assumenda amet a
                 periam exercitationem, ea animi blanditiis recusandae! 
                 Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
@@ -74,7 +74,7 @@
           <div class="col-lg-6">
             <div class="p-5">
               <h2 [froalaEditor]='options' class="display-4">We salute you!</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Q
+              <p [froalaEditor]='options'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Q
                 uod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam 
                 exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae 
                 adipisci, beatae obcaecati.</p>
@@ -95,7 +95,7 @@
           <div class="col-lg-6 order-lg-1">
             <div class="p-5">
               <h2 [froalaEditor]='options' class="display-4">Let there be rock!</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+              <p [froalaEditor]='options'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
                 Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam 
                 exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae 
                 adipisci, beatae obcaecati.</p>

@@ -1,5 +1,72 @@
-<div class="project-block">
-    <h1 [froalaEditor]='options.options' class="text-heading">welcome To Page</h1>
-    <h3 [froalaEditor]='options.options'class="sub">sub-heading</h3>
-    <p [froalaEditor]='options.options' class="desc">Write Something About the Page</p>
+
+<div class="project-block"  [ngStyle]="{'background-image': 'url(' +editor.curl+ ')'}">
+
+        <div class="row menu-container">
+            <div class="col-xl-3 col-sm-6 md-3 colume">
+                    <div class="create-menu-button">
+                            <div   data-toggle="modal" data-target="#background_photo"><i class="fa fa-image" style="color:black" aria-hidden="true"></i></div>
+                        </div>
+                        <div  class="modal fade" role="dialog" id="background_photo">
+                         <div class="modal-dialog">
+                            <div class="modal-content">
+                               <div class="modal-header">
+                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Image</h4>
+                                </div>
+                                <div class="modal-body" style="color:black">
+                                  <p>Choose Setting</p>
+                                    <div class="card">
+                                        <img [src]="editor.curl" id="img-preview" #event style="max-height:100%;max-width:100%">
+                                        <label class="file-upload-container" for="file-upload">
+                                          <input id="file-upload" type="file" style="display:none;" (change)="image_change($event)">
+                                          Select an Image
+                                        </label>
+                                    </div>  
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </div> 
+                        </div>
+                     </div>
+                     <div class="create-menu-button2">
+                            <div   data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil" style="color:black" aria-hidden="true"></i></div>
+                     </div>
+                     <div  class="modal fade" role="dialog" id="myModal">
+                            <div class="modal-dialog">
+                          
+                            
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                    <button class="btn btn-primary" (click)='changes()'>Save</button>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Style</h4>
+                                </div>
+                                <div class="modal-body" style="color:black">
+                                  <p>Choose Setting</p>
+                                  <label for="">Enter Color:</label>
+                                  <input type="color" [(ngModel)]='bgcolor'>
+                                  
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                          
+                            </div>
+                            </div>
+                            
+            </div> 
+        </div>
+           <div class="row menu-container">
+               <div class="col-xl-12 col-sm-12 md-12">
+                    <h1   [froalaEditor]='options' class="text-heading">bbbbbbbbbbbbbbb</h1>
+                    <h3 [froalaEditor]='options' class="sub">sub-heading</h3>
+                    <p [froalaEditor]='options' class="desc">Write Something About the Page</p>
+               </div>
+           </div>
+            
+        
+      
 </div>

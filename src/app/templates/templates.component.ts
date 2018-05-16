@@ -14,12 +14,14 @@ export class TemplatesComponent implements OnInit {
   template2: boolean;
   template3:boolean;
   template4:boolean;
+  template5:boolean;
   constructor(){
     this.welcome=true;
    this.template1=false;
    this.template2=false;
   this.template3=false;
   this.template4=false;
+  this.template5=false;
   }
   ngOnInit() {
   }
@@ -31,6 +33,7 @@ export class TemplatesComponent implements OnInit {
   this.template2=false;
   this.template3=false;
   this.template4=false;
+  this.template5=false;
  }
 
  tempdata2(){
@@ -40,6 +43,7 @@ export class TemplatesComponent implements OnInit {
   this.template2=true;
   this.template3=false;
   this.template4=false;
+  this.template5=false;
  }
  tempdata3(){
   console.log('template3');
@@ -48,6 +52,7 @@ export class TemplatesComponent implements OnInit {
   this.template2=false;
   this.template3=true;
   this.template4=false;
+  this.template5=false;
  } 
  tempdata4(){
   console.log('template3');
@@ -56,6 +61,17 @@ export class TemplatesComponent implements OnInit {
   this.template2=false;
   this.template3=false;
   this.template4=true;
+  this.template5=false;
  } 
+ tempdata5(){
+  console.log('template3');
+  this.welcome=false;
+  this.template1=false;
+  this.template2=false;
+  this.template3=false;
+  this.template4=false;
+  this.template5=true;
+ } 
+
  
 }

@@ -30,6 +30,12 @@ export class MainComponent implements OnInit {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentClass);
     const component = this.container.createComponent(componentFactory);
     this.components.push(component);
+    this.components.forEach((component)=>{
+      console.log(component);
+      // component.instance.emitter.subscribe((data)=>{
+      //   console.log(data);
+      // });
+    })
     this.visible=false;
   }
 

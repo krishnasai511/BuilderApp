@@ -13,7 +13,7 @@ declare var jQuery: any;
   selector: 'app-temp2',
   templateUrl: './temp2.component.html',
   styleUrls: ['./temp2.component.css'],
-  providers:[FroalaOptions]
+
 
 })
 export class Temp2Component implements OnInit {
