@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { AuthService } from '../project/service/auth.service';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { AuthService } from '../project/service/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  @ViewChild ('loginform') LoginForm : NgForm
 
   loginUserData = {}
 
@@ -37,7 +39,9 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', res.token)
         this._router.navigate(['/special'])
       },
-      err => console.log(err)
+      err =>{ window.alert('Please Check you Email & Password ')
+      this.LoginForm.reset();
+    }
     ) 
   }
  

@@ -23,43 +23,67 @@
 </nav>
 
 <!-- Header -->
-<header class="masthead" [ngStyle]="{'background-image': 'url(' +curl+ ')'}">
+<header class="masthead" [ngStyle]="getmystyletemp3()">
   <div class="container">
-      <div class="create-menu-button" >
-          <div   data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil" style="color:black" aria-hidden="true"></i></div>
-      </div>
-      <div  class="modal fade" role="dialog" id="myModal">
-          <div class="modal-dialog">
-        
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Style</h4>
-              </div>
-              <div class="modal-body" style="color:black">
-                <p>Choose Setting</p>
-                <div class="card">
-                    <img [src]="curl" id="img-preview" #event style="max-height:100%;max-width:100%">
+      <!-- {'background-image': 'url(' +getmystyletemp3()+ ')'} -->
+      <div class="row menu-container">
+        <div class="col-xl-6 col-ssm-6 md-6 colume">
+            <div class="create-menu-button">
+                <div   data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil" style="color:black" aria-hidden="true"></i></div>            
+            </div>
+            <div  class="modal fade" role="dialog" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Style</h4>
+                    </div>
+                    <div class="modal-body" style="color:black">
+                      <p>Choose Setting</p>
+                      <label for="">Enter Color:</label>
+                      <input type="color" [(ngModel)]="body.bgColor">
+                      
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+              
+                </div>
+            </div>
+            <div class="create-menu-button2">
+              <div   data-toggle="modal" data-target="#myimage"><i class="fa fa-image" style="color:black" aria-hidden="true"></i></div>
+            </div>
+            <div  class="modal fade" role="dialog" id="myimage">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Style</h4>
+                  </div>
+                  <div class="card">
+                    <img [src]="editor.curl" id="img-preview" #event style="max-height:100%;max-width:100%">
                     <label class="file-upload-container" for="file-upload">
                       <input id="file-upload" type="file" style="display:none;" (change)="image_change($event)">
                       Select an Image
                     </label>
                   </div>
-                
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-        
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+               </div>
+        </div>
+      </div>
           </div>
+      <div class="row">
+        <div class="col-xl-12 col-sm-12 md-12">
+          <div class="intro-text">
+            <div class="intro-lead-in"  [froalaEditor]='options' [(froalaModel)]="body.title"></div>
+            <div class="intro-heading text-uppercase"  [froalaEditor]='options' [(froalaModel)]="body.description"></div>
           </div>
-    <div class="intro-text">
-      <div class="intro-lead-in"  [froalaEditor]='options' [(froalaModel)]="body.title"></div>
-      <div class="intro-heading text-uppercase"  [froalaEditor]='options' [(froalaModel)]="body.description"></div>
-      
-    </div>
+        </div>
+      </div>
   </div>
 </header>
 <!-- Add Button -->

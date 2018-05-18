@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {FroalaOptions} from '../../froala.service';
-import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angular-froala-wysiwyg';
+// import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angular-froala-wysiwyg';
 import { Body } from '../../project/models/body';
 import { SaveTemp } from '../../project/service/save.service';
 import { userid } from '../../shared/userid';
 import axios from 'axios';
 //declare const $:any;
 //declare var axios ;
+import { ImageUplode } from '../../image.service';
+
 @Component({
   selector: 'app-temp3',
   templateUrl: './temp3.component.html',
@@ -20,12 +22,7 @@ export class Temp3Component implements OnInit {
   body: Body;
   data:Object;
   visible=false;
- CLOUDNIARY_URL='https://api.cloudinary.com/v1_1/saw/image/upload'
- CLOUDINARY_UPLODE_PRESET='rl9klvh3';
- selectedFile:any=null;
-formData:any;
-curl:any;
-  constructor(private savetemp: SaveTemp) { 
+  constructor(private savetemp: SaveTemp,private editor :ImageUplode) { 
     this.editbodyheader = false;
     this.bodyheaderform = false;
     this.id = userid(); 
@@ -86,47 +83,27 @@ curl:any;
       
     }
     photo:string='http://res.cloudinary.com/saw/image/upload/v1525885923/kqzwgdkli6pblv6zlpxd.jpg';
+    getmystyletemp3(){
+    
+      let style;
+      if(this.editor.curl=='')
+      {
+         style ={
+          'background-image':this.photo
+        }
+      }
+      else {
+         style={
+           'background-image':this.editor.curl ? 'url('+this.editor.curl+')' : 'url('+this.photo+')'
+        }
+      } 
+      return style;
+    }
     image_change(event){
-     // console.log(event);
-
-      // this.savetemp.imgupload(imgdata);
       console.log('check');
-      this.edit(event);
+      this.editor.edit(event);
+      this.getmystyletemp3();
       
     }
-    edit(event:any)
-    {
-      if(event){
-      this.selectedFile = event.target.files[0];
-      console.log(this.selectedFile);
-      let t = this.selectedFile.type.split('/');
-      if (t[0] == 'image' && this.selectedFile.size < 500000) {
-        this.formData = new FormData();
-        this.formData.append('file', this.selectedFile);
-        this.formData.append('upload_preset', this. CLOUDINARY_UPLODE_PRESET);
-        console.log("FormDta is :",this.formData);
-        axios({
-          // url:this.cUrl,
-          url: this.CLOUDNIARY_URL,
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          data: this.formData
-        }).then((res) => {
-        
-          // this.public_id = res.data.public_id;
-          this.curl = res.data.secure_url
-          console.log(this.curl);
-        }).catch(err=>{
-          console.log(err);
-        })
-      }
-        else {
-          alert("file should be image or size less than 5 Mb");
-        }
-         
-         
-      }
-    }    
+   
   }

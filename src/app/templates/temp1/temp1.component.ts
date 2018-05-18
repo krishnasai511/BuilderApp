@@ -1,6 +1,4 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-// import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angular-froala-wysiwyg';
-//import { Header } from '../../project/models/header';
 import { Body } from '../../project/models/body';
 import { FroalaOptions } from '../../froala.service';
 import { SaveTemp } from '../../project/service/save.service';
@@ -8,7 +6,7 @@ import { userid } from '../../shared/userid';
 import { MainComponent } from '../../components/main/main.component';
 import axios from 'axios';
 import { ImageUplode } from '../../image.service';
-//  declare const $img: any;
+
 declare const $:any;
 declare var jQuery: any;
 @Component({
@@ -37,10 +35,6 @@ export class Temp1Component  {
     this.datatoget();
    
       }
-
-      
-  
-
   addnavlist() {
     this.body.hnavlists.push({ navlist: 'new ' });
     setTimeout(() => {
@@ -143,7 +137,7 @@ export class Temp1Component  {
           userhref: this.id
   };
 ;
-  this.savetemp.getdata(this.data)
+  this.savetemp.adddata(this.data)
      
       }, 1000);  
    }
@@ -161,7 +155,7 @@ export class Temp1Component  {
           bodyAboutContent:this.body.bodyAboutContent,
           bodysections:this.body.bodysections,
           bgColor:this.body.bgColor,
-          bgImg:this.body.bgImg,
+          bgImg:this.editor.curl,
           footerTitle:this.body.footerTitle,
         
           // userhref: this.id
@@ -175,32 +169,33 @@ export class Temp1Component  {
       }, 1000);
 
    }
-
-image_change(event){
-    // console.log(event);
-
-     // this.savetemp.imgupload(imgdata);
-     console.log('check');
-     this.editor.edit(event);
-     
-   }
-  //  getmystyle(){
-    
-  //   let style;
-  //   if(this.curl!=null)
-  //   {
-  //      style ={
-  //       'background-color':null,
-  //       'background-image':this.curl
-  //     }
-  //   }
-  //   else {
-  //      style={
-  //        'background-image':null,
-  //       'background-color':this.body.bgColor,
-  //     }
-  //   }
+   photo:string='http://res.cloudinary.com/saw/image/upload/v1525885923/kqzwgdkli6pblv6zlpxd.jpg';
+   getmystyletemp1(){
    
-  //   return style;
-  // }
+     let style;
+     if(this.editor.curl=='')
+     {
+        style ={
+         'background-color':this.body.bgImg
+       }
+     }
+     else {
+        style={
+          'background':this.editor.curl ? 'url('+this.editor.curl+')' : 'url('+this.body.bgImg+')'
+          
+       }
+       console.log(this.body.bgImg)
+       console.log(this.editor.curl)
+     } 
+     return style;
+   }
+image_change(event){
+     console.log('checktemp1');
+     this.editor.edit(event); 
+     this.body.bgImg=this.editor.curl;
+     this.getmystyletemp1();
+
+    
+   }
+  
 }

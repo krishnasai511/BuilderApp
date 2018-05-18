@@ -1,5 +1,4 @@
 .bgimg{
-    background-image: url("/assets/img-2.jpg");
    
        background-size: 100% 100%;
        background-attachment: fixed;
@@ -111,36 +110,57 @@
       background: #3949AB;
   }
   .create-menu-button {
-    right:4%;
-    top: 50%;
-    /* margin-left: -18px;
-    margin-top: -18px; */
-    z-index: 4;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -moz-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -moz-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 36px;
-    font-size: 90%;
-    color: #b3b3b3;
-    border: 1px solid #d9d9d9;
-    background: hsla(0,0%,100%,.7);
-    cursor: pointer;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 36px;
+  color: #b3b3b3;
+  border: 1px solid #d9d9d9;
+  background: hsla(0,0%,100%,.7);
+  cursor: pointer;
+  margin-left:2%
   }
   .create-menu-button{
       transition: all .15s ease;
       position: absolute;
+  }
+  .colume{
+    display:flex;
+  }
+  .fa-image{
+    margin-top:47%;
+    margin-left:-46%;
+  }
+  .row.menu-container{
+    margin-top:1%;
+  }
+  .create-menu-button2{
+    margin-left: 9%;
+    border-radius: 36px;
+    display: -webkit-box;
+    color: #b3b3b3;
+    border: 1px solid #d9d9d9;
+    background: hsla(0,0%,100%,.7);
+    -ms-flex-pack: center;
+    justify-content: center;
+    /* -webkit-box-align: center; */
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    /* float: right; */
+    /* margin-left: 12px; */
+    padding-left: 13px;
+  }
+  .model-body{
+      text-align:center;
   }

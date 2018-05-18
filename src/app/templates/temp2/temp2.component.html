@@ -1,121 +1,168 @@
-<br><br><div class="bgimg">
+<br><br>
+<div class="bgimg" [ngStyle]="getmystyletemp2()">
   <!--For Navbar-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand"  [froalaEditor]='options' [(froalaModel)]="body.hbrandname"></a>
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="navbar-brand mb-0"  [froalaEditor]='options.options' [(froalaModel)]="body.hbrandname" style="margin-left:6%"></div>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button> -->
+    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="active" *ngFor="let navlist of body.hnavlists; let i=index;">
-          <a  [froalaEditor]='options' [(froalaModel)]="body.hnavlists[i].navlist"></a>
+          <p  [froalaEditor]='options.options' [(froalaModel)]="body.hnavlists[i].navlist"></p>
          </li>
-        
+        <li class="nav-item"> <a (click)="addnavlist()"  style="margin-top:50px">
+          <i class="fa fa-plus-circle" style="color:aliceblue" aria-hidden="true"></i>
+          </a></li>
       </ul>
-      <a (click)="addnavlist()"  style="margin-top:50px;position:right" >
-        <span class="glyphicon glyphicon-plus"></span>
-      </a>
     </div>
   </nav>
-  </div>
-  <button *ngIf="!savebutton" class="btn btn-primary" (click)='update()'>Update</button>
-<button *ngIf="savebutton" class="btn btn-primary" (click)='changes()'>Save</button>
-
-  <div class="container text-center text-danger headerset" [ngStyle]="{'background-color':body.bgColor}" >
-      <div class="create-menu-button" >
-          <div   data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil" style="color:black" aria-hidden="true"></i></div>
+  <div class="row menu-container">
+    <div class="col-xl-6 col-ssm-6 md-6 colume">
+      <div class="create-menu-button">
+        <div   data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil" style="color:black" aria-hidden="true"></i></div>            
       </div>
       <div  class="modal fade" role="dialog" id="myModal">
-          <div class="modal-dialog">
-        
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"></h4>
-              </div>
-              <div class="modal-body" style="color:black">
-                <p>Choose Setting</p>
-                <div class="card">
-                    <img [src]="curl" id="img-preview" #event style="max-height:100%;max-width:100%">
-                    <label class="file-upload-container" for="file-upload">
-                      <input id="file-upload" type="file" style="display:none;" (change)="image_change($event)">
-                      Select an Image
-                    </label>
-                  </div>
-                
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-        
-          </div>
-          </div>
-      <h2>Welcome To Our Template </h2>
-      <h1>Edit Here</h1>
-      <button type="button" class="btn btn-info btn-lg text-white" data-toggle="modal" data-target="#myModal">Change Color</button>
-      <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
-      
-          <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h4 class="modal-title">Style</h4>
             </div>
-            <div class="modal-body">
-              <p>Some text in the modal.</p>
-              <label for="">Enter Color</label>
+            <div class="modal-body" style="color:black">
+              <p>Choose Setting</p>
+              <label for="">Enter Color:</label>
               <input type="color" [(ngModel)]="body.bgColor">
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="create-menu-button2">
+        <div   data-toggle="modal" data-target="#myimage"><i class="fa fa-image" style="color:black" aria-hidden="true"></i></div>
+      </div>
+      <div  class="modal fade" role="dialog" id="myimage">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Style</h4>
+            </div>
+            <div class="card">
+              <img [src]="editor.curl" id="img-preview" #event style="max-height:100%;max-width:100%">
+              <label class="file-upload-container" for="file-upload">
+                <input id="file-upload" type="file" style="display:none;" (change)="image_change($event)">
+                Select an Image
+              </label>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
           </div>
-      
         </div>
       </div>
     </div>
+  </div>
+</div>
+<button *ngIf="!savebutton" class="btn btn-primary" (click)='update()'>Update</button>
+<button *ngIf="savebutton" class="btn btn-primary" (click)='changes()'>Save</button>
+
+<div class="container text-center text-danger headerset" [ngStyle]="getmystyletemp2()" >
+  <div class="row menu-container">
+    <div class="col-xl-6 col-ssm-6 md-6 colume">
+      <div class="create-menu-button">
+        <div   data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil" style="color:black" aria-hidden="true"></i></div>            
+      </div>
+      <div  class="modal fade" role="dialog" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Style</h4>
+            </div>
+            <div class="modal-body" style="color:black">
+              <p>Choose Setting</p>
+              <label for="">Enter Color:</label>
+              <input type="color" [(ngModel)]="body.bgColor">
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="create-menu-button2">
+        <div   data-toggle="modal" data-target="#myimage"><i class="fa fa-image" style="color:black" aria-hidden="true"></i></div>
+      </div>
+      <div  class="modal fade" role="dialog" id="myimage">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Style</h4>
+            </div>
+            <div class="card">
+              <img [src]="editor.curl" id="img-preview" #event style="max-height:100%;max-width:100%">
+              <label class="file-upload-container" for="file-upload">
+                <input id="file-upload" type="file" style="display:none;" (change)="image_change($event)">
+                Select an Image
+              </label>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-12 col-sm-12 md-12">
+      <div><h1 class="text mb-0 " [froalaEditor]='options.options' [(froalaModel)]="body.title" ></h1></div>
+        <hr class="star-light">
+        <h2 class="font-weight-light mb-0"  [froalaEditor]='options.options' [(froalaModel)]="body.description"></h2>
+      </div>
+  </div>  
+</div>
 <br>
-<!--Add of Plus -->
-<div >
+<div>
     <app-main></app-main>
 </div>
-<!--Services Part-->
 <section class="container ourservices text-center">
-  <h1  [froalaEditor]='options' [(froalaModel)]="body.bodyAboutTitle" ></h1>
-  <p  [froalaEditor]='options' [(froalaModel)]="body.bodyAboutContent"></p>
+  <h1  [froalaEditor]='options.options' [(froalaModel)]="body.bodyAboutTitle" ></h1>
+  <p  [froalaEditor]='options.options' [(froalaModel)]="body.bodyAboutContent"></p>
  <div class="row-setting">
 
       <div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto"  *ngFor="let navlist of body.bodysections; let i=index;">
           <div class="imgsetting d-block m-auto bg-warning"><i class="fa fa-shopping-cart fa-jx text-white" style="font-size: 
             50px"></i></div>
            <li   >
-          <h2  [froalaEditor]='options' [(froalaModel)]="body.bodysections[i].title" ></h2>
-          <p  [froalaEditor]='options'  [(froalaModel)]="body.bodysections[i].description">Lorem ipsum dolor sit asmet,consectetur adipisicing elit.minima maxime quam architecto quo inventor harum ex magni,dicta imedit.</p>
+          <h2  [froalaEditor]='options.options' [(froalaModel)]="body.bodysections[i].title" ></h2>
+          <p  [froalaEditor]='options.options'  [(froalaModel)]="body.bodysections[i].description">Lorem ipsum dolor sit asmet,consectetur adipisicing elit.minima maxime quam architecto quo inventor harum ex magni,dicta imedit.</p>
          </li>
          
         </div>
      
        <a (click)="addbodypages()">
-        <span class="glyphicon glyphicon-plus"></span>
+        <i class="fa fa-plus"></i>
     </a>
   </div>  
 </section>
 
 <!--Footer Section-->
 <section>
-<div class="footer">
+  <div class="footer">
     <div class="container">
             <div class="jumbotron">
-              <h1  [froalaEditor]='options' [(froalaModel)]="body.footerTitle" ></h1>      
-              <p  [froalaEditor]='options'>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+              <h1  [froalaEditor]='options.options' [(froalaModel)]="body.footerTitle" ></h1>      
+              <p  [froalaEditor]='options.options'>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
             <!-- </div>
             <p  [froalaEditor]='options'>This is some text.</p>      
             <p  [froalaEditor]='options'>This is another text.</p>      
           </div> -->
-
-     </div>
+  </div>
  </div>
 </div>
+</section>

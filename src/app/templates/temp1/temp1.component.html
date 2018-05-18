@@ -15,8 +15,8 @@
   </div>
 </nav>
 <button *ngIf="!savebutton" class="btn btn-primary" (click)='update()'>Update</button>
-<!-- <button *ngIf="savebutton" class="btn btn-primary" (click)='changes()'>Save</button> -->
-<section class="masthead  text-white text-center" [ngStyle]="{'background-image': 'url(' +editor.curl+ ')'}">
+<button *ngIf="savebutton" class="btn btn-primary" (click)='changes()'>Save</button>
+<section class="masthead  text-white text-center" [ngStyle]="getmystyletemp1()">
   <div class="row menu-container">
     <div class="col-xl-6 col-ssm-6 md-6 colume">
         <div class="create-menu-button">

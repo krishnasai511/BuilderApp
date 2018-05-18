@@ -4,7 +4,9 @@ import {FroalaEditorModule, FroalaViewModule, FroalaEditorDirective} from 'angul
 import {FroalaOptions} from '../../froala.service';
 import { Body } from '../../project/models/body';
 import { SaveTemp } from '../../project/service/save.service';
+import { MainComponent } from '../../components/main/main.component';
 import { userid } from '../../shared/userid';
+import { ImageUplode } from '../../image.service';
 declare const $: any;
 import axios from 'axios';
 //  declare const $img: any;
@@ -22,31 +24,31 @@ export class Temp2Component implements OnInit {
   body:Body;
   flag:boolean=false;
   savebutton:boolean;
-  CLOUDNIARY_URL='https://api.cloudinary.com/v1_1/saw/image/upload'
- CLOUDINARY_UPLODE_PRESET='rl9klvh3';
- selectedFile:any=null;
-formData:any;
-curl:any;
-  constructor(private savetemp:SaveTemp ){
+  editbodyheader:boolean;
+  bodyheaderform:boolean;
+  component:Array<MainComponent>=[];
+  visible=false;
+  constructor(private savetemp:SaveTemp,private options:FroalaOptions,private editor :ImageUplode ){
+    this.editbodyheader = false;
+    this.bodyheaderform = false;
     this.id = userid(); 
-  // this.fetchdata.datatoget();
-  this.datatoget();
+    this.datatoget();
   }
   ngOnInit() {
 
   }
 
-  public options: Object = {
-    // placeholderText: 'Edit Your Content Here!',
-      toolbarInline:true, 
-      charCounterCount: false,
-      toolbarButtons: ['bold', 'italic', 'underline', 'color', 'html', 'clearFormatting','paragraphFormat'],
-      events:{
-        'froalaEditor.contentChanged':function(e){
-         console.log(e.target.innerText);
-            }
-        }
-    };
+  // public options: Object = {
+  //   // placeholderText: 'Edit Your Content Here!',
+  //     toolbarInline:true, 
+  //     charCounterCount: false,
+  //     toolbarButtons: ['bold', 'italic', 'underline', 'color', 'html', 'clearFormatting','paragraphFormat'],
+  //     events:{
+  //       'froalaEditor.contentChanged':function(e){
+  //        console.log(e.target.innerText);
+  //           }
+  //       }
+  //   };
 
     addnavlist(){
       this.body.hnavlists.push({navlist: 'new '});
@@ -91,9 +93,8 @@ curl:any;
             {
               console.log("hi");
               this.body=res[i];
-             // console.log(this.body);
-            this.flag=true;
-            this.savebutton=false
+              this.flag=true;
+              this.savebutton=false
             } }
           if(this.flag!==true){
             this.body=Body.createsample();
@@ -124,7 +125,7 @@ curl:any;
           footerTitle:this.body.footerTitle,
           userhref: this.id
           };
-         this.savetemp.getdata(this.data);
+         this.savetemp.adddata(this.data);
       }, 1000);  
   }
   update(){
@@ -153,48 +154,28 @@ curl:any;
       }, 1000);
 
    }
-
+   photo:string='http://res.cloudinary.com/saw/image/upload/v1525885923/kqzwgdkli6pblv6zlpxd.jpg';
+   getmystyletemp2(){
+   
+     let style;
+     if(this.editor.curl=='')
+     {
+        style ={
+         'background-color':this.body.bgColor
+       }
+     }
+     else {
+        style={
+          'background':this.editor.curl ? 'url('+this.editor.curl+')' : this.body.bgColor
+       }
+     } 
+     return style;
+   }
    image_change(event){
-    // console.log(event);
-
-     // this.savetemp.imgupload(imgdata);
      console.log('check');
-     this.edit(event);
+     this.editor.edit(event);
+     this.getmystyletemp2();
      
    }
-   edit(event:any)
-   {
-     if(event){
-     this.selectedFile = event.target.files[0];
-     console.log(this.selectedFile);
-     let t = this.selectedFile.type.split('/');
-     if (t[0] == 'image' && this.selectedFile.size < 500000) {
-       this.formData = new FormData();
-       this.formData.append('file', this.selectedFile);
-       this.formData.append('upload_preset', this. CLOUDINARY_UPLODE_PRESET);
-       console.log("FormDta is :",this.formData);
-       axios({
-         // url:this.cUrl,
-         url: this.CLOUDNIARY_URL,
-         method: 'POST',
-         headers: {
-           'Content-Type': 'application/x-www-form-urlencoded',
-         },
-         data: this.formData
-       }).then((res) => {
-       
-         // this.public_id = res.data.public_id;
-         this.curl = res.data.secure_url
-         console.log(this.curl);
-       }).catch(err=>{
-         console.log(err);
-       })
-     }
-       else {
-         alert("file should be image or size less than 5 Mb");
-       }
-        
-        
-     }
-   }    
+  
 }

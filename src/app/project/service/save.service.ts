@@ -25,6 +25,14 @@ getdata(values):Promise<any> {
           return res.json().data;
      });
   }
+  adddata(values){
+ 
+    console.log(values);
+     this.http.post('http://localhost:3000/routes/saveRecord',values).
+      toPromise().then((res)=>{
+         console.log(res);
+     });
+  }
 
 updatedata(data,id):Promise<any>{
     
